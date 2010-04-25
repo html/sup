@@ -11,6 +11,12 @@ Event.blueprint do
   cost 123
 end
 
+Post.blueprint do
+  title 'test'
+  content 'xxx'
+  date Date.today
+end
+
 class ActiveSupport::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method
   # in a transaction that's rolled back on completion.  This ensures that the

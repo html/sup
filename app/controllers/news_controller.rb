@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
   def index
-    @news = Post.paginate :page => params[:page], :per_page => 5
+    @news = Post.list(params[:page])
   end
 
   def show
