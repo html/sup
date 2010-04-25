@@ -25,7 +25,7 @@ class EventsControllerTest < ActionController::TestCase
       assert_contains_n_times @response.body, 'img2', 1
     end
 
-    should "show 10 items per page" do
+    should "show 5 items per page" do
       Event.delete_all
       20.times do
         Event.make
@@ -33,7 +33,7 @@ class EventsControllerTest < ActionController::TestCase
 
       get :index
 
-      assert_select '.item', 10
+      assert_select '.item', 5
     end
 
     should "show pagination" do

@@ -19,7 +19,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @items = Event.paginate :per_page => 10, :page => params[:page]
+    @items = Event.paginate :per_page => 5, :page => params[:page]
 
     last_date = date_till
 
