@@ -1,9 +1,16 @@
 body {
-	background-image:url(img/bg.jpg);
+	background-image:url(/img/bg.jpg);
 	background-attachment: scroll;
 	background-position: left top;
 	background-repeat: repeat-x;
 	background-color: #cde8f6;
+}
+
+#background { 
+  background-image:url(/img/top.jpg);
+  background-attachment: fixed;
+  background-position: left top;
+  background-repeat: repeat-x;
 }
 
 #log
