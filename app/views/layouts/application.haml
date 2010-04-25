@@ -3,6 +3,8 @@
   %head
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
     %link{ :href => " img/index.ico", :rel => "shortcut icon", :type => "image/x-icon" }
+    = javascript_include_tag 'jquery'
+    = yield :head
     %script{ :src => "/css/my.js", :type => "text/javascript" }
     %link{ :href => "/css/style.css", :rel => "stylesheet", :type => "text/css" }
     %link{ :href => "/css/menu.css", :rel => "stylesheet", :type => "text/css" }
@@ -72,7 +74,7 @@
                     %span
                       \&nbsp;
                 %li.kalend
-                  %a{ :href => "#" }
+                  %a{ :href => events_url}
                     %span
                       \&nbsp;
                 %li.master

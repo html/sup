@@ -1,6 +1,15 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
+require 'shoulda'
+require 'machinist/active_record'
+require 'ruby-debug'
+
+Event.blueprint do
+  title 'test'
+  content 'xxx'
+  cost 123
+end
 
 class ActiveSupport::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method
@@ -35,4 +44,11 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def assert_contains_n_times(str1, str2, num)
+    assert_equal num,str1.scan(str2).size
+  end
+
+  def assert_contains_pagination
+    assert_select '#pagination'
+  end
 end

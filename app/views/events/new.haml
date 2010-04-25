@@ -1,0 +1,19 @@
+- form_for @item, :html => { :multipart => true } do |f|
+  = f.error_messages
+  %dl
+    %dt
+      Заголовок события
+    %dd= f.text_field :title
+    %dt
+      Стоимость
+    %dd= f.text_field :cost
+    %dt
+      Описание события
+    %dd= f.text_area :content, :rows => 5
+    %dt
+      Изображение
+    %dd= f.file_field :image
+
+  = f.submit "Добавить событие"
+
+

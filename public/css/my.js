@@ -1,5 +1,6 @@
 
 $(document).ready(function() {
+    return;
 	
   // show and hide block
   $('.slick-toggle').click(function() {
@@ -37,13 +38,6 @@ $(document).ready(function() {
 	});  	
   });
   
-$('ul#top_cbn').innerfade({
-	speed: 1000,
-	timeout: 5000,
-	type: 'sequence',
-	containerheight: ''
-});  
-
 	
   $('.dashed').mouseover(function() {
    $(this).removeClass("dashed");
