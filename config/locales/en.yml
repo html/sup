@@ -2,4 +2,13 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  activerecord:
+    models:
+      post: Новости
+    attributes:
+      post:
+        title: Заголовок
+        content: Содержимое
+        date: Дата
+        image_file_name: Картинка
   hello: "Hello world"

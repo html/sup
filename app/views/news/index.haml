@@ -1,0 +1,40 @@
+%table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+  %tbody
+    %tr
+      %td{ :width => "100%" }
+        %span.styl11
+
+- @news.each do |item|
+  %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+    %tbody
+      %tr
+        %td.tl
+        %td.t
+        %td.tr
+      %tr
+        %td.l
+        %td
+          %table{ :border => "0", :width => "100%" }
+            %tr
+              %td{ :rowspan => "3", :valign => "top", :width => "200" }
+                %span.text_3
+                  %img{ :src => item.image.url, :height => "135", :width => "241" }
+              %td.zagolov{ :colspan => "2" }
+                =h item.title
+            %tr
+              %td.text_3{ :colspan => "2" }
+                =h truncate item.content, 200
+                %hr
+            %tr
+              %td{ :align => "left", :valign => "bottom" }
+                %p
+                  %a.text_4{ :href => "#" }
+                    = link_to "Читать дальше", item
+              %td.data{ :width => "74" }
+                =item.date.strftime("%d.%m.%Y")
+        %td.r
+      %tr
+        %td.bl
+        %td.b
+        %td.br
+= will_paginate @news

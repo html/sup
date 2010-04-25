@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+    xmlns:admin="http://webns.net/mvcb/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+
+    <channel>
+    
+    <title>sup.com</title>
+    <link>http://www.sup.com</link>
+    <description></description>
+    <dc:language>ru</dc:language>
+    <dc:creator>info@sup.com</dc:creator>
+    <dc:rights>Copyright 2007</dc:rights>
+    <dc:date>2009-09-22T12:00:00+03:00</dc:date>
+    <admin:generatorAgent rdf:resource="http://www.sup.com" />
+    
+    
+    <item>
+      <title>Живой Журнал и Google запускают рекламную программу для блогеров</title>
+      <link>http://www.sup.com/news_220.html</link>
+      <guid>220</guid>
+      <description>&lt;p&gt;Новый сервис &amp;laquo;Your Journal &amp;ndash; Your Money&amp;raquo; позволит зарабатывать на онлайн дневниках&lt;/p&gt;</description>
+      <dc:subject>новости, новости SUP</dc:subject>
+      <dc:date>2009-09-22T12:00:00+03:00</dc:date>
+    </item>
+    
+    <item>
+      <title>«Фанат.ру» – новый проект для фанатов спорта</title>
+      <link>http://www.sup.com/news_219.html</link>
+      <guid>219</guid>
+      <description>&lt;p&gt;&lt;a href=&quot;http://www.fanat.ru&quot;&gt;www.fanat.ru&lt;/a&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;laquo;Чемпионат.ру&amp;raquo;, лидирующий спортивный сайт рунета, запускает новый проект &amp;ndash;&amp;nbsp;&lt;a href=&quot;http://www.fanat.ru&quot;&gt;&lt;b&gt;www.fanat.ru&lt;/b&gt;&lt;/a&gt;&lt;b&gt;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;&amp;laquo;&lt;a href=&quot;http://www.fanat.ru&quot;&gt;Фанат.ру&lt;/a&gt;&amp;raquo;&lt;/b&gt; &amp;ndash; это единая система регистрации на всех сервисах и проектах &amp;laquo;Чемпионат.ру&amp;raquo;. Зарегистрировавшись на &amp;laquo;&lt;a href=&quot;http://www.fanat.ru&quot;&gt;Фанат.ру&lt;/a&gt;&amp;raquo;, и получив свой &lt;b&gt;Фанат ID&lt;/b&gt;, пользователи смогут получить доступ к новым уникальным сервисам для настоящих фанатов спорта!&lt;/p&gt;</description>
+      <dc:subject>новости, новости SUP</dc:subject>
+      <dc:date>2009-07-09T17:58:32+03:00</dc:date>
+    </item>
+    
+    <item>
+      <title>Microsoft и SUP предлагают новый опыт общения в Интернете </title>
+      <link>http://www.sup.com/news_217.html</link>
+      <guid>217</guid>
+      <description>&lt;p&gt;&amp;nbsp;&lt;i&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;Пользователям LiveJournal.&lt;/span&gt;&lt;/i&gt;&lt;i&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;com &lt;/span&gt;&lt;/i&gt;&lt;i&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;и &lt;/span&gt;&lt;/i&gt;&lt;i&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;Championat&lt;/span&gt;&lt;/i&gt;&lt;i&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;.&lt;/span&gt;&lt;/i&gt;&lt;i&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;ru &lt;/span&gt;&lt;/i&gt;&lt;i&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;станут доступны уникальные сервисы: общение прямо на страницах этих сайтов, а также при помощи скачиваемых брендированных программ.&lt;/span&gt;&lt;/i&gt;&lt;/p&gt;
+&lt;div&gt;&lt;span style=&quot;font-size: 10.5pt&quot;&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;Microsoft и компания SUP объявляют о совместном запуске в России новых сервисов LiveJournal &lt;/span&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;Messenger &lt;/span&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;и &lt;/span&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;Fanat&lt;/span&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;Messenger&lt;/span&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;. &lt;/span&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;Обе новинки, разработанные на платформе &lt;/span&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;Windows&lt;/span&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;Live&lt;/span&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;, предназначены для обмена мгновенными сообщениями и призваны сделать общение с друзьями в сети увлекательнее и удобнее. В течение месяца пользователям &lt;/span&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;LiveJournal.com и Championat.&lt;/span&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;ru &lt;/span&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;станут доступны веб-версии продуктов, и вскоре после этого &lt;/span&gt;&lt;span style=&quot;font-size: 10pt&quot;&gt;они смогут установить их в виде отдельных программ. &lt;/span&gt;&lt;/span&gt;&lt;/div&gt;</description>
+      <dc:subject>новости, новости SUP</dc:subject>
+      <dc:date>2009-06-02T15:04:25+03:00</dc:date>
+    </item>
+    
+    <item>
+      <title>Живой Журнал подписал представительское соглашение о продажах рекламы в Сингапуре с компанией MediaCorp</title>
+      <link>http://www.sup.com/news_216.html</link>
+      <guid>216</guid>
+      <description>&lt;p&gt;LiveJournal Inc., одна из самых популярных в мире платформ для блогов и сообществ, объявил сегодня о заключении представительского соглашения о продажах &amp;nbsp;рекламы с компанией &lt;a href=&quot;http://www.mediacorp.com.sg&quot; name=&quot;OLE_LINK1&quot;&gt;&lt;span&gt;MediaCorp&lt;/span&gt;&lt;/a&gt;. MediaCorp, головной офис которой находится в Сингапуре, будет осуществлять продажи рекламы и проводить маркетинговые компании для рекламодателей Живого Журнала в Сингапуре.&lt;/p&gt;</description>
+      <dc:subject>новости, новости SUP</dc:subject>
+      <dc:date>2009-02-09T19:29:23+03:00</dc:date>
+    </item>
+    
+    <item>
+      <title>Медиа-агентство +SOL становится эксклюзивным продавцом рекламных возможностей Gismeteo.ru</title>
+      <link>http://www.sup.com/news_214.html</link>
+      <guid>214</guid>
+      <description>&lt;p&gt;Агентство +SOL будет ответственно за продажу баннеров на&amp;nbsp; Gismeteo.ru, крупнейшем и наиболее авторитетном погодном сайте в России.&lt;/p&gt;</description>
+      <dc:subject>новости, новости SUP</dc:subject>
+      <dc:date>2009-02-02T19:18:48+03:00</dc:date>
+    </item>
+    
+    <item>
+      <title>Сейлз-хаус FISH получает на продажу лидера интернет-рынка</title>
+      <link>http://www.sup.com/news_212.html</link>
+      <guid>212</guid>
+      <description>&lt;p&gt;Первый украинский сейлз-хаус интернет-рекламы FISH заключил эксклюзивные договора на продажу украинского трафика популярного сервиса онлайн-дневников LiveJournal (Живой Журнал) на 2009 год. Продажи на данных условиях будут осуществляться на всех страницах ресурса LiveJournal с таргетингом на Украину.&lt;/p&gt;</description>
+      <dc:subject>новости, новости SUP</dc:subject>
+      <dc:date>2009-01-28T15:40:30+03:00</dc:date>
+    </item>
+    
+    <item>
+      <title>LiveJournal Inc. объявляет о реструктуризации своей деятельности в США и России</title>
+      <link>http://www.sup.com/news_211.html</link>
+      <guid>211</guid>
+      <description>&lt;p&gt;&lt;span class=&quot;Apple-style-span&quot; style=&quot;font-family: Helvetica; &quot;&gt;LiveJournal Inc. объявил сегодня о реструктуризации своей деятельности в США и России, направленной&lt;/span&gt;&lt;span class=&quot;Apple-style-span&quot; style=&quot;font-family: Helvetica; &quot;&gt; на&amp;nbsp;оптимизацию расходов в свете глобального экономического кризиса.&lt;/span&gt;&lt;/p&gt;</description>
+      <dc:subject>новости, новости SUP</dc:subject>
+      <dc:date>2009-01-06T00:00:00+03:00</dc:date>
+    </item>
+    
+    <item>
+      <title>Чемпионат.ТВ -  спортивное интернет-телевидение</title>
+      <link>http://www.sup.com/news_210.html</link>
+      <guid>210</guid>
+      <description>&lt;p&gt;Портал Чемпионат.ру запускает в beta-версии спортивное интернет-телевидение нового поколения - канал Чемпионат.ТВ (www.championat.tv). Проект ориентирован в первую очередь на пользователей интернета, предоставляя в оперативном режиме самые востребование видеоматериалы с наиболее популярных спортивных событий.&lt;/p&gt;</description>
+      <dc:subject>новости, новости SUP</dc:subject>
+      <dc:date>2008-08-11T13:38:26+03:00</dc:date>
+    </item>
+    
+    <item>
+      <title>Компания SUP объявляет об изменениях в руководстве</title>
+      <link>http://www.sup.com/news_209.html</link>
+      <guid>209</guid>
+      <description>&lt;p&gt;Сегодня SUP, динамично развивающаяся международная онлайн медиа-компания, объявила о назначении Аннелис Ван ден Бельт на должность CEO. Ранее Аннелис отвечала за бизнес компании в России и СНГ. Ранее занимавший пост CEO Эндрю Полсон, который является основателем компании, возглавит Совет директоров.&lt;/p&gt;</description>
+      <dc:subject>новости, новости SUP</dc:subject>
+      <dc:date>2008-08-06T18:14:16+03:00</dc:date>
+    </item>
+    
+    <item>
+      <title>Компания SUP объявляет о назначении нового директора по маркетингу в России</title>
+      <link>http://www.sup.com/news_208.html</link>
+      <guid>208</guid>
+      <description>&lt;p&gt;Компания SUP, один из лидеров российского Интернет-медиарынка, объявила о назначении Полины Пашкевич на должность директора по маркетингу SUP в России. Это назначение позволит сделать работу отдела маркетинга более эффективной и переведет ее на качественно новый уровень.&lt;/p&gt;</description>
+      <dc:subject>новости, новости SUP</dc:subject>
+      <dc:date>2008-07-24T14:21:53+03:00</dc:date>
+    </item>
+    
+    
+    </channel>
+
+</rss>

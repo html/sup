@@ -1,0 +1,19 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+Post:
+  fields:
+    list: title, date
+    form: title, content, image_file_name, date
+    options:
+      tiny_mce:
+        fields: content
+        options:
+          theme: simple
+  order_by: 
+  relationships: 
+  filters: 
+  search: title
+  application: sup
+

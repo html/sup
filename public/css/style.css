@@ -1,0 +1,340 @@
+body {
+	background-image:url(img/bg.jpg);
+	background-attachment: scroll;
+	background-position: left top;
+	background-repeat: repeat-x;
+	background-color: #cde8f6;
+}
+#background {	
+	background-image:url(img/top.jpg);
+	background-attachment: fixed;
+	background-position: left top;
+	background-repeat: repeat-x;
+}
+
+#log
+{
+	margin: 0;
+	width: 250px;
+	padding: 0;
+	position: absolute;
+	top: 71px;
+	height: 150px;
+	font-size: 14px;
+	font-family: Georgia, Times, serif;
+	left: 502px;
+}
+#log1
+{
+	margin: 0;
+	width: 97px;
+	padding: 0;
+	position: absolute;
+	height: 128px;
+	font-size: 14px;
+	font-family: Georgia, Times, serif;
+}
+#avatar
+{
+	margin: 0;
+	width: 150px;
+	padding: 0;
+	position: absolute;
+	height: 150px;
+	font-size: 14px;
+	font-family: Georgia, Times, serif;
+}
+.hl{
+ height: 2px;
+ background: transparent url(table/hsp.gif) repeat-x;
+ overflow: hidden;
+}
+.zagolov	 {
+	font-size: 1.6em;
+	font-style: italic;
+	line-height: 0.9;
+	margin-bottom: 0.7em;
+	font-family: Georgia, Times, serif;
+	color:#0CF;
+	
+	}
+	.niki	 {
+	font-size: 1.2em;
+	font-style: italic;
+	line-height: 0.9;
+	margin-bottom: 0.7em;
+	font-family: Georgia, Times, serif;
+	color:#0CF;
+	
+	}
+.login {
+	font-size: 12px;
+	font-style: italic;
+	line-height: 0.9;
+	margin-bottom: 0.7em;
+	font-family: Georgia, Times, serif;
+	color:#0CF 
+	
+	}
+
+.data {
+	font-size: 12px;
+	font-family: Arial, Helvetica;
+	color: #999;
+	}
+.text {
+ font-size: 14px; 
+ font-family:Arial; 
+ color:#000; 
+	}
+	
+#top {
+background: #0f4063;
+	margin: -6px 0px 0px -6px;
+width: 101%;
+height: 100px;
+border:none;
+  opacity: 0.6;filter: alpha(opacity=60);
+}
+#daun {
+background: #0f4063;
+margin: 100px 0px -100px -6px;
+width: 101%;
+height: 100px;
+border:none;
+top 100%;
+}
+
+
+
+
+.block_opacity {
+
+    opacity: 0.7;filter: alpha(opacity=70);
+
+} 
+.block_opacity1 {
+
+    opacity: 0.3;filter: alpha(opacity=30);
+
+} 
+.block_opacity2 {
+
+    opacity: 0.6;filter: alpha(opacity=60);
+
+} 
+
+
+#menu {
+	position: absolute;
+	left: 270px;
+	margin: 0 0 0 -90px;
+	padding: 0;
+	width: 900px;
+	height: 30px;
+	top: 270px;
+}
+#menu li {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	height: 30px;
+}
+#menu li a {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font: 15px/29px "Arial Narrow";
+	text-decoration: none;
+	white-space: nowrap;
+	color: #FFFFFF;
+	height: 29px;
+	overflow: none;
+}
+#menu li a:hover {
+	color: #FFFFFF;
+}
+#menu li a span {
+	cursor: pointer;
+	display: block;
+	position: absolute;
+	float: left;
+	top: 0;
+	left: -1px;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	height: 58px;
+}
+#menu li a:hover span {
+	background-position: 0 -58px;
+}
+#menu li.active a span {
+	background-position: 0 -58px;
+}
+#menu li.novost, #menu li.novost a , #menu li.novost a span {
+	width: 150px;
+}
+#menu li.novost a span {
+	background-image: url(img/n1.png);
+}
+#menu li.kalend, #menu li.kalend a , #menu li.kalend a span {
+	width: 165px;
+}
+#menu li.kalend a span {
+	background-image: url(img/n2.png);
+}
+#menu li.master, #menu li.master a , #menu li.master a span {
+	width: 140px;
+}
+#menu li.master a span {
+	background-image: url(img/n3.png);
+}
+#menu li.tserv, #menu li.tserv a , #menu li.tserv a span {
+	width: 240px;
+}
+#menu li.tserv a span {
+	background-image: url(img/n4.png);
+}
+#menu li.forum, #menu li.forum a , #menu li.forum a span {
+	width: 150px;
+}
+#menu li.forum a span {
+	background-image: url(img/n5.png);
+}
+
+#menu li.na, #menu li.na a , #menu li.na a span {
+	width: 110px;
+}
+#menu li.na a span {
+	background-image: url(img/n6.png);
+}
+
+ul#menu ul {
+        margin: 0;
+        border: 0 none;
+        padding: 0;
+        width: auto;
+        list-style: none;
+        display: none;
+        position: absolute;
+        top: 20px;
+        left: 0;
+        text-align:left;
+		
+}
+
+ul#menu ul:after {
+        clear: both;
+        display: block;
+        font: 2px/1px serif;
+        content: ".";
+        height: 0;
+        visibility: hidden;
+}
+
+ul#menu ul li {
+        width: 300px;
+        float: left;
+        display: block !important;
+        display: inline;
+}
+
+/* Main Menu */
+ul#menu a {
+	border: 0px;
+	padding: 0 0px;
+	float: none !important;
+	float: left;
+	display: block;
+	color: none;
+	font: 15px/12px  Verdana, Geneva, sans-serif;
+	text-decoration: none;
+	height: auto !important;
+	height: 1%;
+	border: none;
+
+}
+
+/* Main Menu Hover */
+ul#menu a:hover,
+ul#menu li:hover a,
+ul#menu li.iehover a {
+	color:#000000;
+	border-top: 0px solid;
+}
+
+/* Second Menu */
+ul#menu li:hover li a,
+ul#menu li.iehover li a {
+        border-top: 0px solid;
+        float: none;
+        color: #000000;
+}
+
+/* Second Menu Hover */
+ul#menu li:hover li a:hover,
+ul#menu li:hover li:hover a,
+ul#menu li.iehover li a:hover,
+ul#menu li.iehover li.iehover a {
+	border-top: 2px solid #000000;
+	color:#000000;
+	border:#000000 0px solid;
+}
+
+ul#menu ul ul {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 10px;
+}
+
+ul#menu li:hover ul ul,
+ul#menu li.iehover ul ul {
+        display: none;
+}
+
+ul#menu li:hover ul,
+ul#menu ul li:hover ul,
+ul#menu li.iehover ul,
+ul#menu ul li.iehover ul {
+        display: block;
+} 
+.section .tl{
+ background: transparent url(../table/stl.gif) no-repeat;
+ padding: 6px 7px;
+}
+.section .t{
+ background: transparent url(../table/st.gif) repeat-x;
+ height: 12px;
+}
+.section .tr{
+ background: transparent url(../table/str.gif) no-repeat;
+ padding: 6px 7px;
+}
+.section .l{
+ background: transparent url(../table/sl.gif) repeat-y;
+ width: 14px;
+}
+.section .r{
+ background: transparent url(../table/sr.gif) repeat-y;
+ width: 14px;
+}
+.section .bl{
+ background: transparent url(../table/sbl.gif) no-repeat;
+ padding: 6px 7px;
+}
+.section .b{
+ background: transparent url(../table/sb.gif) repeat-x;
+ height: 12px;
+}
+.section .br{
+ background: transparent url(../table/sbr.gif) no-repeat;
+ padding: 6px 7px;
+}
+.section th{
+ font: bold 12px Arial;
+ padding: 2px 0px 4px 0px;
+}

@@ -1,0 +1,450 @@
+.screen_hi .page { font-family: Arial; text-align: left; width:1004px }
+.screen_wide .page { font-family: Arial; text-align: left; width:1260px }
+.print { font-family: Arial }
+
+.screen_wide H1 { font-family:Tahoma; font-size:28px; font-weight:normal; margin:0px; line-height:normal }
+.screen_hi H1 { font-family:Tahoma; font-size:26px; font-weight:normal; margin:0px; line-height:normal }
+H1 { font-family:Tahoma; font-size:28px; font-weight:normal; margin:0px; line-height:normal }
+H1 A { color:#000000; text-decoration:none }
+H1 A:hover { color:#000000; text-decoration:none }
+
+H2 { font-family:Arial; font-size:24px; font-weight:normal; margin:0 0 -5px 0; line-height:normal }
+H2 A { color:#000000; text-decoration:none }
+H2 A:hover { color:#000000; text-decoration:none }
+
+.text { font-size: 16px; font-family:Arial; color:#000000; line-height:1.3 }
+.screen_wide .text { font-size: 16px; font-family:Arial; color:#000000; line-height:1.3 }
+.screen_hi .text { font-size: 14px; font-family:Arial; color:#000000 }
+.text a { color:#0B669E; text-decoration:underline }
+.text a:hover { color: #EFAE00; text-decoration:none }
+
+.screen_wide .text_2 { font-size: 14px; color:#0B669E; margin-bottom:1px }
+.screen_hi .text_2 { font-size: 12px; color:#0B669E; margin-bottom:1px }
+.text_2 { font-size: 14px; color:#0B669E; margin-bottom:1px }
+.text_2 .dashed { color: #0B669E; cursor:pointer; border-bottom: 1px dashed #044872 }
+.text_2 .dashedhover { color: #EFAE00; cursor:pointer; border-bottom: 0px }
+
+.screen_wide .text_3 { font-size: 14px; font-family:Arial; color:#000; line-height:1.3 }
+.screen_hi .text_3 { font-size: 12px; font-family:Arial; color:#000; line-height:1.3 }
+.text_3 { font-size: 14px; font-family:Arial; color:#000; line-height:1.3 }
+.text_3 a { color: #0B669E; text-decoration:none; }
+.text_3 a:hover { color: #0B669E; text-decoration:underline; }
+
+.text_5 { font-size:12px; font-family:Arial; color:#FFB400 }
+.text_5 a { color:#FFB400; text-decoration:underline }
+.text_5 a:hover { color:#FFB400; text-decoration:none }
+
+.text_6 { font-size:12px; font-family:Arial; color:#6A6C6F }
+.text_6 a { color:#6A6C6F; text-decoration:underline }
+.text_6 a:hover { color:#FFB400; text-decoration:none }
+
+.text_10 { font-size:12px; font-family:Arial; color:#6A6C6F }
+.text_10 a { color:#0B669E; text-decoration:underline }
+.text_10 a:hover { color:#EFAE00; text-decoration:none }
+
+.text_9 { font-size: 18px; font-family:Arial; color:#444444; line-height:1.3 }
+.screen_wide .text_9 { font-size: 18px; font-family:Arial; color:#444444; line-height:1.3 }
+.screen_hi .text_9 { font-size: 16px; font-family:Arial; color:#444444 }
+
+.screen_wide .head1 { font-size: 24px; font-family:Arial; color:#010101 }
+.screen_hi .head1 { font-size: 22px; font-family:Arial; color:#010101 }
+.head1 { font-size: 24px; font-family:Arial; color:#010101 }
+.head1 a { color:#010101; text-decoration:underline; }
+.head1 a:hover { color:#010101; text-decoration:none; }
+
+.screen_wide .head2 { font-size: 22px; font-family:Tahoma; color:#6A6C6F }
+.screen_hi .head2 { font-size: 18px; font-family:Tahoma; color:#6A6C6F }
+.head2 { font-size: 22px; font-family:Tahoma; color:#6A6C6F }
+
+.screen_wide .head5 { font-size: 18px; font-family:Arial; color:#0B669E; line-height:1.1 }
+.screen_hi .head5 { font-size: 16px; font-family:Arial; color:#0B669E; line-height:1.1 }
+.head5 A { font-size: 18px; color: #0B669E; text-decoration: none; cursor:pointer }
+.head5 A:hover { color: #EFAE00; text-decoration: none; border-bottom: 0px; }
+.head5 .dashed { color: #0B669E; cursor:pointer; border-bottom: 1px dashed #0B669E }
+.head5 .dashedhover { color: #0B669E; cursor:pointer; border-bottom: 0px }
+
+.screen_wide .head7 { font-size: 24px; font-family:Arial; color:#FFB400 }
+.screen_hi .head7 { font-size: 22px; font-family:Arial; color:red }
+.head7 { font-size: 24px; font-family:Arial; color:#FFB400 }
+.head7 a { color:#FFB400; text-decoration:underline; }
+.head7 a:hover { color:#FFB400; text-decoration:none; }
+
+.screen_wide .head10 { font-size: 18px; font-family:Arial; color:#0B669E; padding:0 20px 5px 20px; cursor:pointer }
+.screen_hi .head10 { font-size: 16px; font-family:Arial; color:#0B669E; padding:0 20px 5px 20px; cursor:pointer }
+.head10 { font-size: 18px; font-family:Arial; color:#0B669E; padding:0 20px 5px 20px; cursor:pointer }
+.head10 span { border-bottom: 1px dashed #0B669E }
+.head10 .dashedhover { color: #EFAE00; cursor:pointer; border-bottom: 0px }
+
+.head11 { font-family:Tahoma; font-size:14px; color:#777777 }
+.head12 { font-size: 22px; font-family:Tahoma; color:#000000 }
+.head12 a { color: #0B669E; text-decoration: underline }
+.head12 a:hover { color: #0B669E; text-decoration: none }
+
+.screen_wide .head13 { font-family:Tahoma; font-size:28px; color:#777777 }
+.screen_hi .head13 { font-family:Tahoma; font-size:26px; color:#777777 }
+.head13 { font-family:Tahoma; font-size:28px; color:#777777 }
+.head13 a { color:#777777; text-decoration:none }
+.head13 a:hover { color:#777777; text-decoration:none }
+
+.screen_wide .head14 { font-family:Arial; font-size:18px; color:#FFB400 }
+.screen_hi .head14 { font-family:Arial; font-size:16px; color:#FFB400 }
+.head14 { font-family:Arial; font-size:18px; color:#FFB400 }
+.head14 a { color:#FFB400; text-decoration:underline }
+.head14 a:hover { color:#FFB400; text-decoration:none }
+.head15 { font-size: 22px; font-family:Tahoma; color:#000000 }
+.head15 a { color: #000000; text-decoration: none }
+.head15 a:hover { color: #000000; text-decoration: none }
+.head17 { font-family:Arial; font-size:24px; color:#FFB400 }
+.head18 { font-family:Arial; font-size:18px; color:#ffffff }
+.head18 a { color:#ffffff; text-decoration:underline }
+.head18 a:hover { color:#ffffff; text-decoration:none }
+
+.screen_wide .head16 { background:#C9C9C7; font-family:Arial; font-size:22px; color:#fff; padding:3px 10px 3px 10px }
+.screen_hi .head16 { background:#C9C9C7; font-family:Arial; font-size:18px; color:#fff; padding:3px 10px 3px 10px }
+.head1 a { color:#010101; text-decoration:underline; }
+.head1 a:hover { color:#010101; text-decoration:none; }
+
+.screen_wide .pub_list { width:330px }
+.screen_hi .pub_list { width:220px }
+.screen_hi .pub_list img { width:220px }
+.screen_hi .act_img img { width:120px }
+.screen_hi .live_list img { width:140px }
+.screen_wide .live_list img { width:170px }
+.int_list { width:170px }
+
+.input2 { width:100%; height:33px; font-size: 22px; color:#363131; font-family:Verdana; margin:0px; padding:0px; border:1px solid #8A8A8A }
+.input_date { width:120px; height:20px; font-family:Tahoma; font-size:14px; color:#777777; margin:0px; padding:2px 0 0 3px; border:1px solid #8A8A8A }
+.input_big { width:135px; height:36px; font-family:Tahoma; font-size:26px; color:#0B669E; margin:0px; padding:2px 0 0 3px; border:1px solid #8A8A8A }
+.srch_theme { width:290px; height:26px; margin:0px; padding:0px; border:1px solid #8A8A8A }
+
+.hr_grey { color:#C4C2C2; background-color:#C4C2C2; height: 1px; margin:0; padding:0; border-width:0px; /* ?????? ????? ?????? ???????? */ }
+.nowrap { white-space:nowrap }
+
+.screen_wide .red { font-family:Tahoma; font-size:20px; color:#EF0000 }
+.screen_hi .red { font-family:Tahoma; font-size:18px; color:#EF0000 }
+.red { font-family:Tahoma; font-size:20px; color:#EF0000 }
+.red .dashed { color: #EF0000; cursor:pointer; border-bottom: 1px dashed #EF0000 }
+.red .dashedhover { color: #EFAE00; cursor:pointer; border-bottom: 0px }
+.big_red { font-family:Tahoma; font-size:28px; color:#EF0000 }
+
+.screen_wide .red_date { font-family:Arial; font-size:14px; color:#DA0202; line-height:1.3 }
+.screen_hi .red_date { font-family:Arial; font-size:12px; color:#DA0202 }
+
+.screen_wide .search_block { width:500px }
+.screen_hi .search_block { width:430px }
+.screen_wide .logo_list img { width:170px }
+.screen_hi .logo_list img { width:115px }
+.screen_wide .logo_list .r { width:11em }
+.screen_hi .logo_list .r { width:7em  }
+
+.block2 { padding:3px 10px 9px 10px; background: url('http://training/images/tr_grey.gif') center bottom no-repeat }
+.block2 span { font-family:Arial; font-size:18px; color:#fff; display:block; background:#C9C9C7; padding: 3px 10px 3px 10px }
+
+.analytics { border:1px solid #BDBDBD; margin-top:20px; padding:10px }
+
+.size1 { font-size:12px }
+.size2 { font-size:18px }
+.size3 { font-size:24px }
+.size4 { font-size:30px }
+.size5 { font-size:16px }
+.size6 { font-size:14px }
+.size7 { font-size:11px }
+
+p { margin: 0 }
+.p1 p { margin: 5px 0 5px 0 }
+.p2 p { margin: 10px 0 10px 0 }
+.p3 p { margin: 15px 0 15px 0 }
+
+/* ********************************************************** */
+
+
+
+
+.page2 { font-family: arial, verdana, sans-serif; text-align: left; margin:30px 20px 0 40px  }
+.page3 { font-family: arial, verdana, sans-serif; text-align: left; margin:0; min-width:1024px; width: expression(document.body.clientWidth < 1024 ? "1024px" : "auto") /* ?????? ??? IE6 */  }
+
+.col1 {width:25px}
+.col2 {width:378px}
+.col3 {width:12px}
+.col4 {width:563px}
+.col5 {width:12px}
+.col6 {width:245px}
+.col7 {width:25px}
+
+a { color: #0B669E; text-decoration: underline; }
+a:hover { color:#EFAE00; text-decoration: none; }
+img { border:0; margin:0px; padding:0px; vertical-align:middle; }
+
+form { margin:0 }
+input { verticall-align:middle }
+input[type="checkbox"], INPUT[type="radio"] { background: transparent; border: 0 }
+label { display:block }
+ul { margin:0px; padding:0px; list-style: none } li { padding-left:25px } 
+.text ul { margin-top:5px } 
+sup { font-family:Tahoma; color:#B4B4B3; font-size:10px }
+
+.h1 { font-family: Tahoma; font-size: 28px; color:#0B669E }
+.h1 .dashed { color: #0B669E; cursor:pointer; border-bottom: 1px dashed #044872 }
+.h1 .dashedhover { color: #EFAE00; cursor:pointer; border-bottom: 0px }
+
+.h2 { font-family: Arial; font-size: 28px; color:#00000 }
+.h2 a { color: #000; text-decoration:none; }
+.h2 a:hover { color: #000; text-decoration:none; }
+
+
+
+
+.text_4 { font-size: 14px; font-family:Arial; color:#0B669E }
+.text_4 a { color: #0B669E; text-decoration:underline; }
+.text_4 a:hover { color: #0B669E; text-decoration:none; }
+
+.text_8 { font-size: 14px; font-family:Arial; color:#EFAE00 }
+.text_8 a {
+	color: #0CF;
+	text-decoration:none;
+}
+.text_8 a:hover { color: #EFAE00; text-decoration:none; }
+
+.text_7 { font-size: 14px; color:#000000 }
+.text_7 a { color: #000; text-decoration:none; }
+.text_7 a:hover { color: #000; text-decoration:none; }
+.text_7 .dashed { color: #0B669E; cursor:pointer; border-bottom: 1px dashed #044872 }
+.text_7 .dashedhover { color: #EFAE00; cursor:pointer; border-bottom: 0px }
+
+.small_text { font-size: 12px; }
+.small_text a { color: #000; text-decoration:none; }
+.small_text a:hover { color: #000; text-decoration:underline; }
+
+.grey { font-family:Tahoma; font-size:12px; color:#6A6C6F }
+.grey .dashed { color: #6A6C6F; cursor:pointer; border-bottom: 1px dashed #6A6C6F }
+.grey .dashedhover { color: #EFAE00; cursor:pointer; border-bottom: 0px }
+.grey2 { font-family:Arial; font-size:11px; color:#C0BEBE }
+.grey3 { font-family:Arial; font-size:11px; color:#525252 }
+.grey4 { font-family:Arial; font-size:11px; color:#838383 }
+.grey4 a { color: #838383; text-decoration:underline; }
+.grey4 a:hover { color: #838383; text-decoration:none; }
+.grey4 .dashed { color: #838383; cursor:pointer; border-bottom: 1px dashed #838383 }
+
+.black { font-family:Tahoma; font-size:12px; color:#000 }
+
+
+.red2 { font-family:Arial; font-size:11px; color:#EF0000 }
+
+#header { height: 97px; margin:0px auto }
+#header SPAN { display: none }
+#header H3 { padding:10px 0 0 0; margin: 0px }
+#header H3 A { display: block; background: url(/images/logo.gif) no-repeat left center; width: 224px; height: 74px }
+
+.menu2 { padding-bottom:20px }
+.menu2 a { color: #B4B4B3; text-decoration:none; padding:2px; border-bottom:1px solid #B4B4B3 }
+.menu2 a:hover { color: #9C9C9C; text-decoration:none; border-bottom:0px }
+.menuactive a { color: #000; text-decoration:none; padding:2px; border-bottom:1px solid #000 }
+.menuactive a:hover { color: #000; text-decoration:none; border-bottom:0px }
+
+.menu2 LI { padding: 0 0 0 25px; font-size: 22px; font-family:Verdana; display: inline; }
+.screen_wide .menu LI { font-size: 22px; font-family:Verdana }
+.screen_hi .menu LI { font-size: 20px; font-family:Verdana }
+
+.left { float:left; width:70% }
+.right { float:right; width:30% }
+.center { padding:0px 20px 0 0 }
+
+.head { font-size: 18px; font-family:Arial; color:#6A6C6F }
+.head A.dashed { color: #6A6C6F; text-decoration: none; cursor:pointer; border-bottom: 1px dashed #6A6C6F }
+.head A.dashed:hover { color: #EFAE00; text-decoration: none; border-bottom: 0px; }
+
+
+
+.head3 { font-size: 18px; font-family:Arial; color:#58595B }
+.head4 { font-size: 18px; font-family:Tahoma; color:#000000 }
+.head4 A { color: #000000; text-decoration: none }
+.head4 A:hover { color: #000000; text-decoration: none }
+
+.screen_wide .main_news { width:275px }
+.screen_hi .main_news { width:195px }
+.screen_wide .main_pub { width:100px }
+.screen_hi .main_pub { width:75px }
+
+.screen_hi .center1_cbn img  { width:210px }
+.screen_hi .center2_cbn img  { width:440px }
+.screen_hi .left_cbn img  { width:285px }
+
+
+.head6 { font-size: 22px; color:#363131; font-family:Arial }
+.head8 { font-size: 18px; font-family:Arial; color:#FBBC4E }
+.head8 a { color:#FBBC4E; text-decoration:none; }
+.head8 a:hover { color:#FBBC4E; text-decoration:underline; }
+.head9 { font-size: 20px; font-family:Arial; color:#0B669E;  
+text-decoration: none; /* ??????? ??????? ????????????? */
+ border-bottom: 1px dashed blue; /* ????????? ?????????? ????? ??? ??????? */}
+.head9 a { color:#0B669E; text-decoration:none; }
+.head9 a:hover { color:#EFAE00; text-decoration:none; }
+
+
+
+
+
+
+
+.hr_yellow { color:#E9B62D; background-color:#E9B62D; height: 1px; border-width:0px; /* ?????? ????? ?????? ???????? */ }
+
+
+.help { font-family:Arial; font-size:12px; vertical-align: super; color:#3F4041; cursor:help; }
+.city { font-family:Arial; font-size:14px; background:#939598; color:#fff; padding:0 3px 0 3px; }
+.shut a { cursor:pointer }
+.logo { border: 1px solid #D4D4D4; padding:5px }
+.frame { border: 1px solid #D4D4D4 }
+.red_bg { font-size:10px; color:#ffffff; background:#DA0202; padding:1px 2px 1px 2px }
+
+.button { text-align:center; font-size:120% }
+.button_2 { text-align:center; font-size:110% }
+
+
+.block4 { padding:10px 10px 10px 10px }
+
+.block_grey { background:#F0F0E7; padding:5px 10px 5px 10px }
+.block_yellow { background:#F9FBD3; padding:5px 20px 5px 20px }
+.block_orange { background:#FDED40; padding:5px 10px 5px 20px }
+.block_blue { background:#E6F2F9; padding:5px 10px 5px 20px }
+.round_grey B { background:#F0F0E7 }	/* ??? ?????????? ???????? */
+.round_yellow B { background:#F9FBD3 }	
+.round_orange B { background:#FDED40 }	
+.round_blue B { background:#E6F2F9 }	
+
+.r1, .r2, .r3, .r4, .r5, .r6, .r7, .r8, .r9, .r10 { display: block; height: 1px; overflow: hidden; font-size:1px }
+.r10 { margin: 0 10px; }
+.r9 { margin: 0 9px; }
+.r8 { margin: 0 8px; }
+.r7 { margin: 0 7px; }
+.r6 { margin: 0 6px; }
+.r5 { margin: 0 5px; }
+.r4 { margin: 0 4px; }
+.r3 { margin: 0 3px; }
+.r2 { margin: 0 2px; }
+.r1 { margin: 0 1px; }
+
+.rub { font-family: Tahoma; font-size: 14px;  }
+.rub a { color:#0B669E; text-decoration:underline; padding:5px; border:0px }
+.rub a:hover { color: #fff; text-decoration:none; background: #EFAE00 }
+.rub span { margin-right:15px }
+
+.rubactive a { color: #fff; text-decoration:none; padding:5px; background: #EFAE00 }
+.rubactive a:hover { color: #fff; text-decoration:none; padding:5px; background: #EFAE00 }
+
+.rubricator2 { font-family: Tahoma; font-size: 12px;  }
+.rubricator2 a { color:#0B669E; text-decoration:none; padding:2px }
+.rubricator2 a:hover { color: #0B669E; text-decoration:underline }
+
+.service .head3 a { text-decoration:none; padding:0 4px 0 4px }
+.service .head3 a:hover { color: #fff; text-decoration:none; background: #EFAE00 }
+.head3over { font-size: 18px; font-family:Arial; color:#fff; background: #EFAE00; padding:0 4px 0 4px }
+.head3over a { color:#fff; background: #EFAE00; text-decoration:none; padding:0 4px 0 4px }
+
+.supover { font-family:Tahoma; color:#FFB400; font-size:10px }
+
+.page_nav_w { font-size: 22px; font-family:Arial; color:#0B669E; margin-left:10px; }
+.page_nav_w a { color: #0B669E; text-decoration:none; padding:1px; border-bottom:1px solid #0B669E; cursor:pointer }
+.page_nav_w a:hover { color: #EFAE00; text-decoration:none; border-bottom:0px }
+
+.page_nav_n { font-size: 18px; font-family:Arial; margin-left:37px; }
+.page_nav_n a { color: #0B669E; text-decoration:none; margin-right:14px; border-bottom:1px solid #0B669E; cursor:pointer }
+.page_nav_n a:hover { color: #EFAE00; text-decoration:none; border:0px }
+.page_nav_n span { color: #fff; background:#EFAE00; margin-right:14px; padding:0 8px 0 8px }
+
+.order INPUT[type="text"] { margin:1px; width:360px; height:33px; font-size: 22px; color:#363131; font-family:Verdana; padding:1px 0 0 10px; border:1px solid #8A8A8A }
+.order SELECT { margin:1px; width:360px; height:33px; font-size: 22px; color:#363131; font-family:Verdana; padding:1px 0 0 10px; border:1px solid #8A8A8A }
+.order TEXTAREA { margin:1px; width:360px; font-size: 22px; color:#363131; font-family:Verdana; padding:1px 0 0 10px; border:1px solid #8A8A8A }
+
+.service_feedback .input { margin:1px; width:342px; height:33px; font-size: 22px; color:#363131; font-family:Verdana; padding:1px 0 0 10px; border:1px solid #8A8A8A }
+.textarea { margin:1px; width:100%; font-size: 14px; color:#363131; font-family:Verdana; border:1px solid #8A8A8A }
+.inpt { display:none }
+
+.search_action SELECT { width:425px; height:30px; font-size: 22px; color:#363131; font-family:Arial; border:1px solid #8A8A8A }
+.search_action .input { width:180px; height:26px; font-size: 22px; color:#363131; font-family:Arial; border:1px solid #8A8A8A }
+.search_google { width:530px; height:30px; font-size: 22px; color:#363131; font-family:Arial; border:1px solid #8A8A8A }
+
+.tags { float: left }
+.tags ul { white-space: normal }
+.tags li { display: inline }
+.tags a { color:#0B669E; text-decoration: none }
+.tags a:hover { color: #fff; text-decoration:none; background: #EFAE00 }
+
+
+.tooltip{ width:300px; background:#C4C4C4; position:absolute;}
+.tooltip .shadow{position:relative;z-index:10;top:-3px;left:-3px;padding:0 7px;border:1px solid #e4e4e6;background:#f5f5f5;}
+.tooltip-container{display:none;}
+#release_block li, #article_block li  {padding:0; margin:0px}
+.screen_wide .a { font-size: 16px; font-family:Arial; color:#0B669E; line-height:1.3 }
+.screen_hi .a { font-size: 14px; font-family:Arial; color:#0B669E }
+
+
+.fl { float:left; }
+.fr { float:right; }
+.clear { clear: both; height:1px; font-size:1px; }
+.empty { height:10px; font-size:10px; }
+.empty2 { height:15px; font-size:15px; }
+.empty3 { height:5px; font-size:5px; }
+.empty4 { height:2px; font-size:2px; }
+
+.rss a { background:url(images/rss_on.gif)  }
+.rss a:hover { background:url(images/rss_off.gif)  }
+
+.ac_results {
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font: menu;
+	font-size: 12px;
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.ac_loading {
+	background: white url('http://training/images/indicator.gif') right center no-repeat;
+}
+
+.ac_odd {
+	background-color: #eee;
+}
+
+.ac_over {
+	background-color: #0A246A;
+	color: white;
+}
+
+
+.thumbnails
+{
+/* ???????????? ??????? ????? float-???????, ????? ??? ???????? ??? ????????? ???????????? */
+margin: -3em 0 0 -2em;
+
+/* ???????????? ?? ?????? */
+text-align: center;
+}

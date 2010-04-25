@@ -1,0 +1,187 @@
+/* The Container */
+#navcontainer {
+	height: 0px;
+	margin: 0px;
+	position: relative;
+}
+
+/* The Menu */
+#navbar {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: -35px;
+	width: 900px;	
+}
+
+/* All lists must float */
+#navbar ul {
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+/* All list-items must obey parent selector */
+#navbar li {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	height: 30px;
+	padding: 5px;
+	margin: 0;
+	float: left;
+	display: block;
+    scrollbar-face-color: expression(
+    runtimeStyle.scrollbarFaceColor = '#000',
+    onmouseover = function() {this.className += ' hover'},
+    onmouseout = function() {this.className = this.className.replace(/ hover/g, '')}
+  );
+
+}
+
+/* Second level lists hide by default */
+#navbar li ul {
+	display: none;
+	margin: 0 0;
+	padding: 0;
+	position: absolute;
+	top:30px;
+	height: 28px;
+	overflow:hidden;
+	left: -0px;
+	width:100%;
+}
+
+
+/* IE needs to know we are on a computer */
+#navbar a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* Keeps sublevel persistant */
+#navbar li.active ul {
+	display: block;
+	padding-top:10px;
+	width:900px; 
+}
+
+/* Makes sure sublevels stay on top */
+#navbar li.hover ul, 
+#navbar li:hover ul {
+	display: block;
+	z-index: 100;
+	height: 31px;
+	padding-top:25px;
+	width:900px;
+}
+
+/* Top level a.links (sizes only) */
+	
+#navbar li a span {
+	cursor: pointer;
+	display: block;
+	position: absolute;
+	float: left;
+	top: 3px;
+	left: -1px;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	height: 58px;
+}
+
+#navbar li a:hover span {
+	background-position: 0 -58px;
+}
+#navbar li.active a span {
+	background-position: 0 -58px;
+}
+#navbar li.novost, #navbar li.novost a , #navbar li.novost a span {
+	width: 150px;
+}
+#navbar li.novost a span {
+	background-image: url(../img/n1.png);
+}
+#navbar li.kalend, #navbar li.kalend a , #navbar li.kalend a span {
+	width: 165px;
+}
+#navbar li.kalend a span {
+	background-image: url(../img/n2.png);
+}
+#navbar li.master, #navbar li.master a , #navbar li.master a span {
+	width: 140px;
+}
+#navbar li.master a span {
+	background-image: url(../img/n3.png);
+}
+#navbar li.tserv, #navbar li.tserv a , #navbar li.tserv a span {
+	width: 240px;
+}
+#navbar li.tserv a span {
+	background-image: url(../img/n4.png);
+}
+#navbar li.forum, #navbar li.forum a , #navbar li.forum a span {
+	width: 150px;
+}
+#navbar li.forum a span {
+	background-image: url(../img/n5.png);
+}
+
+#navbar li.na, #navbar li.na a , #navbar li.na a span {
+	width: 110px;
+}
+#navbar li.na a span {
+	background-image: url(../img/n6.png);
+}
+#navbar li a:hover,#navbar ul li:hover a {
+ background-color: #0B669E;
+ text-decoration: none;
+ color:#fff;
+}
+
+/* Second level a.links */
+#navbar li ul a, #navbar li.active ul a {
+	display: block;
+	float: left;
+	font-weight: normal;
+	font-size:14px;
+	font-family:Tahoma;
+	padding: 0 15px;
+	background: none;
+	height: 24px;
+	line-height: 24px;
+}
+
+
+/* Second level normal a.link */
+#navbar ul li.hover ul,
+#navbar ul li:hover ul{
+
+}
+
+#navbar ul li.active a {
+ background-color:#EFB71E;
+ color:#fff;
+ text-decoration: none;
+}
+
+#navbar li.active li a,
+#navbar li.hover ul li a,
+#navbar li:hover ul li a,
+#navbar li li a {
+ background-color:#F5F5F5; 
+ color:#0B669E;
+ text-decoration: underline;
+}
+
+#navbar li.active li a:hover,
+#navbar li ul li.active a,
+#navbar li.hover ul li a:hover,
+#navbar li:hover ul li a:hover,
+#navbar li li a:hover {
+ color: #fff;
+ background-color:#0B669E;
+ text-decoration: none;
+}

@@ -1,0 +1,300 @@
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
+    %link{ :href => " img/index.ico", :rel => "shortcut icon", :type => "image/x-icon" }
+    %script{ :src => "/css/my.js", :type => "text/javascript" }
+    %link{ :href => "/css/style.css", :rel => "stylesheet", :type => "text/css" }
+    %link{ :href => "/css/menu.css", :rel => "stylesheet", :type => "text/css" }
+    %link{ :href => "/css/main.css", :rel => "stylesheet", :type => "text/css" }
+    %title
+      SoulUp
+  %body
+    %table{ :cellspacing => "0", :border => "0", :align => "center", :width => "1000", :cellpadding => "0" }
+      %tr
+        %td{ :valign => "top", :width => "20" }
+          \&nbsp;
+        %td{ :align => "right" }
+          %p.login
+            %a{ :href => "#" }
+              Вход
+            \&nbsp;&nbsp;
+            %a{ :href => "#" }
+              Регистрация
+        %td
+          \&nbsp;
+        %td
+          \&nbsp;
+        %td{ :valign => "top", :width => "20" }
+          \&nbsp;
+      %tr
+        %td{ :valign => "top", :bgcolor => "#58BAEF" }
+          %img{ :src => "/img/yv1.png", :height => "20", :width => "20" }
+        %td{ :bgcolor => "#58BAEF" }
+          %img{ :src => "/img/logo.png" }
+          #log
+        %td{ :bgcolor => "#58BAEF" }
+          \&nbsp;
+        %td{ :bgcolor => "#58BAEF" }
+          \&nbsp;
+        %td{ :valign => "top", :bgcolor => "#58BAEF" }
+          %img{ :src => "/img/yv2.png", :height => "20", :width => "20" }
+      %tr
+        %td{ :bgcolor => "#FFFFFF" }
+        %td{ :bgcolor => "#FFFFFF" }
+        %td{ :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :bgcolor => "#FFFFFF" }
+          \&nbsp;
+      %tr
+        %td{ :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :bgcolor => "#FFFFFF" }
+          \&nbsp;
+      %tr
+        %td{ :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :bgcolor => "#FFFFFF" }
+          %noindex
+          #navcontainer
+            #navbar
+              %ul.menu
+                %li.novost
+                  %a{ :href => root_url}
+                    %span
+                      \&nbsp;
+                %li.kalend
+                  %a{ :href => "#" }
+                    %span
+                      \&nbsp;
+                %li.master
+                  %a{ :href => "#" }
+                    %span
+                      \&nbsp;
+                %li.tserv
+                  %a{ :href => "#" }
+                    %span
+                      \&nbsp;
+                %li.forum
+                  %a{ :href => "#" }
+                    %span
+                      \&nbsp;
+          %br
+          \&nbsp;
+        %td{ :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :bgcolor => "#FFFFFF" }
+          \&nbsp;
+    %table{ :cellspacing => "0", :border => "0", :align => "center", :width => "1000", :cellpadding => "0" }
+      %tr
+        %td{ :valign => "top", :bgcolor => "#FFFFFF" }
+        %td{ :rowspan => "3", :valign => "top", :width => "150", :bgcolor => "#FFFFFF" }
+          %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+            %tbody
+              %tr
+                %td.tl
+                %td.t
+                %td.tr
+              %tr
+                %td.l
+                %td
+                  %p.text_8
+                    %a{ :href => "#" }
+                      Поиск программ
+                    %br
+                    %a{ :href => "#" }
+                      Календарь
+                    %br
+                    %a{ :href => "#" }
+                      Открытые
+                    %br
+                    %a{ :href => "#" }
+                      Корпоративные
+                    %br
+                  %p.text_10
+                    %span.text_8
+                      %a{ :href => "#" }
+                        Бесплатные
+                      %br
+                      %a{ :href => "#" }
+                        Конференции и выставки
+                    %br
+                %td.r
+              %tr
+                %td.bl
+                %td.b
+                %td.br
+          %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+            %tbody
+              %tr
+                %td.tl
+                %td.t
+                %td.tr
+              %tr
+                %td.l
+                %td
+                  %p
+                    \&nbsp;
+                %td.r
+              %tr
+                %td.bl
+                %td.b
+                %td.br
+          %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+            %tbody
+              %tr
+                %td.tl
+                %td.t
+                %td.tr
+              %tr
+                %td.l
+                %td
+                  %p.text_3
+                    тучка тегов
+                %td.r
+              %tr
+                %td.bl
+                %td.b
+                %td.br
+          #log1
+        %td{ :valign => "top", :bgcolor => "#FFFFFF" }
+          = yield
+        %td{ :valign => "top", :width => "100", :bgcolor => "#FFFFFF" }
+          %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+            %tbody
+              %tr
+                %td.tl
+                %td.t
+                %td.tr
+              %tr
+                %td.l
+                %th
+                  %p.text_8
+                    Ник
+                %td.r
+              %tr
+                %td.l
+                %td.text_8
+                  Аватарка
+                %td.r
+              %tr
+                %td.bl
+                %td.b
+                %td.br
+          %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+            %tbody
+              %tr
+                %td.tl
+                %td.t
+                %td.tr
+              %tr
+                %td.l
+                %th.text_8
+                  Мой акаунт
+                %td.r
+              %tr
+                %td.l
+                %td.text_3
+                  \&nbsp;
+                %td.r
+              %tr
+                %td.bl
+                %td.b
+                %td.br
+          #log1
+        %td{ :valign => "top", :width => "20", :bgcolor => "#FFFFFF" }
+          \&nbsp;
+      %tr
+        %td{ :valign => "top", :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :bgcolor => "#FFFFFF" }
+          \&nbsp;
+      %tr
+        %td{ :valign => "top", :bgcolor => "#FFFFFF" }
+        %td.text_3{ :valign => "top", :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :valign => "top", :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :valign => "top", :bgcolor => "#FFFFFF" }
+          \&nbsp;
+      %tr
+        %td{ :valign => "bottom", :width => "20", :bgcolor => "#FFFFFF" }
+          %img{ :src => " img/yn1.png", :height => "20", :width => "20" }
+        %td{ :valign => "top", :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :valign => "top", :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :valign => "top", :bgcolor => "#FFFFFF" }
+          \&nbsp;
+        %td{ :valign => "bottom", :width => "20", :bgcolor => "#FFFFFF" }
+          %img{ :src => " img/yn2.png", :height => "20", :width => "20" }
+    %p
+      \&nbsp;
+    %table{ :cellspacing => "0", :border => "0", :width => "100%", :cellpadding => "0" }
+      %tr
+        %td
+          %table{ :cellspacing => "0", :cellpadding => "0" }
+            %tr
+              %td.text_10{ :colspan => "4" }
+                Внимание! Если вы заметили ошибку,
+                %span.text_7
+                  выделите
+                необходимый текст и
+                %span.text_7
+                  нажмите Ctrl+Enter
+                , чтобы сообщить об этом редакции.
+        %td
+          \&nbsp;
+        %td
+          \&nbsp;
+      %tr
+        %td
+          %p.text_4
+            \&nbsp;
+          %p.text_4
+            %a{ :href => " http://www.training.com.ua/about", :rel => "nofollow" }
+              О портале
+          %div
+          %span.text_4
+            %a{ :href => " http://www.training.com.ua/subscribe", :rel => "nofollow" }
+              Подписка на новости
+          %div
+          %span.text_4
+            %a{ :href => " http://www.training.com.ua/93", :rel => "nofollow" }
+              Размещение рекламы
+        %td
+          \&nbsp;
+        %td
+          %p.text_6
+            Контакты
+          %p.text_6
+            тел.: (063)472-00-55 (050)391-12-55,
+            %br
+            e-mail:
+            %a{ :href => " mailto:i@soulup.com", :rel => "nofollow" }
+              i@soulup.com
+      %tr
+        %td
+          \&nbsp;
+        %td
+          \&nbsp;
+        %td
+          \&nbsp;
+    %p.text_6
+      \&nbsp;
+    %p.text_6
+      \&nbsp;
