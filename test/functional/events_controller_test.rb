@@ -9,19 +9,19 @@ class EventsControllerTest < ActionController::TestCase
   context "index action" do
     should "contain titles" do
       Event.delete_all
-      Event.make :title => 'xxx1', :image_file_name => 'img1'
+      Event.make :title => 'xxx1<', :image_file_name => 'img1&lt;'
       Event.make :title => 'xxx2', :image_file_name => 'img2'
 
       get :index
 
       #should contain titles
-      assert_contains_n_times @response.body, 'xxx1', 1
+      assert_contains_n_times @response.body, 'xxx1&lt;', 1
       assert_contains_n_times @response.body, 'xxx2', 1
       #should contain links to items
       assert_contains_n_times @response.body, event_path(Event.first), 1
       assert_contains_n_times @response.body, event_path(Event.last), 1
       #should contain image links
-      assert_contains_n_times @response.body, 'img1', 1
+      assert_contains_n_times @response.body, 'img1&lt;', 1
       assert_contains_n_times @response.body, 'img2', 1
     end
 
@@ -64,6 +64,21 @@ class EventsControllerTest < ActionController::TestCase
 
       assert_contains_n_times @response.body, "666666", 1
       assert_contains_n_times @response.body, "Бесплатное посещение", 0
+    end
+
+    should "show event dates" do
+      Event.delete_all 
+      Event.make :start_time => Date.new(1989, 05, 22).to_datetime
+      Event.make :start_time => Date.new(1989, 05, 22).to_datetime, :end_time => Date.new(1989, 05, 22).to_datetime
+
+      Event.make :start_time => Date.new(1941, 06, 22).to_datetime, :end_time => Date.new(1941, 06, 23).to_datetime
+      Event.make :start_time => Date.new(1945, 05, 9).to_datetime, :end_time => Date.new(1945, 06, 01).to_datetime
+
+      get :index
+
+      assert_contains_n_times @response.body, '22 мая 1989 года', 2
+      assert_contains_n_times @response.body, '22 - 23 июня 1941 года', 1
+      assert_contains_n_times @response.body, '09 мая - 01 июня 1945 года', 1
     end
   end
 end

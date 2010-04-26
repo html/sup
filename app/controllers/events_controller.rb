@@ -6,6 +6,14 @@ class EventsController < ApplicationController
   def create
     @item = Event.new(params[:event])
 
+    #XXX
+    begin
+      [:start_time, :end_time].each do |t|
+        @item.send("#{t}=", Date.parse(params[:event][t]).to_datetime + params[:event]["#{t}(4i)"].to_i.hours + params[:event]["#{t}(5i)"].to_i.minutes)
+      end
+    rescue
+    end
+
     if @item.save
       flash[:notice] = "Событие успешно добавлено"
       redirect_to url_for(@item)
@@ -19,7 +27,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @items = Event.paginate :per_page => 5, :page => params[:page]
+    @items = Event.paginate :per_page => 5, :page => params[:page], :order => 'start_time DESC, id DESC'
 
     last_date = date_till
 

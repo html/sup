@@ -9,12 +9,13 @@ Event.blueprint do
   title 'test'
   content 'xxx'
   cost 123
+  start_time Date.today.to_datetime
 end
 
 Post.blueprint do
   title 'test'
   content 'xxx'
-  date Date.today
+  date Date.today.to_datetime
 end
 
 class ActiveSupport::TestCase

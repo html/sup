@@ -1,14 +1,42 @@
+- stylesheet '/css/base/ui.all.css'
+- javascript 'ui/ui.core', 'ui/ui.datepicker', 'ui/i18n/ui.datepicker-ru', 'events'
 - form_for @item, :html => { :multipart => true } do |f|
   = f.error_messages
   %dl
     %dt
-      Заголовок события
+      Заголовок события (*)
     %dd= f.text_field :title
     %dt
-      Стоимость
+      Начало события(*)
+    %dd
+      .fl
+        = f.text_field :start_time
+      .fl
+        %label.fl
+          = check_box_tag :set_start_time, 'Задать время'
+          Задать время
+        #set_start_time_selects.fl
+          = f.time_select :start_time, :disabled => true
+      .clear
+    %dt
+      %label
+        = check_box_tag :set_event_end
+        Задать окончание события
+    %dd
+      .fl#set_event_end_selects
+        = f.text_field :end_time, :disabled => true
+      .fl
+        %label.fl
+          = check_box_tag :set_end_time, 'Задать время'
+          Задать время
+        #set_end_time_selects.fl
+          = f.time_select :end_time, :disabled => true
+      .clear
+    %dt
+      Стоимость 
     %dd= f.text_field :cost
     %dt
-      Описание события
+      Описание события (*)
     %dd= f.text_area :content, :rows => 5
     %dt
       Изображение

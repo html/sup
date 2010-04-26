@@ -4,6 +4,7 @@ class EventTest < ActiveSupport::TestCase
   should_have_db_columns :title, :content
   should_validate_presence_of :title, :content
   should_validate_numericality_of :cost
+  should_validate_presence_of :start_time
 
   context "Event::last_event_date" do
     should "return correct date" do

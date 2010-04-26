@@ -1,3 +1,6 @@
 [submodule "vendor/plugins/typus"]
 	path = vendor/plugins/typus
 	url = git://github.com/fesplugas/typus.git
+[submodule "vendor/plugins/calendar_date_select"]
+	path = vendor/plugins/calendar_date_select
+	url = git://github.com/timcharper/calendar_date_select.git
