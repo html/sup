@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  validates_presence_of :title, :content, :start_time
+  validates_presence_of :title, :content, :start_time, :place_id
   validates_numericality_of :cost, :allow_blank => true, :allow_nil => true
   validates_length_of :title, :maximum => 150
   belongs_to :place

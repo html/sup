@@ -7,6 +7,11 @@ class EventsController < ApplicationController
   def create
     @item = Event.new(params[:event])
     @places = Place.roots
+    
+    if @item.place && @item.place.parent
+      @root_place_id = @item.place.parent.id
+      @place_id = @item.place.id
+    end
 
     #XXX
     begin

@@ -10,6 +10,7 @@ Event.blueprint do
   content 'xxx'
   cost 123
   start_time Date.today.to_datetime
+  place_id Place.make.id
 end
 
 Post.blueprint do

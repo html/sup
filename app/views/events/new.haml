@@ -1,4 +1,9 @@
 - stylesheet '/css/base/ui.all.css'
+:javascript
+  document.options = {
+    root_place_id: #{@root_place_id.to_json},
+    place_id: #{@place_id.to_json}
+  };
 - javascript 'ui/ui.core', 'ui/ui.datepicker', 'ui/i18n/ui.datepicker-ru', 'jquery.selectchain', 'events'
 - form_for @item, :html => { :multipart => true } do |f|
   = f.error_messages
@@ -10,33 +15,33 @@
       Начало события(*)
     %dd
       .fl
-        = f.text_field :start_time
+        = f.text_field :start_time, :value => @item.start_time && @item.start_time.strftime('%d.%m.%Y')
       .fl
         %label.fl
-          = check_box_tag :set_start_time, 'Задать время'
+          = check_box_tag :set_start_time, 'Задать время', !(!@item.start_time || (@item.start_time.hour + @item.start_time.min == 0))
           Задать время
         #set_start_time_selects.fl
-          = f.time_select :start_time, :disabled => true
+          = f.time_select :start_time, :disabled => !@item.start_time || (@item.start_time.hour + @item.start_time.min == 0)
       .clear
     %dt
       %label
-        = check_box_tag :set_event_end
+        = check_box_tag :set_event_end, "1", @item.end_time
         Задать окончание события
     %dd
       .fl#set_event_end_selects
-        = f.text_field :end_time, :disabled => true
+        = f.text_field :end_time, :disabled => !@item.end_time, :value => @item.end_time && @item.end_time.strftime('%d.%m.%Y')
       .fl
         %label.fl
-          = check_box_tag :set_end_time, 'Задать время'
+          = check_box_tag :set_end_time, 'Задать время', !(!@item.end_time || (@item.end_time.hour + @item.end_time.min == 0))
           Задать время
         #set_end_time_selects.fl
-          = f.time_select :end_time, :disabled => true
+          = f.time_select :end_time, :disabled => !@item.end_time || (@item.end_time.hour + @item.end_time.min == 0)
       .clear
     %dt
       Место события
     %dd
-      = select :events, :root_place, [''] + @places.collect { |p| [p.title, p.id] }
-      = f.select :place_id, []#@places.first.children.collect { |p| [p.title, p.id] }
+      = select :events, :root_place, @places.collect { |p| [p.title, p.id] }, :include_blank => true
+      = f.select :place_id, [], :value => @place_id#@places.first.children.collect { |p| [p.title, p.id] }
     %dt
       Стоимость 
     %dd= f.text_field :cost

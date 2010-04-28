@@ -114,7 +114,8 @@ class EventsControllerTest < ActionController::TestCase
 
     should "contain default string if no place given" do
       Event.delete_all
-      Event.make :place => nil
+      Event.make :place => Place.make
+      Event.update_all 'place_id' => nil
 
       get :index
 
