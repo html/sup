@@ -6,6 +6,9 @@ ru:
     models:
       post: Новости
       event: Событие
+      subject: Тематика событий
+      place: Место события
+      event_type: Тип события
     attributes:
       post:
         title: Заголовок
@@ -19,3 +22,5 @@ ru:
         place_id: Место события
         start_time: Время начала события
         end_time: Время окончания события
+        subject_id: Тематика события
+        event_type: Тип события

@@ -38,6 +38,15 @@
       = select :events, :root_place, @places.collect { |p| [p.title, p.id] }, :include_blank => true, :selected => @root_place_id
       = f.select :place_id, @child_places || [], :selected => @place_id
     %dt
+      Тематика события
+    %dd
+      = select :events, :root_subject, @subjects.collect { |p| [p.title, p.id] }, :include_blank => true, :selected => @root_subject_id
+      = f.select :subject_id, @child_subjects || [], :selected => @subject_id
+    %dt
+      Тип события
+    %dd
+      = f.select :event_type_id, EventType.all.collect { |p| [p.title, p.id] }, :include_blank => true
+    %dt
       Стоимость 
     %dd= f.text_field :cost
     %dt

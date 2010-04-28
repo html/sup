@@ -2,16 +2,24 @@ class EventsController < ApplicationController
   def new
     @item = Event.new
     @places = Place.roots
+    @subjects = Subject.roots
   end
 
   def create
     @item = Event.new(params[:event])
     @places = Place.roots
+    @subjects = Subject.roots
     
     if @item.place && @item.place.parent
       @root_place_id = @item.place.parent.id
       @place_id = @item.place.id
       @child_places = @item.place.parent.children.collect { |p| [p.title, p.id] }
+    end
+
+    if @item.subject && @item.subject.parent
+      @root_subject_id = @item.subject.parent.id
+      @subject_id = @item.subject.id
+      @child_subjects = @item.subject.parent.children.collect { |p| [p.title, p.id] }
     end
 
     #XXX
@@ -49,6 +57,14 @@ class EventsController < ApplicationController
 
   def cities
     @event = Place.find params[:events][:root_place]
+
+    render :text => (@event.children.collect { |p| ({ :id => p.id, :label => p.title })}).to_json
+  rescue
+    render :text => [].to_json
+  end
+
+  def subjects
+    @event = Subject.find params[:events][:root_subject]
 
     render :text => (@event.children.collect { |p| ({ :id => p.id, :label => p.title })}).to_json
   rescue

@@ -26,6 +26,30 @@ class EventsControllerTest < ActionController::TestCase
     end
   end
 
+  context "subjects action" do
+    should "return subcategories of some place" do
+      @ev = Subject.make :title => 'xxx'
+      @child = Subject.make :parent_id => @ev.id, :title => 'asdf'
+
+      get :subjects, :events => { :root_subject => @ev.id }.stringify_keys
+
+      obj = JSON.parse(@response.body)
+      assert obj.is_a?(Array)
+      assert_equal 1, obj.size
+      assert_equal({ :label => 'asdf', :id => @child.id }.stringify_keys, obj.first)
+    end
+
+    should "return json array if no category exist" do
+      Place.delete_all
+
+      get :subjects
+
+      obj = JSON.parse(@response.body)
+      assert obj.is_a?(Array)
+      assert_equal 0, obj.size
+    end
+  end
+
   context "index action" do
     should "contain titles" do
       Event.delete_all

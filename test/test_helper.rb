@@ -11,6 +11,8 @@ Event.blueprint do
   cost 123
   start_time Date.today.to_datetime
   place_id Place.make.id
+  subject_id Subject.make.id
+  event_type_id EventType.make.id
 end
 
 Post.blueprint do
@@ -20,6 +22,14 @@ Post.blueprint do
 end
 
 Place.blueprint do
+  title 'asdf'
+end
+
+Subject.blueprint do
+  title 'asdf'
+end
+
+EventType.blueprint do
   title 'asdf'
 end
 

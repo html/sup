@@ -1,0 +1,24 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+EventType:
+  fields:
+    list: title, position
+    form: title
+  order_by: position
+  relationships: 
+  filters: 
+  search: title
+  application: sup
+
+Subject:
+  fields:
+    list: title, parent
+    form: title, parent
+  order_by: 
+  relationships: children, parent
+  filters: 
+  search: title
+  application: sup
+
