@@ -24,4 +24,10 @@ $(function(){
   });
 
   $('#event_start_time, #event_end_time').datepicker();
+
+  $('#events_root_place').selectChain({
+    target: $('#event_place_id'),
+    url: '/events/cities',
+    data: 'ajax=true'
+  });
 });

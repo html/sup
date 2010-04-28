@@ -1,5 +1,5 @@
 - stylesheet '/css/base/ui.all.css'
-- javascript 'ui/ui.core', 'ui/ui.datepicker', 'ui/i18n/ui.datepicker-ru', 'events'
+- javascript 'ui/ui.core', 'ui/ui.datepicker', 'ui/i18n/ui.datepicker-ru', 'jquery.selectchain', 'events'
 - form_for @item, :html => { :multipart => true } do |f|
   = f.error_messages
   %dl
@@ -32,6 +32,11 @@
         #set_end_time_selects.fl
           = f.time_select :end_time, :disabled => true
       .clear
+    %dt
+      Место события
+    %dd
+      = select :events, :root_place, [''] + @places.collect { |p| [p.title, p.id] }
+      = f.select :place_id, []#@places.first.children.collect { |p| [p.title, p.id] }
     %dt
       Стоимость 
     %dd= f.text_field :cost

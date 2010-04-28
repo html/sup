@@ -1,0 +1,24 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+Event:
+  fields:
+    list: title, category_id, start_time, end_time, cost
+    form: title, category_id, start_time, end_time, content, cost, image_file_name, image_content_type, image_file_size, image_updated_at
+  order_by: 
+  relationships: 
+  filters: 
+  search: title
+  application: sup
+
+Place:
+  fields:
+    list: xxx, title, parent
+    form: title, parent
+  order_by: 
+  relationships: 
+  filters: 
+  search: 
+  application: sup
+

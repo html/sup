@@ -17,4 +17,12 @@ module EventsHelper
       end
     end
   end
+
+  def place_for(item)
+    if item.place
+      h item.place.title
+    else
+      'неизвестно'
+    end
+  end
 end

@@ -2,8 +2,28 @@ require 'test_helper'
 
 class EventsControllerTest < ActionController::TestCase
   # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  context "cities action" do
+    should "return subcategories of some place" do
+      @ev = Place.make :title => 'xxx'
+      @child = Place.make :parent_id => @ev.id, :title => 'asdf'
+
+      get :cities, :events => { :root_place => @ev.id }.stringify_keys
+
+      obj = JSON.parse(@response.body)
+      assert obj.is_a?(Array)
+      assert_equal 1, obj.size
+      assert_equal({ :label => 'asdf', :id => @child.id }.stringify_keys, obj.first)
+    end
+
+    should "return json array if no category exist" do
+      Place.delete_all
+
+      get :cities
+
+      obj = JSON.parse(@response.body)
+      assert obj.is_a?(Array)
+      assert_equal 0, obj.size
+    end
   end
 
   context "index action" do
@@ -79,6 +99,26 @@ class EventsControllerTest < ActionController::TestCase
       assert_contains_n_times @response.body, '22 мая 1989 года', 2
       assert_contains_n_times @response.body, '22 - 23 июня 1941 года', 1
       assert_contains_n_times @response.body, '09 мая - 01 июня 1945 года', 1
+    end
+
+    should "contain events place" do
+      Event.delete_all
+
+      @place = Place.make :title => "Some big place<>"
+      Event.make :place => @place
+
+      get :index
+
+      assert_contains_n_times @response.body,  "Some big place&lt;&gt;", 1
+    end
+
+    should "contain default string if no place given" do
+      Event.delete_all
+      Event.make :place => nil
+
+      get :index
+
+      assert_contains_n_times @response.body,  "неизвестно", 1
     end
   end
 end

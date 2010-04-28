@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def new
     @item = Event.new
+    @places = Place.roots
   end
 
   def create
@@ -33,6 +34,14 @@ class EventsController < ApplicationController
 
     @date_from = last_date - 7.days
     @date_till = last_date
+  end
+
+  def cities
+    @event = Place.find params[:events][:root_place]
+
+    render :text => (@event.children.collect { |p| ({ :id => p.id, :label => p.title })}).to_json
+  rescue
+    render :text => [].to_json
   end
 
   protected

@@ -1,0 +1,7 @@
+# Typus Roles Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+admin:
+  Event: create, read, update, delete
+  Place: create, read, update, delete
