@@ -25,19 +25,11 @@ $(function(){
 
   $('#event_start_time, #event_end_time').datepicker();
 
-  var root_el = $('#events_root_place'), child_el = $('#event_place_id'), opts = document.options;
+  var root_el = $('#events_root_place'), child_el = $('#event_place_id');
 
   root_el.selectChain({
     target: child_el,
     url: '/events/cities',
     data: 'ajax=true'
   });
-
-  if(opts.root_place_id){
-    root_el.val(opts.root_place_id);
-    root_el.change();
-    if (opts.place_id){
-      child_el.val(opts.place_id).change();
-    }
-  };
 });

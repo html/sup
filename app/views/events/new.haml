@@ -1,9 +1,4 @@
 - stylesheet '/css/base/ui.all.css'
-:javascript
-  document.options = {
-    root_place_id: #{@root_place_id.to_json},
-    place_id: #{@place_id.to_json}
-  };
 - javascript 'ui/ui.core', 'ui/ui.datepicker', 'ui/i18n/ui.datepicker-ru', 'jquery.selectchain', 'events'
 - form_for @item, :html => { :multipart => true } do |f|
   = f.error_messages
@@ -40,8 +35,8 @@
     %dt
       Место события
     %dd
-      = select :events, :root_place, @places.collect { |p| [p.title, p.id] }, :include_blank => true
-      = f.select :place_id, [], :value => @place_id#@places.first.children.collect { |p| [p.title, p.id] }
+      = select :events, :root_place, @places.collect { |p| [p.title, p.id] }, :include_blank => true, :selected => @root_place_id
+      = f.select :place_id, @child_places, :selected => @place_id#@places.first.children.collect { |p| [p.title, p.id] }
     %dt
       Стоимость 
     %dd= f.text_field :cost

@@ -11,6 +11,7 @@ class EventsController < ApplicationController
     if @item.place && @item.place.parent
       @root_place_id = @item.place.parent.id
       @place_id = @item.place.id
+      @child_places = @item.place.parent.children.collect { |p| [p.title, p.id] }
     end
 
     #XXX
