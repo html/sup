@@ -6,6 +6,7 @@ class EventsController < ApplicationController
 
   def create
     @item = Event.new(params[:event])
+    @places = Place.roots
 
     #XXX
     begin
