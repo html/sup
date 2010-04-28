@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   validates_numericality_of :cost, :allow_blank => true, :allow_nil => true
   validates_length_of :title, :maximum => 150
   has_attached_file :image, :default_url => '/images/no_image.jpg', :styles => {
-    :list => "330x190"
+    :list => "330x190#"
   }
   #validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
 
