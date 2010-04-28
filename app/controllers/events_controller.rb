@@ -17,7 +17,11 @@ class EventsController < ApplicationController
     #XXX
     begin
       [:start_time, :end_time].each do |t|
-        @item.send("#{t}=", Date.parse(params[:event][t]).to_datetime + params[:event]["#{t}(4i)"].to_i.hours + params[:event]["#{t}(5i)"].to_i.minutes)
+        if params[:event][t] && !params[:event][t].empty?
+          @item.send("#{t}=", Date.parse(params[:event][t]).to_datetime + params[:event]["#{t}(4i)"].to_i.hours + params[:event]["#{t}(5i)"].to_i.minutes)
+        else
+          @item.send("#{t}=", nil)
+        end
       end
     rescue
     end
