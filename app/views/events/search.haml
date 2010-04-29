@@ -27,6 +27,17 @@
       %label
         = radio_button_tag :event_free, 0
         нет
+      %label
+        = radio_button_tag :event_free, 2, :checked => true
+        любое
+    %dt
+      начиная с ...
+    %dd
+      = f.text_field :start_time, :value => @start_time && @start_time.strftime('%d.%m.%Y')
+    %dt
+      заканчивая ...
+    %dd
+      = f.text_field :end_time, :value => @end_time && @end_time.strftime('%d.%m.%Y')
     %dt
     %dd
       = f.submit "Поиск"

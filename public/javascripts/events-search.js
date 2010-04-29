@@ -11,4 +11,6 @@ $(function(){
   applySelectChain(root_el, child_el, url);
   var root_el = $('#events_root_subject'), child_el = $('#event_subject_id'), url = '/events/subjects';
   applySelectChain(root_el, child_el, url);
+
+  $('#event_start_time, #event_end_time').datepicker();
 });
