@@ -48,15 +48,17 @@ class EventsController < ApplicationController
 
   def index
     if params[:from] && params[:to]
-      @items = Event.all_in_range(parse_date(params[:from].to_s).to_datetime, parse_date(params[:to].to_s).to_datetime, params[:page])
+      @items = Event.all_in_range(
+        @date_from = parse_date(params[:from].to_s).to_datetime, 
+        @date_till = parse_date(params[:to].to_s).to_datetime, params[:page]
+      )
     else
       @items = Event.paginate :per_page => 5, :page => params[:page], :order => 'start_time DESC, id DESC'
+      last_date = date_till
+
+      @date_from = last_date - 7.days
+      @date_till = last_date
     end
-
-    last_date = date_till
-
-    @date_from = last_date - 7.days
-    @date_till = last_date
   end
 
   def cities
