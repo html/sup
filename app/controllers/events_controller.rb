@@ -26,7 +26,7 @@ class EventsController < ApplicationController
     begin
       [:start_time, :end_time].each do |t|
         if params[:event][t] && !params[:event][t].empty?
-          @item.send("#{t}=", Date.parse(params[:event][t]).to_datetime + params[:event]["#{t}(4i)"].to_i.hours + params[:event]["#{t}(5i)"].to_i.minutes)
+          @item.send("#{t}=", parse_date(params[:event][t]).to_datetime + params[:event]["#{t}(4i)"].to_i.hours + params[:event]["#{t}(5i)"].to_i.minutes)
         else
           @item.send("#{t}=", nil)
         end
@@ -48,7 +48,7 @@ class EventsController < ApplicationController
 
   def index
     if params[:from] && params[:to]
-      @items = Event.all_in_range(Date.parse(params[:from].to_s).to_datetime, Date.parse(params[:to].to_s).to_datetime, params[:page])
+      @items = Event.all_in_range(parse_date(params[:from].to_s).to_datetime, parse_date(params[:to].to_s).to_datetime, params[:page])
     else
       @items = Event.paginate :per_page => 5, :page => params[:page], :order => 'start_time DESC, id DESC'
     end
@@ -78,5 +78,11 @@ class EventsController < ApplicationController
   protected
     def date_till
       Event.last_event_date || Date.today
+    end
+    
+    def parse_date(date)
+      Date.parse(date)
+    rescue
+      Date.strptime(date, '%d.%m.%Y')
     end
 end
