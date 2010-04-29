@@ -25,4 +25,12 @@ module EventsHelper
       'неизвестно'
     end
   end
+
+  def events_root_place
+    select :events, :root_place, @places.collect { |p| [p.title, p.id] }, :include_blank => "Любая страна", :selected => @root_place_id
+  end
+
+  def events_root_subject
+    select :events, :root_subject, @subjects.collect { |p| [p.title, p.id] }, :include_blank => "Любая тематика", :selected => @root_subject_id
+  end
 end

@@ -62,19 +62,26 @@ class EventsController < ApplicationController
   end
 
   def cities
+    default_object = params[:empty_text] ? [{ :label => 'Любой город', :id => 0 }] : []
     @event = Place.find params[:events][:root_place]
 
-    render :text => (@event.children.collect { |p| ({ :id => p.id, :label => p.title })}).to_json
+    render :text => (default_object + @event.children.collect { |p| ({ :id => p.id, :label => p.title })}).to_json
   rescue
-    render :text => [].to_json
+    render :text => default_object.to_json
   end
 
   def subjects
+    default_object = params[:empty_text] ? [{ :label => 'Любая специализация', :id => 0 }] : []
     @event = Subject.find params[:events][:root_subject]
 
-    render :text => (@event.children.collect { |p| ({ :id => p.id, :label => p.title })}).to_json
+    render :text => (default_object + @event.children.collect { |p| ({ :id => p.id, :label => p.title })}).to_json
   rescue
-    render :text => [].to_json
+    render :text => default_object.to_json
+  end
+
+  def search
+    @places = Place.roots
+    @subjects = Subject.roots
   end
 
   protected

@@ -1,0 +1,32 @@
+- require_jquery_datepicker
+- javascript 'jquery.selectchain', 'events-search'
+- form_for Event.new, :url => url_for, :html => { :method => :get }  do |f|
+  = f.error_messages
+  %dl
+    %dt
+      Тематика события
+    %dd
+      = events_root_subject
+      Специализация
+      = f.select :subject_id, @child_subjects || [], :selected => @subject_id, :include_blank => "Любая специализация"
+    %dt
+      Тип события
+    %dd
+      = f.select :event_type_id, EventType.all.collect { |p| [p.title, p.id] }, :include_blank => "Любой тип"
+    %dt
+      Место события
+    %dd
+      = events_root_place
+      = f.select :place_id, @child_places || [], :selected => @place_id, :include_blank => "Любой город"
+    %dt
+      Бесплатное мероприятие ?
+    %dd
+      %label
+        = radio_button_tag :event_free, 1
+        да
+      %label
+        = radio_button_tag :event_free, 0
+        нет
+    %dt
+    %dd
+      = f.submit "Поиск"

@@ -77,4 +77,20 @@ class ActiveSupport::TestCase
   def assert_correct_search_form_action
     assert_select "form#form_with_navigation[action=?][method=get]", events_path
   end
+  
+  def assert_jquery_datepicker_loaded
+    assert_css_loaded '/css/base/ui.all.css'
+    assert_javascript_loaded 'ui/ui.core'
+    assert_javascript_loaded 'ui/ui.datepicker'
+    assert_javascript_loaded 'ui/i18n/ui.datepicker-ru'
+  end
+
+  def assert_javascript_loaded(js)
+    str =  "/javascripts/#{js}.js"
+    assert_select 'script[type=text/javascript][src^=?]', str, 1
+  end
+  
+  def assert_css_loaded(css)
+    assert_select 'link[type=text/css][href^=?]', css, 1
+  end
 end

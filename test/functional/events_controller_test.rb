@@ -24,6 +24,38 @@ class EventsControllerTest < ActionController::TestCase
       assert obj.is_a?(Array)
       assert_equal 0, obj.size
     end
+
+    context "with empty_text set" do
+      setup do
+        @default_object = { :label => 'Любой город', :id => 0 }.stringify_keys
+      end
+
+      should "return subcategories of some place" do
+        @ev = Place.make :title => 'xxx'
+        @child = Place.make :parent_id => @ev.id, :title => 'asdf'
+
+        get :cities, :events => { :root_place => @ev.id }.stringify_keys, :empty_text => true
+
+        obj = JSON.parse(@response.body)
+        assert obj.is_a?(Array)
+        assert_equal 2, obj.size
+        assert_equal(
+          [@default_object, { :label => 'asdf', :id => @child.id }.stringify_keys], 
+          obj
+        )
+      end
+
+      should "return json array if no category exist" do
+        Place.delete_all
+
+        get :cities, :empty_text => true
+
+        obj = JSON.parse(@response.body)
+        assert obj.is_a?(Array)
+        assert_equal 1, obj.size
+        assert_equal @default_object, obj.first
+      end
+    end
   end
 
   context "subjects action" do
@@ -48,6 +80,38 @@ class EventsControllerTest < ActionController::TestCase
       assert obj.is_a?(Array)
       assert_equal 0, obj.size
     end
+
+    context "with empty_text set" do
+      setup do
+        @default_object = { :label => 'Любая специализация', :id => 0 }.stringify_keys
+      end
+
+      should "return subcategories of some place with empty_text" do
+        @ev = Subject.make :title => 'xxx'
+        @child = Subject.make :parent_id => @ev.id, :title => 'asdf'
+
+        get :subjects, :events => { :root_subject => @ev.id }.stringify_keys, :empty_text => true
+
+        obj = JSON.parse(@response.body)
+        assert obj.is_a?(Array)
+        assert_equal 2, obj.size
+        assert_equal(
+          [@default_object, { :label => 'asdf', :id => @child.id }.stringify_keys], 
+          obj
+        )
+      end
+
+      should "return json array if no category exist" do
+        Place.delete_all
+
+        get :subjects, :empty_text => true 
+
+        obj = JSON.parse(@response.body)
+        assert obj.is_a?(Array)
+        assert_equal 1, obj.size
+        assert_equal @default_object, obj.first
+      end
+    end
   end
 
   context "index action" do
@@ -58,6 +122,7 @@ class EventsControllerTest < ActionController::TestCase
 
       get :index
 
+      assert_jquery_datepicker_loaded
       #should contain titles
       assert_contains_n_times @response.body, 'xxx1&lt;', 1
       assert_contains_n_times @response.body, 'xxx2', 1
@@ -78,6 +143,8 @@ class EventsControllerTest < ActionController::TestCase
       get :index
       assert_select '.item', 5
       assert_correct_search_form_action
+      assert_jquery_datepicker_loaded
+      assert_javascript_loaded 'events-index'
 
       get :index, :page => 4
       assert_select '.item', 5
@@ -102,6 +169,8 @@ class EventsControllerTest < ActionController::TestCase
       get :index, p
       assert_select '.item', 5
       assert_correct_search_form_action
+      assert_jquery_datepicker_loaded
+      assert_javascript_loaded 'events-index'
 
       get :index, p.merge(:page => 4)
       assert_select '.item', 5
@@ -124,6 +193,8 @@ class EventsControllerTest < ActionController::TestCase
 
       get :index
       assert_contains_pagination
+      assert_jquery_datepicker_loaded
+      assert_javascript_loaded 'events-index'
     end
 
     should "show correct message if cost is zero" do
@@ -180,6 +251,27 @@ class EventsControllerTest < ActionController::TestCase
       get :index
 
       assert_contains_n_times @response.body,  "неизвестно", 1
+    end
+  end
+
+  context "new action" do
+    should "contain needed javascripts" do
+      get :new
+
+      assert_jquery_datepicker_loaded
+      assert_javascript_loaded 'jquery.selectchain'
+      assert_javascript_loaded 'events'
+    end
+  end
+
+  context "search action" do
+    should "contain needed javascripts" do
+      get :search
+
+      assert_jquery_datepicker_loaded
+      assert_javascript_loaded 'jquery.selectchain'
+      assert_javascript_loaded 'events-search'
+      assert_select 'form[action=?]', '/events/search'
     end
   end
 end

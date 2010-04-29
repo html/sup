@@ -11,4 +11,9 @@ module ApplicationHelper
   def javascript(*args)
     content_for(:head) { javascript_include_tag(*args) }
   end
+
+  def require_jquery_datepicker
+    stylesheet '/css/base/ui.all.css'
+    javascript 'ui/ui.core', 'ui/ui.datepicker', 'ui/i18n/ui.datepicker-ru'
+  end
 end
