@@ -1,4 +1,3 @@
-var l =console.log;
 function enabledIfChecked(items, checkbox){
   $(items).attr('disabled', !$(checkbox).is(':checked'));
 }

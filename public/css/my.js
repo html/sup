@@ -1,3 +1,6 @@
+if (window.console && window.console.log) {
+  window.l = window.console.log;
+}
 
 $(document).ready(function() {
     return;
