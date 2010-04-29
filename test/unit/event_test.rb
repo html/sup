@@ -45,4 +45,154 @@ class EventTest < ActiveSupport::TestCase
       assert_equal 0, Event.all_in_range(start, _end, 6).size
     end
   end
+
+  context "Event::search" do
+    should "return all items when no params" do
+      Event.delete_all 
+      6.times do
+        Event.make 
+      end
+
+      assert_equal 5, Event.search.size
+      assert_equal 1, Event.search(2).size
+    end
+
+    should "return only items with specified subject parent_id" do
+      Event.delete_all 
+      rand(5).times do
+        Event.make 
+      end
+
+      @subject = Subject.make :parent_id => Subject.make.id
+      @event = Event.make :subject_id => @subject.id
+
+      assert_equal [@event], Event.search(nil, @subject.parent_id)
+    end
+
+
+    should "return only items with specified subject_id" do
+      Event.delete_all 
+      rand(5).times do
+        Event.make 
+      end
+
+      @subject = Subject.make
+      @event = Event.make :subject_id => @subject.id
+
+      assert_equal [@event], Event.search(nil, nil, @subject.id)
+    end
+
+    should "return only items with specified event_type_id" do
+      Event.delete_all 
+      rand(5).times do
+        Event.make 
+      end
+
+      @subject = EventType.make
+      @event = Event.make :event_type_id => @subject.id
+
+      assert_equal [@event], Event.search(nil, nil, nil, @subject.id)
+    end
+
+    should "return only items with specified place_parent_id" do
+      Event.delete_all 
+      rand(5).times do
+        Event.make 
+      end
+
+      @place = Place.make :parent_id => Place.make.id
+      @event = Event.make :place_id => @place.id
+
+      assert_equal [@event], Event.search(nil, nil, nil, nil, @place.parent_id)
+    end
+
+    should "return only items with specified place_id" do
+      Event.delete_all 
+      rand(5).times do
+        Event.make 
+      end
+
+      @place = Place.make
+      @event = Event.make :place_id => @place.id
+
+      assert_equal [@event], Event.search(nil, nil, nil, nil, nil, @place.id)
+    end
+
+    should "return all items" do
+      Event.delete_all 
+      2.times do
+        Event.make :cost => 5
+      end
+
+      1.times do
+        Event.make :cost => 0
+      end
+
+      1.times do
+        Event.make :cost => nil
+      end
+
+      assert_equal 4, Event.search(nil, nil, nil, nil, nil, nil, 0).size
+    end
+
+    should "return only free items" do
+      Event.delete_all 
+      3.times do
+        Event.make :cost => 5
+      end
+
+      2.times do
+        Event.make :cost => 0
+      end
+
+      2.times do
+        Event.make :cost => nil
+      end
+
+      assert_equal 4, Event.search(nil, nil, nil, nil, nil, nil, 1).size
+    end
+
+    should "return only non-free items" do
+      Event.delete_all 
+      3.times do
+        Event.make :cost => 1
+      end
+
+      2.times do
+        Event.make :cost => 0
+      end
+
+      2.times do
+        Event.make :cost => nil
+      end
+
+      assert_equal 3, Event.search(nil, nil, nil, nil, nil, nil, 2).size
+    end
+
+    should "return only items that start after some time" do
+      Event.delete_all 
+      3.times do
+        Event.make :start_time => Date.today.to_datetime
+      end
+
+      2.times do
+        Event.make :start_time => (Date.today + 1.day).to_datetime
+      end
+
+      assert_equal 2, Event.search(nil, nil, nil, nil, nil, nil, nil, Date.today + 1.day).size
+    end
+
+    should "return only items that start before some time" do
+      Event.delete_all 
+      3.times do
+        Event.make :start_time => (Date.today - 1.day).to_datetime
+      end
+
+      2.times do
+        Event.make :start_time => (Date.today + 1.day).to_datetime
+      end
+
+      assert_equal 3, Event.search(nil, nil, nil, nil, nil, nil, nil, nil, Date.today.to_datetime).size
+    end
+  end
 end
