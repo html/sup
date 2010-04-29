@@ -73,4 +73,8 @@ class ActiveSupport::TestCase
   def assert_contains_pagination
     assert_select '#pagination'
   end
+
+  def assert_correct_search_form_action
+    assert_select "form#form_with_navigation[action=?][method=get]", events_path
+  end
 end

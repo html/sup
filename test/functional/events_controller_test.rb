@@ -71,13 +71,49 @@ class EventsControllerTest < ActionController::TestCase
 
     should "show 5 items per page" do
       Event.delete_all
-      20.times do
+      21.times do
         Event.make
       end
 
       get :index
-
       assert_select '.item', 5
+      assert_correct_search_form_action
+
+      get :index, :page => 4
+      assert_select '.item', 5
+      assert_correct_search_form_action
+
+      get :index, :page => 5
+      assert_select '.item', 1
+      assert_correct_search_form_action
+
+      get :index, :page => 6
+      assert_select '.item', 0
+      assert_correct_search_form_action
+    end
+
+    should "show 5 items per page when from and to params given" do
+      Event.delete_all
+      21.times do
+        Event.make :start_time => Date.today.to_datetime
+      end
+
+      p = { :from => (Date.today - 2.days).to_datetime, :to => (Date.today + 2.days).to_datetime }
+      get :index, p
+      assert_select '.item', 5
+      assert_correct_search_form_action
+
+      get :index, p.merge(:page => 4)
+      assert_select '.item', 5
+      assert_correct_search_form_action
+
+      get :index, p.merge(:page => 5)
+      assert_select '.item', 1
+      assert_correct_search_form_action
+
+      get :index, p.merge(:page => 6)
+      assert_select '.item', 0
+      assert_correct_search_form_action
     end
 
     should "show pagination" do

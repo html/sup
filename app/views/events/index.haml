@@ -1,3 +1,5 @@
+- stylesheet '/css/base/ui.all.css'
+- javascript 'ui/ui.core', 'ui/ui.datepicker', 'ui/i18n/ui.datepicker-ru', 'events-index'
 %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
   %tbody
     %tr
@@ -6,7 +8,7 @@
           %tr
             %td{ :width => "2%" }
             %td
-              %form#form_with_navigation{ :name => "form_with_navigation", :method => "post", :action => "/action/calendar" }
+              - form_for :navigation, :html => { :method => :get, :id => :form_with_navigation } do
                 %input{ :name => "action", :value => "yes", :type => "hidden" }
                 %h1.zagolov
                   Календарь тренингов, семинаров, конференций   с
@@ -14,7 +16,6 @@
                   по
                   %input#to{ :name => "to", :value => @date_till.strftime("%d.%m.%Y"), :type => "text" }
                   %input#sub{ :value => "\320\275\320\260\320\271\321\202\320\270", :type => "submit" }
-
 %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
   %tbody
     %tr

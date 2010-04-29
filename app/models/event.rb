@@ -14,4 +14,13 @@ class Event < ActiveRecord::Base
     item = first(:order => 'start_time DESC')
     item && item.start_time
   end
+
+  def self.all_in_range(from, till, page = 1)
+    paginate(
+       :per_page => 5, 
+       :page => page, 
+       :conditions => ['start_time >= ? AND start_time <= ?', from, till], 
+       :order => 'start_time DESC, id DESC'
+    )
+  end
 end

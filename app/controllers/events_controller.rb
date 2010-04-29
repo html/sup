@@ -47,7 +47,11 @@ class EventsController < ApplicationController
   end
 
   def index
-    @items = Event.paginate :per_page => 5, :page => params[:page], :order => 'start_time DESC, id DESC'
+    if params[:from] && params[:to]
+      @items = Event.all_in_range(Date.parse(params[:from].to_s).to_datetime, Date.parse(params[:to].to_s).to_datetime, params[:page])
+    else
+      @items = Event.paginate :per_page => 5, :page => params[:page], :order => 'start_time DESC, id DESC'
+    end
 
     last_date = date_till
 

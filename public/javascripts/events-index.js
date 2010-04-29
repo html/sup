@@ -1,0 +1,3 @@
+$(function(){
+    $('#from,#to').datepicker();
+});
