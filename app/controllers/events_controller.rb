@@ -82,6 +82,39 @@ class EventsController < ApplicationController
   def search
     @places = Place.roots
     @subjects = Subject.roots
+
+    if params[:commit]
+      @is_search = true
+      new_params = params.merge(params[:event] || {}).merge(params[:events] || {})
+      @event_free = new_params[:event_free].to_i
+      @root_subject_id = new_params[:root_subject].to_i
+      @subject_id = new_params[:subject_id].to_i
+      @event_type_id = new_params[:event_type_id].to_i
+      @root_place_id = new_params[:root_place].to_i
+      @place_id = new_params[:place_id].to_i
+
+      begin
+        @start_time = parse_date(new_params[:start_time])
+      rescue 
+      end
+
+      begin
+        @end_time = parse_date(new_params[:end_time])
+      rescue 
+      end
+
+      @items = Event.search(
+        new_params[:page], 
+        @root_subject_id, 
+        @subject_id,
+        @event_type_id,
+        @root_place_id,
+        @place_id,
+        @event_free.to_i,
+        @start_time,
+        @end_time
+      )
+    end
   end
 
   protected

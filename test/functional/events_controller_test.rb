@@ -273,5 +273,11 @@ class EventsControllerTest < ActionController::TestCase
       assert_javascript_loaded 'events-search'
       assert_select 'form[action=?]', '/events/search'
     end
+
+    should "call correct search method" do
+
+      mock(Event).search(nil, 1, 3, 4, 2, 5, 6, nil, nil)
+      get :search, :events => { :root_subject => 1, :root_place => 2  }, :event => { :subject_id => 3, :event_type_id => 4, :place_id => 5 }, :event_free => 6, :commit => true
+    end
   end
 end

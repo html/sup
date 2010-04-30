@@ -27,10 +27,18 @@ module EventsHelper
   end
 
   def events_root_place
+    if @root_place_id
+      @child_places = Place.parent_id_equals(@root_place_id).collect { |item| [item.title, item.id] }
+    end
+
     select :events, :root_place, @places.collect { |p| [p.title, p.id] }, :include_blank => "Любая страна", :selected => @root_place_id
   end
 
   def events_root_subject
+    if @root_subject_id
+      @child_subjects = Subject.parent_id_equals(@root_subject_id).collect { |item| [item.title, item.id] }
+    end
+
     select :events, :root_subject, @subjects.collect { |p| [p.title, p.id] }, :include_blank => "Любая тематика", :selected => @root_subject_id
   end
 end
