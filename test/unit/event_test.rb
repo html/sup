@@ -10,6 +10,8 @@ class EventTest < ActiveSupport::TestCase
   should_belong_to :place
   should_belong_to :subject
   should_belong_to :event_type
+  should_belong_to :owner
+  should_validate_presence_of :owner_id
 
   context "Event::last_event_date" do
     should "return correct date" do

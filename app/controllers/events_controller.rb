@@ -1,14 +1,14 @@
 class EventsController < ApplicationController
+  before_filter :assign_places, :only => [:new, :create, :search]
+  before_filter :assign_subjects, :only => [:new, :create, :search]
+  before_filter :require_login, :only => [:new, :create]
+
   def new
     @item = Event.new
-    @places = Place.roots
-    @subjects = Subject.roots
   end
 
   def create
-    @item = Event.new(params[:event])
-    @places = Place.roots
-    @subjects = Subject.roots
+    @item = Event.new(params[:event].merge(:owner_id => @current_user.id))
     
     if @item.place && @item.place.parent
       @root_place_id = @item.place.parent.id
@@ -80,9 +80,6 @@ class EventsController < ApplicationController
   end
 
   def search
-    @places = Place.roots
-    @subjects = Subject.roots
-
     if params[:commit]
       @is_search = true
       new_params = params.merge(params[:event] || {}).merge(params[:events] || {})
@@ -115,6 +112,11 @@ class EventsController < ApplicationController
         @end_time
       )
     end
+  end
+
+  def my
+    @items = @current_user.events.paginate(:page => 1, :per_page => 5)
+    render :index
   end
 
   protected

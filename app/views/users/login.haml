@@ -1,0 +1,12 @@
+- form_for @user, :url => login_path  do |f|
+  = @user.errors.full_messages.first
+  %dl
+    %dt
+      Логин
+    %dd
+      = f.text_field :login
+    %dt
+      Пароль
+    %dd
+      = f.password_field :password
+  = f.submit "Войти"

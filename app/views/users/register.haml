@@ -1,0 +1,44 @@
+- require_jquery_datepicker
+- require_jquery_selectchain
+- javascript 'register'
+- form_for @user, :url => register_path  do |f|
+  = f.error_messages
+  %dl
+    %dt
+      Фамилия
+    %dd
+      = f.text_field :last_name
+    %dt
+      Имя
+    %dd
+      = f.text_field :first_name
+    %dt
+      Отчество
+    %dd
+      = f.text_field :patronymic
+    %dt
+      Логин/ник*
+    %dd
+      = f.text_field :login
+    %dt
+      пароль*
+    %dd
+      = f.password_field :password
+    %dt
+      пароль (повторить)*
+    %dd
+      = f.password_field :password_confirmation
+    %dt
+      емейл*
+    %dd
+      = f.text_field :email
+    %dt
+      дата рождения
+    %dd
+      = f.text_field :birth_date
+    %dt
+      Страна, Город
+    %dd
+      = select :typus_users, :root_place, @places.collect { |p| [p.title, p.id] }, :include_blank => true, :selected => @root_place_id
+      = f.select :city_id, @child_places || [], :selected => @place_id
+  = f.submit "Зарегистрироваться"

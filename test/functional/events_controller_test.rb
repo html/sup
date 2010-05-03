@@ -256,10 +256,11 @@ class EventsControllerTest < ActionController::TestCase
 
   context "new action" do
     should "contain needed javascripts" do
+      login
       get :new
 
       assert_jquery_datepicker_loaded
-      assert_javascript_loaded 'jquery.selectchain'
+      assert_jquery_selectchain_loaded
       assert_javascript_loaded 'events'
     end
   end
@@ -269,7 +270,7 @@ class EventsControllerTest < ActionController::TestCase
       get :search
 
       assert_jquery_datepicker_loaded
-      assert_javascript_loaded 'jquery.selectchain'
+      assert_jquery_selectchain_loaded
       assert_javascript_loaded 'events-search'
       assert_select 'form[action=?]', '/events/search'
     end
@@ -278,6 +279,14 @@ class EventsControllerTest < ActionController::TestCase
 
       mock(Event).search(nil, 1, 3, 4, 2, 5, 6, nil, nil)
       get :search, :events => { :root_subject => 1, :root_place => 2  }, :event => { :subject_id => 3, :event_type_id => 4, :place_id => 5 }, :event_free => 6, :commit => true
+    end
+  end
+
+  context "my action" do
+    should "be displayed" do
+      login
+      get :my
+      assert_response :success
     end
   end
 end

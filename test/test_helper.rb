@@ -4,7 +4,9 @@ require 'test_help'
 require 'shoulda'
 require 'machinist/active_record'
 require 'ruby-debug'
+require 'faker'
 require 'rr'
+require 'typus_user_ext'
 
 Event.blueprint do
   title 'test'
@@ -14,6 +16,7 @@ Event.blueprint do
   place_id Place.make.id
   subject_id Subject.make.id
   event_type_id EventType.make.id
+  owner_id TypusUser.make.id
 end
 
 Post.blueprint do
@@ -32,6 +35,13 @@ end
 
 EventType.blueprint do
   title 'asdf'
+end
+
+TypusUser.blueprint do |x,y|
+  email Faker::Internet.email
+  password 'x' * 8
+  role 'user'
+  login Faker::Name.name + rand(100).to_s
 end
 
 class ActiveSupport::TestCase
@@ -94,5 +104,14 @@ class ActiveSupport::TestCase
   
   def assert_css_loaded(css)
     assert_select 'link[type=text/css][href^=?]', css, 1
+  end
+
+  def assert_jquery_selectchain_loaded
+    assert_javascript_loaded 'jquery.selectchain'
+    assert_javascript_loaded 'apply-select-chain'
+  end
+
+  def login
+    session[:typus_user_id] = (@current_user ||= TypusUser.make).id
   end
 end

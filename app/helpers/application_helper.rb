@@ -16,4 +16,8 @@ module ApplicationHelper
     stylesheet '/css/base/ui.all.css'
     javascript 'ui/ui.core', 'ui/ui.datepicker', 'ui/i18n/ui.datepicker-ru'
   end
+
+  def require_jquery_selectchain
+    javascript 'jquery.selectchain', 'apply-select-chain'
+  end
 end

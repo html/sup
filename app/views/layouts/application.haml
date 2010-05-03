@@ -17,12 +17,13 @@
         %td{ :valign => "top", :width => "20" }
           \&nbsp;
         %td{ :align => "right" }
-          %p.login
-            %a{ :href => "#" }
-              Вход
-            \&nbsp;&nbsp;
-            %a{ :href => "#" }
-              Регистрация
+          - if @current_user
+            = link_to 'Выйти', logout_path
+          - else
+            %p.login
+              = link_to "Вход", login_path
+              \&nbsp;&nbsp;
+              = link_to 'Регистрация', register_path
         %td
           \&nbsp;
         %td
@@ -170,6 +171,10 @@
                 %td.br
           #log1
         %td{ :valign => "top", :bgcolor => "#FFFFFF" }
+          - flash.each do |name, msg|
+            %div{ :class => name }
+              =t(msg)
+            .clear
           = yield
         %td{ :valign => "top", :width => "100", :bgcolor => "#FFFFFF" }
           %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
