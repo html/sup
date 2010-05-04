@@ -283,10 +283,15 @@ class EventsControllerTest < ActionController::TestCase
   end
 
   context "my action" do
-    should "be displayed" do
+    should "be displayed when logged in" do
       login
       get :my
       assert_response :success
+    end
+
+    should "act correctly when not logged in" do
+      get :my
+      assert_require_login
     end
   end
 end

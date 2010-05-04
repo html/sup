@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_filter :assign_subjects
   before_filter :assign_places
+  before_filter :require_login, :only => [:logout]
+  before_filter :require_login, :only => [:change_password], :if => lambda { |x| !x.params[:recover] }
 
   def register
 
@@ -36,5 +38,36 @@ class UsersController < ApplicationController
     session[:typus_user_id] = nil
     flash[:notice] = 'Успешно вышли'
     redirect_to root_url
+  end
+
+  def forgot_password
+    if request.post? && params[:typus_user]
+      @user = TypusUser.find_by_email params[:typus_user][:email]
+      ForgotPassword.deliver_index_notification(@user, request.env['HTTP_HOST'])
+
+      if @user
+        @user.generate_recovery_hash
+      end
+    end
+  end
+
+  def change_password
+
+    if params[:recover]
+      @recover = params[:recover]
+      @current_user = TypusUser.find_by_recovery_hash(@recover)
+
+      unless @current_user
+        flash[:notice] = "Код для восстановления не верный, попробуйте еще раз"
+        return redirect_to forgot_password_url
+      end
+    end
+
+    if request.post?
+      if @current_user.change_password(params[:typus_user])
+        flash[:notice] = 'Пароль успешно изменен'
+        redirect_to root_url
+      end
+    end
   end
 end

@@ -6,7 +6,6 @@ require 'machinist/active_record'
 require 'ruby-debug'
 require 'faker'
 require 'rr'
-require 'typus_user_ext'
 
 Event.blueprint do
   title 'test'
@@ -109,6 +108,10 @@ class ActiveSupport::TestCase
   def assert_jquery_selectchain_loaded
     assert_javascript_loaded 'jquery.selectchain'
     assert_javascript_loaded 'apply-select-chain'
+  end
+
+  def assert_require_login
+    assert_redirected_to root_url
   end
 
   def login
