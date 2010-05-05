@@ -19,6 +19,14 @@ class UsersControllerTest < ActionController::TestCase
 
       assert_response :success
     end
+
+    should "output link to forgot_password page when wrong password provided" do
+      post :login, :typus_user => {}
+
+      assert_response :success
+
+      assert_contains_n_times @response.body, forgot_password_path, 1
+    end
   end
 
   context "logout action" do

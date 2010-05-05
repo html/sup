@@ -1,5 +1,9 @@
 - form_for @user, :url => login_path  do |f|
-  = @user.errors.full_messages.first
+  - unless @user.errors.empty?
+    = @user.errors.full_messages.first
+    %br
+    Забыли пароль ? 
+    = link_to 'Перейдите на страницу восстановления пароля', forgot_password_path
   %dl
     %dt
       Логин
