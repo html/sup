@@ -117,4 +117,23 @@ class UsersControllerTest < ActionController::TestCase
       assert_redirected_to root_url
     end
   end
+
+  context "profile action" do
+    should "be displayed" do
+      @xss_data = xss_array(:login, :first_name, :last_name, :patronymic)
+      @city = Place.make(
+        xss_array(:title).merge(:parent_id => Place.make(xss_array(:title)).id)
+      )
+      @user = TypusUser.make @xss_data.merge(:city_id => @city.id)
+
+      get :profile, :id => @user.id
+
+      assert_not_nil assigns(:user)
+      assert_response_contains '&lt;login&gt;', 1
+      assert_response_contains '&lt;first_name&gt;', 1
+      assert_response_contains '&lt;last_name&gt;', 1
+      assert_response_contains '&lt;patronymic&gt;', 1
+      assert_response_contains '&lt;title&gt;', 2
+    end
+  end
 end

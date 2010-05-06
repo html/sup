@@ -1,4 +1,5 @@
 class TypusUser < ActiveRecord::Base
+  belongs_to :city, :class_name => 'Place'
   validates_presence_of :login
   validates_uniqueness_of :login
   has_many :events, :foreign_key => :owner_id
@@ -33,5 +34,9 @@ class TypusUser < ActiveRecord::Base
 
   def generate_recovery_hash
     self.update_attributes! :recovery_hash => Digest::MD5.hexdigest("#{Time.now.to_i}--some secret password")
+  end
+
+  def full_name
+    "#{last_name} #{first_name} #{patronymic}"
   end
 end

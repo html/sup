@@ -73,4 +73,8 @@ class UsersController < ApplicationController
       end
     end
   end
+
+  def profile
+    @user = TypusUser.find(params[:id])
+  end
 end

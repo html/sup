@@ -187,7 +187,7 @@
                   %th
                     %p.text_8
                       %span.niki
-                        = h @current_user.first_name
+                        = h @current_user.login
                   %td.r
                 %tr
                   %td.l
@@ -214,8 +214,7 @@
                   %td.l
                   %td.print
                     %p.text_25
-                      %a{ :href => "#" }
-                        Мой профиль
+                      = link_to 'Мой профиль', profile_path(@current_user)
                     %p.text_25
                       %a{ :href => "#" }
                         Изменени статтуса

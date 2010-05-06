@@ -1,0 +1,153 @@
+%table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+  %tbody
+    %tr
+      %td{ :width => "100%" }
+        %span.styl11
+%table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+  %tbody
+    %tr
+      %td.tl
+      %td.t
+      %td.tr
+    %tr
+      %td.l
+      %td{ :valign => "top" }
+        %table{ :cellspacing => "0", :border => "0", :width => "100%", :cellpadding => "0" }
+          %tbody
+            %tr
+              %td.zagolov{ :align => "center", :width => "25%" }
+                = h @user.login
+              %td{ :width => "50%" }
+                \&nbsp;
+              %td
+                \&nbsp;
+              %td
+                \&nbsp;
+            %tr
+              %td{ :rowspan => "2", :align => "center", :height => "200", :valign => "top" }
+                %p
+                  %img{ :src => "/temp/anime_animaziya.gif", :height => "150", :width => "150" }
+              %td{ :valign => "bottom" }
+                %table{ :cellspacing => "0", :cellpadding => "0" }
+                  %tbody
+                    %tr
+                      %td
+                        %span.text_4
+                          Класс
+                      %td{ :align => "left" }
+                        \&nbsp;
+                      %td{ :align => "left" }
+                        %span.text_4
+                          %strong
+                            Пользователь
+                    /
+                      %tr
+                        %td
+                          %span.text_4
+                            Пол
+                        %td{ :align => "left" }
+                          \&nbsp;
+                        %td{ :align => "left" }
+                          %span.text_4
+                            %img{ :title => "\320\237\320\260\321\200\320\265\320\275\321\214", :src => "http://pslan.kiev.ua/pic/male.gif", :alt => "\320\237\320\260\321\200\320\265\320\275\321\214" }
+                    - if @user.birth_date
+                      %tr
+                        %td
+                          %span.text_4
+                            Возраст
+                        %td{ :align => "left" }
+                          \&nbsp;
+                        %td{ :align => "left" }
+                          %span.text_4
+                            = display_age_for @user.birth_date
+                      %tr
+                        %td
+                          %span.text_4
+                            Дата Рождения
+                        %td{ :align => "left" }
+                          \&nbsp;
+                        %td{ :align => "left" }
+                          %span.text_4
+                            = @user.birth_date.strftime('%d.%m.%Y')
+                      %tr
+                        %td
+                          %span.text_4
+                            Знак зодиака
+                        %td{ :align => "left" }
+                          \&nbsp;
+                        %td{ :align => "left" }
+                          %span.text_4
+                            - sign = zodiac_sign_for(@user.birth_date).downcase
+                            = image_tag 'http://pslan.kiev.ua/pic/zodiac/' + sign + '.gif'#, :alt => t(sign)
+                %p
+                  \&nbsp;
+              /
+                %td
+                  \&nbsp;
+                  %p.border-bottom
+                    Учимся верстать правильно
+              %td
+                \&nbsp;
+            %tr
+              %td{ :valign => "top" }
+                %table{ :cellspacing => "0", :cellpadding => "0" }
+                  %tbody
+                    %tr
+                      %td
+                        %span.text_4
+                          ФИО
+                      %td{ :align => "left" }
+                        \&nbsp;
+                      %td{ :align => "left" }
+                        %span.text_4
+                          = h @user.full_name
+                    - if @user.city 
+                      %tr
+                        %td
+                          %span.text_4
+                            Страна,Город
+                        %td{ :align => "left" }
+                          \&nbsp;
+                        %td{ :align => "left" }
+                          %span.text_4
+                            = display_place_for @user
+                    %tr
+                      %td
+                        %span.text_4
+                          Направления
+                      %td{ :align => "left" }
+                        \&nbsp;
+                      %td{ :align => "left" }
+                        %span.text_4
+                          Эзотерика, Психология
+                %p
+                  \&nbsp;
+                %p
+                  \&nbsp;
+              %td
+                \&nbsp;
+              %td
+                \&nbsp;
+            /
+              %tr
+                %td
+                  ICQ Skype email
+                %td
+                  \&nbsp;
+                %td
+                  \&nbsp;
+                %td
+                  \&nbsp;
+              %tr
+                %td{ :colspan => "4" }
+                  %p
+                    \&nbsp;
+                  %p.text_3
+                    HTML О себе...
+                  %p
+                    \&nbsp;
+      %td.r
+    %tr
+      %td.bl
+      %td.b
+      %td.br

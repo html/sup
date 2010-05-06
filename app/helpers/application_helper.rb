@@ -20,4 +20,24 @@ module ApplicationHelper
   def require_jquery_selectchain
     javascript 'jquery.selectchain', 'apply-select-chain'
   end
+
+  def display_place_for(user)
+    if user.city
+      if user.city.parent
+        h "#{user.city.parent.title}, #{user.city.title}"
+      else
+        h "#{user.city.title}"
+      end
+    end
+  end
+
+  def display_age_for(birthdate, today = Date.today)
+    return nil if birthdate.nil? || birthdate > today
+    if today.month >= birthdate.month and today.day >= birthdate.day 
+      # Birthday has happened already this year.
+      today.year - birthdate.year
+    else
+      today.year - birthdate.year - 1
+    end
+  end
 end

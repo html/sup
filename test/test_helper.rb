@@ -121,4 +121,12 @@ class ActiveSupport::TestCase
   def login
     session[:typus_user_id] = (@current_user ||= TypusUser.make).id
   end
+
+  def xss_array(*args)
+    arr = {}
+    args.each do |it|
+      arr[it] = "<#{it}>"
+    end
+    arr
+  end
 end
