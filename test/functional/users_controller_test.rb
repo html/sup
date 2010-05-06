@@ -125,6 +125,7 @@ class UsersControllerTest < ActionController::TestCase
         xss_array(:title).merge(:parent_id => Place.make(xss_array(:title)).id)
       )
       @user = TypusUser.make @xss_data.merge(:city_id => @city.id)
+      login
 
       get :profile, :id => @user.id
 
@@ -134,6 +135,58 @@ class UsersControllerTest < ActionController::TestCase
       assert_response_contains '&lt;last_name&gt;', 1
       assert_response_contains '&lt;patronymic&gt;', 1
       assert_response_contains '&lt;title&gt;', 2
+    end
+
+    should "display edit profile message if user watches his profile" do
+      login
+
+      get :profile, :id => @current_user.id
+      
+      assert_response_contains 'Редактировать профиль', 1
+    end
+  end
+
+  context "change_status action" do
+    should "be displayed" do
+      get :change_status
+      assert_require_login
+    end
+
+    should "display buy message" do
+      login
+
+      get :change_status
+      
+      assert_response_contains 'Купить', 1
+    end
+
+    should "change user's status" do
+      login
+
+      get :change_status, :status => :partner
+
+      assert_equal 'partner', @current_user.reload.role
+      assert_redirected_to change_status_path
+    end
+
+    should "behave correctly when user is partner" do
+      login
+      @current_user.update_attributes :role => "partner"
+
+      get :change_status
+      assert_response_contains 'Купить', 0
+      assert_response_contains 'Переключиться на мастера', 1
+      assert_response_contains 'Переключиться на партнера', 0
+    end
+
+    should "behave correctly when user is master" do
+      login
+      @current_user.update_attributes :role => "master"
+
+      get :change_status
+      assert_response_contains 'Купить', 0
+      assert_response_contains 'Переключиться на мастера', 0
+      assert_response_contains 'Переключиться на партнера', 1
     end
   end
 end

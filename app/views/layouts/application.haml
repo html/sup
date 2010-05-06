@@ -216,8 +216,7 @@
                     %p.text_25
                       = link_to 'Мой профиль', profile_path(@current_user)
                     %p.text_25
-                      %a{ :href => "#" }
-                        Изменени статтуса
+                      = link_to 'Изменение статтуса', change_status_path
                     %p.text_25
                       = link_to 'Добавления мероприятия', new_event_path
                     %p.text_25
@@ -252,7 +251,7 @@
           \&nbsp;
       %tr
         %td{ :valign => "bottom", :width => "20", :bgcolor => "#FFFFFF" }
-          %img{ :src => " img/yn1.png", :height => "20", :width => "20" }
+          %img{ :src => "/img/yn1.png", :height => "20", :width => "20" }
         %td{ :valign => "top", :bgcolor => "#FFFFFF" }
           \&nbsp;
         %td{ :valign => "top", :bgcolor => "#FFFFFF" }
@@ -260,7 +259,7 @@
         %td{ :valign => "top", :bgcolor => "#FFFFFF" }
           \&nbsp;
         %td{ :valign => "bottom", :width => "20", :bgcolor => "#FFFFFF" }
-          %img{ :src => " img/yn2.png", :height => "20", :width => "20" }
+          %img{ :src => "/img/yn2.png", :height => "20", :width => "20" }
     %p
       \&nbsp;
     %table{ :cellspacing => "0", :border => "0", :width => "100%", :cellpadding => "0" }

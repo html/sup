@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_filter :assign_subjects
   before_filter :assign_places
-  before_filter :require_login, :only => [:logout]
-  before_filter :require_login, :only => [:change_password], :if => lambda { |x| !x.params[:recover] }
+  before_filter :require_login, :only => [:change_password, :logout, :change_status, :profile], :if => lambda { |x| 
+    (x.params[:action] == 'change_password' && !x.params[:recover]) || [:logout, :change_status].map(&:to_s).include?(x.params[:action]) 
+  }
 
   def register
 
@@ -76,5 +77,17 @@ class UsersController < ApplicationController
 
   def profile
     @user = TypusUser.find(params[:id])
+  end
+
+  def change_status
+    if params[:status]
+      if @current_user.role == 'user'
+        @current_user.update_attributes :role => 'partner'
+      else
+        @current_user.update_attributes :role => params[:status] == 'partner' ? 'partner' : 'master'
+      end
+
+      redirect_to change_status_path
+    end
   end
 end

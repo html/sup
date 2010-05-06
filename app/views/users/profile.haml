@@ -9,6 +9,12 @@
       %td.tl
       %td.t
       %td.tr
+    - if @user == @current_user
+      %tr
+        %td.l
+        %td{ :align => :right }
+          = link_to 'Редактировать профиль', edit_profile_path
+        %td.r
     %tr
       %td.l
       %td{ :valign => "top" }
