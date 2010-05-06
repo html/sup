@@ -47,6 +47,9 @@ class UsersController < ApplicationController
 
       if @user
         @user.generate_recovery_hash
+
+        flash[:notice] = 'Пожалуйста проверьте почтовый ящик'
+        redirect_to root_url
       end
     end
   end

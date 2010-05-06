@@ -114,6 +114,7 @@ class UsersControllerTest < ActionController::TestCase
       assert_nil @user.recovery_hash
       post :forgot_password, :typus_user => { :email => @user.email }
       assert_not_nil @user.reload.recovery_hash
+      assert_redirected_to root_url
     end
   end
 end

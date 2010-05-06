@@ -81,6 +81,10 @@ class ActiveSupport::TestCase
     assert_equal num,str1.scan(str2).size
   end
 
+  def assert_response_contains(str, num)
+    assert_contains_n_times @response.body, str, num
+  end
+
   def assert_contains_pagination
     assert_select '#pagination'
   end
