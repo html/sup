@@ -17,9 +17,7 @@
         %td{ :valign => "top", :width => "20" }
           \&nbsp;
         %td{ :align => "right" }
-          - if @current_user
-            = link_to 'Выйти', logout_path
-          - else
+          - unless @current_user
             %p.login
               = link_to "Вход", login_path
               \&nbsp;&nbsp;
@@ -176,49 +174,64 @@
               =t(msg)
             .clear
           = yield
-        %td{ :valign => "top", :width => "100", :bgcolor => "#FFFFFF" }
-          %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
-            %tbody
-              %tr
-                %td.tl
-                %td.t
-                %td.tr
-              %tr
-                %td.l
-                %th
-                  %p.text_8
-                    Ник
-                %td.r
-              %tr
-                %td.l
-                %td.text_8
-                  Аватарка
-                %td.r
-              %tr
-                %td.bl
-                %td.b
-                %td.br
-          %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
-            %tbody
-              %tr
-                %td.tl
-                %td.t
-                %td.tr
-              %tr
-                %td.l
-                %th.text_8
-                  Мой акаунт
-                %td.r
-              %tr
-                %td.l
-                %td.text_3
-                  \&nbsp;
-                %td.r
-              %tr
-                %td.bl
-                %td.b
-                %td.br
-          #log1
+        %td{ :valign => "top", :bgcolor => "#ffffff", :width => "100" }
+          - if @current_user
+            %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+              %tbody
+                %tr
+                  %td.tl
+                  %td.t
+                  %td.tr
+                %tr
+                  %td.l
+                  %th
+                    %p.text_8
+                      %span.niki
+                        = h @current_user.first_name
+                  %td.r
+                %tr
+                  %td.l
+                  %td.text_8
+                    %img{ :src => "/temp/anime_animaziya.gif", :height => "150", :width => "150" }
+                  %td.r
+                %tr
+                  %td.bl
+                  %td.b
+                  %td.br
+            %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+              %tbody
+                %tr
+                  %td.tl
+                  %td.t
+                  %td.tr
+                %tr
+                  %td.l
+                  %th.text_8
+                    %span.text_8
+                      Персональное меню
+                  %td.r
+                %tr
+                  %td.l
+                  %td.print
+                    %p.text_25
+                      %a{ :href => "#" }
+                        Мой профиль
+                    %p.text_25
+                      %a{ :href => "#" }
+                        Изменени статтуса
+                    %p.text_25
+                      = link_to 'Добавления мероприятия', new_event_path
+                    %p.text_25
+                      = link_to 'Мои мероприятия', my_events_path
+                    %p.text_25
+                      = link_to 'Выход', logout_path
+                  %td.r
+                %tr
+                  %td.bl
+                  %td.b
+                  %td.br
+            #log1
+
         %td{ :valign => "top", :width => "20", :bgcolor => "#FFFFFF" }
           \&nbsp;
       %tr

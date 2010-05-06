@@ -293,5 +293,13 @@ class EventsControllerTest < ActionController::TestCase
       get :my
       assert_require_login
     end
+
+    should "display message when no items added" do
+      Event.delete_all
+      login
+      get :my
+
+      assert_response_contains 'Вы еще не добавили ни одного события', 1
+    end
   end
 end
