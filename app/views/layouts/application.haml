@@ -171,7 +171,22 @@
         %td{ :valign => "top", :bgcolor => "#FFFFFF" }
           - flash.each do |name, msg|
             %div{ :class => name }
-              =t(msg)
+              %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+                %tbody
+                  %tr
+                    %td.tl
+                    %td.t
+                    %td.tr
+                  %tr
+                    %td.l
+                    %td
+                      %p.niki
+                        =t(msg)
+                    %td.r
+                  %tr
+                    %td.bl
+                    %td.b
+                    %td.br
             .clear
           = yield
         %td{ :valign => "top", :bgcolor => "#ffffff", :width => "100" }
