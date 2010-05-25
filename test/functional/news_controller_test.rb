@@ -21,7 +21,7 @@ class NewsControllerTest < ActionController::TestCase
     should "y" do
       get :index
 
-      assert_equal @response.template.t "asdf", "asdf"
+      assert_equal @response.template.t("asdf"), "asdf"
     end
   end
 end
