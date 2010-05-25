@@ -117,7 +117,7 @@ class EventsControllerTest < ActionController::TestCase
   context "index action" do
     should "contain titles" do
       Event.delete_all
-      Event.make :title => 'xxx1<', :image_file_name => 'img1&lt;'
+      Event.make :title => 'xxx1<', :image_file_name => 'img1&lt;', :event_type_id => EventType.make(:title => 'secret title')
       Event.make :title => 'xxx2', :image_file_name => 'img2'
 
       get :index
@@ -132,6 +132,9 @@ class EventsControllerTest < ActionController::TestCase
       #should contain image links
       assert_contains_n_times @response.body, 'img1&lt;', 1
       assert_contains_n_times @response.body, 'img2', 1
+
+      #should contain event_type
+      assert_contains_n_times @response.body, 'secret title', 1
     end
 
     should "show 5 items per page" do
