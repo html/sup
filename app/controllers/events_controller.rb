@@ -125,8 +125,8 @@ class EventsController < ApplicationController
     end
     
     def parse_date(date)
-      Date.parse(date)
-    rescue
       Date.strptime(date, '%d.%m.%Y')
+    rescue
+      Date.parse(date)
     end
 end

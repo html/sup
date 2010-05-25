@@ -302,4 +302,11 @@ class EventsControllerTest < ActionController::TestCase
       assert_response_contains 'Вы еще не добавили ни одного события', 1
     end
   end
+
+  context "protected methods" do
+    should "correctly parse date" do
+      get :index
+      assert_equal Date.new(2010, 5, 7), @controller.send(:parse_date, '07.05.2010')
+    end
+  end
 end
