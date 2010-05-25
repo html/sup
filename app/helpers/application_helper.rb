@@ -40,4 +40,8 @@ module ApplicationHelper
       today.year - birthdate.year - 1
     end
   end
+
+  def t(a, b= {})
+    I18n.t(a, b)
+  end
 end

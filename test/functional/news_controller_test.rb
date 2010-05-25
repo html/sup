@@ -16,4 +16,12 @@ class NewsControllerTest < ActionController::TestCase
       end
     end
   end
+  
+  context "x" do
+    should "y" do
+      get :index
+
+      assert_equal @response.template.t "asdf", "asdf"
+    end
+  end
 end
