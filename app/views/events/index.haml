@@ -27,7 +27,11 @@
       %td.l
       %td
         - if @items.empty?
-          Вы еще не добавили ни одного события
+          Не найдено событий по Вашему запросу.
+          %br
+          - if @current_user
+            Вы можете 
+            = link_to 'добавить событие', new_event_path
         - else
           - @items.each do |item|
             %table{ :border => "0", :width => "100%", :class => 'item' }
