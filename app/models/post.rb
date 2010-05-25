@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
-  has_attached_file :image, :default_url => '/images/no_image.jpg'
+  has_attached_file :image, :default_url => '/images/no_image.jpg', :styles => {
+    :list => "330x190#"
+  }
   validates_presence_of :title, :content, :image, :date
 
   def self.list(page = 1)

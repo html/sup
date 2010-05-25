@@ -18,7 +18,7 @@
             %tr
               %td{ :rowspan => "3", :valign => "top", :width => "200" }
                 %span.text_3
-                  %img{ :src => item.image.url, :height => "135", :width => "241" }
+                  %img{ :src => item.image.url(:list), :width => 330, :height => 190 }
               %td.zagolov{ :colspan => "2" }
                 =h item.title
             %tr
