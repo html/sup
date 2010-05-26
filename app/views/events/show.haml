@@ -1,4 +1,34 @@
-%h1.zagolov= @item.title
+%table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+  %tbody
+    %tr
+      %td.tl
+      %td.t
+      %td.tr
+    %tr
+      %td.l
+      %td
+        %p.niki
+          %h1.zagolov= @item.title
+      %td.r
+    %tr
+      %td.bl
+      %td.b
+      %td.br
 %br
-.text_3
-  = simple_format @item.content
+%table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+  %tbody
+    %tr
+      %td.tl
+      %td.t
+      %td.tr
+    %tr
+      %td.l
+      %td
+        %p.niki
+          .text_3
+            = simple_format @item.content
+      %td.r
+    %tr
+      %td.bl
+      %td.b
+      %td.br
