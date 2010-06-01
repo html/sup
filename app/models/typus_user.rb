@@ -1,8 +1,11 @@
 class TypusUser < ActiveRecord::Base
-  belongs_to :city, :class_name => 'Place'
+  belongs_to :place, :class_name => 'Place'
   validates_presence_of :login
   validates_uniqueness_of :login
   has_many :events, :foreign_key => :owner_id
+  has_attached_file :avatar, :default_url => '/images/no_image.jpg', :styles => {
+    :default => "150x150#"
+  }
 
   ROLE = Typus::Configuration.roles.keys.sort
   LANGUAGE = Typus.locales

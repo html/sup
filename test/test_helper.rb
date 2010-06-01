@@ -129,4 +129,20 @@ class ActiveSupport::TestCase
     end
     arr
   end
+
+  def assert_contains_edit_fields(*args)
+    options = args.extract_options!
+
+    args.each do |arg|
+      assert_select 'input[type=text][name=?]', "#{options[:for]}[#{arg}]"
+    end
+  end
+
+  def assert_contains_select_fields(*args)
+    options = args.extract_options!
+
+    args.each do |arg|
+      assert_select 'select[name=?]', "#{options[:for]}[#{arg}]"
+    end
+  end
 end

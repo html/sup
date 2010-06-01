@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_filter :assign_subjects
   before_filter :assign_places
-  before_filter :require_login, :only => [:change_password, :logout, :change_status, :profile], :if => lambda { |x| 
-    (x.params[:action] == 'change_password' && !x.params[:recover]) || [:logout, :change_status].map(&:to_s).include?(x.params[:action]) 
+  before_filter :require_login, :only => [:change_password, :logout, :change_status, :profile, :edit_profile], :if => lambda { |x| 
+    (x.params[:action] == 'change_password' && !x.params[:recover]) || [:logout, :change_status, :edit_profile].map(&:to_s).include?(x.params[:action]) 
   }
 
   def register
@@ -88,6 +88,31 @@ class UsersController < ApplicationController
       end
 
       redirect_to change_status_path
+    end
+  end
+
+  def edit_profile
+
+
+    if params[:typus_user]
+
+      begin
+        @birth_date = params[:typus_user][:birth_date] = parse_date(params[:typus_user][:birth_date])
+      rescue 
+      end
+
+      if @current_user.update_attributes(params[:typus_user])
+        flash[:notice] = 'Информация успешно отредактирована'
+      else
+      end
+    end
+
+    @item = @current_user
+
+    if @item.place && @item.place.parent
+      @root_place_id = @item.place.parent.id
+      @place_id = @item.place.id
+      @child_places = @item.place.parent.children.collect { |p| [p.title, p.id] }
     end
   end
 end

@@ -10,6 +10,8 @@ class UsersControllerTest < ActionController::TestCase
       assert_jquery_datepicker_loaded
       assert_javascript_loaded 'register'
       assert_jquery_selectchain_loaded
+      assert_not_nil assigns(:places)
+      assert_not_nil assigns(:subjects)
     end
   end
 
@@ -124,7 +126,7 @@ class UsersControllerTest < ActionController::TestCase
       @city = Place.make(
         xss_array(:title).merge(:parent_id => Place.make(xss_array(:title)).id)
       )
-      @user = TypusUser.make @xss_data.merge(:city_id => @city.id)
+      @user = TypusUser.make @xss_data.merge(:place_id => @city.id)
       login
 
       get :profile, :id => @user.id
@@ -135,6 +137,7 @@ class UsersControllerTest < ActionController::TestCase
       assert_response_contains '&lt;last_name&gt;', 1
       assert_response_contains '&lt;patronymic&gt;', 1
       assert_response_contains '&lt;title&gt;', 2
+      assert_select 'img.avatar', :count => 2
     end
 
     should "display edit profile message if user watches his profile" do
@@ -187,6 +190,41 @@ class UsersControllerTest < ActionController::TestCase
       assert_response_contains 'Купить', 0
       assert_response_contains 'Переключиться на мастера', 0
       assert_response_contains 'Переключиться на партнера', 1
+    end
+  end
+
+  context "profile_edit action" do
+    should "require login" do
+      get :edit_profile
+      assert_require_login
+    end
+
+    should "contain link to change_password" do
+      login
+      get :edit_profile
+
+      assert_select "a[href=?][target=_blank]", change_path, { :count => 1, :text => "Изменить пароль" }
+    end
+
+    should "contain form and correct form fields" do
+      login
+      get :edit_profile
+
+      assert_jquery_selectchain_loaded
+      assert_jquery_datepicker_loaded
+
+      assert_select 'form[method=post][action=?]', edit_profile_path, :count => 1 do|tag|
+        #text
+        assert_contains_edit_fields :first_name, :last_name, :patronymic, :birth_date, :ways, :phone_number, :icq, :site, :for => :typus_user
+
+        #place
+        assert_contains_select_fields :place_id, :for => :typus_user
+        assert_contains_select_fields :root_place, :for => :events
+
+        assert_select 'textarea[name=?]', 'typus_user[about]'
+        assert_select 'input[type=file][name=?]', 'typus_user[avatar]'
+        assert_select tag[0], 'img.avatar'
+      end
     end
   end
 end

@@ -30,4 +30,10 @@ class ApplicationController < ActionController::Base
         return redirect_to root_url
       end
     end
+
+    def parse_date(date)
+      Date.strptime(date, '%d.%m.%Y')
+    rescue
+      Date.parse(date)
+    end
 end

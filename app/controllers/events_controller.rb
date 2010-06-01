@@ -123,10 +123,4 @@ class EventsController < ApplicationController
     def date_till
       Event.last_event_date || Date.today
     end
-    
-    def parse_date(date)
-      Date.strptime(date, '%d.%m.%Y')
-    rescue
-      Date.parse(date)
-    end
 end

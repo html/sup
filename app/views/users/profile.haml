@@ -32,7 +32,7 @@
             %tr
               %td{ :rowspan => "2", :align => "center", :height => "200", :valign => "top" }
                 %p
-                  %img{ :src => "/temp/anime_animaziya.gif", :height => "150", :width => "150" }
+                  = avatar_for @current_user
               %td{ :valign => "bottom" }
                 %table{ :cellspacing => "0", :cellpadding => "0" }
                   %tbody
@@ -107,7 +107,7 @@
                       %td{ :align => "left" }
                         %span.text_4
                           = h @user.full_name
-                    - if @user.city 
+                    - if @user.place 
                       %tr
                         %td
                           %span.text_4

@@ -41,4 +41,8 @@ module EventsHelper
 
     select :events, :root_subject, @subjects.collect { |p| [p.title, p.id] }, :include_blank => "Любая тематика", :selected => @root_subject_id
   end
+
+  def formatted_date_for_edit_field(date)
+    date && date.strftime('%d.%m.%Y')
+  end
 end

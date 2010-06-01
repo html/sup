@@ -1,0 +1,200 @@
+- require_jquery_selectchain
+- require_jquery_datepicker
+- javascript 'users-edit_profile'
+- form_for @current_user, :url => edit_profile_path, :html => { :multipart => true}, :method => 'post'  do |f|
+  %table.section{ :cellspacing => "0", :align => "center", :width => "100%", :cellpadding => "0" }
+    %tbody
+      %tr
+        %td.tl
+        %td.t
+        %td.tr
+      %tr
+        %td.l
+        %td
+          .zagolov{ :align => "center" }
+            Баксик
+          = f.error_messages
+          %table.text_4{ :cellspacing => "1", :align => "center", :cellpadding => "0" }
+            %tbody
+              %tr
+                %td{ :align => "right" }
+                  Фамилия
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  %span.zagolov
+                    = text_field_for f, :patronymic
+                %td{ :align => "left" }
+                  \&nbsp;
+              %tr
+                %td.text_4{ :align => "right" }
+                  Имя
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  = text_field_for f, :first_name
+                %td{ :align => "left" }
+                  \&nbsp;
+              %tr
+                %td{ :align => "right" }
+                  Отчество
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  = text_field_for f, :last_name
+                %td{ :align => "left" }
+              %tr
+                %td{ :align => "right" }
+                  Дата рождения
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  = text_field_for f, :birth_date, :value => formatted_date_for_edit_field(@current_user.birth_date)
+                %td{ :align => "left" }
+                  \&nbsp;
+              %tr
+                %td{ :align => "right" }
+                  Пол
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  %img{ :src => "/img/female.gif", :height => "18", :width => "18" }
+                  = f.radio_button :sex, true
+                  или
+                  %img{ :src => "/img/male.gif", :height => "18", :width => "18" }
+                  = f.radio_button :sex, false
+                %td{ :align => "left" }
+                  \&nbsp;
+              %tr
+                %td{ :align => "right" }
+                  Направления
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  = text_field_for f, :ways
+                %td{ :align => "left" }
+                  \&nbsp;
+              %tr
+                %td{ :align => "right" }
+                  Телефон
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  = text_field_for f, :phone_number
+                %td{ :align => "left" }
+                  \&nbsp;
+              %tr
+                %td{ :align => "right" }
+                  Страна, Город
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  %span.zagolov
+                    = select :events, :root_place, @places.collect { |p| [p.title, p.id] }, :include_blank => true, :selected => @root_place_id
+                    = f.select :place_id, @child_places || [], :selected => @place_id
+                %td{ :align => "left" }
+              %tr
+                %td{ :align => "right" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  \&nbsp;
+              %tr
+                %td{ :align => "right" }
+                  ICQ
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  = text_field_for f, :icq
+                %td{ :align => "left" }
+                  \&nbsp;
+              %tr
+                %td{ :align => "right" }
+                  Веб сайт
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  = text_field_for f, :site
+                %td{ :align => "left" }
+                  \&nbsp;
+              %tr
+                %td{ :align => "right" }
+                  = avatar_for @current_user
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  \&nbsp;
+              %tr
+                %td{ :align => "right" }
+                  Аватар
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "center" }
+                  %span.zagolov
+                    = f.file_field :avatar, :size => nil
+                %td.text_25
+              %tr
+                %td.text_6{ :align => "right", :colspan => "4" }
+                  Размеры аватарки должны быть не более 150x150 пикселей.
+              %tr
+                %td.text_25{ :align => "right" }
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  %strong
+                    %a{ :href => "1" }
+                %td{ :align => "left" }
+                  %strong
+                    %a{ :href => "1" }
+              %tr
+                %td{ :align => "right" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  \&nbsp;
+              %tr
+                %td.text_25{ :align => "right" }
+                  %a{ :href => change_path, :target => "_blank" }
+                    Изменить пароль
+                  \&nbsp;
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  \&nbsp;
+                %td{ :align => "left" }
+                  %strong
+                    %a{ :href => "1" }
+          %table{ :border => "0", :align => "center" }
+            %tbody
+              %tr
+                %td.text_4
+                  %strong
+                    О себе
+                %td
+                  \&nbsp;
+                %td
+                  \&nbsp;
+              %tr
+                %td{ :colspan => "3" }
+                  %span.zagolov
+                    = f.text_area :about, :id => 'to2', :class => 'login'
+          %p
+            \&nbsp;
+          %table{ :border => "0", :align => "right", :width => "200" }
+            %tbody
+              %tr
+                %td.text_25
+                  = f.submit "Сохранить изменения"
+        %td.r
+      %tr
+        %td.bl
+        %td.b
+        %td.br

@@ -303,7 +303,7 @@ class EventsControllerTest < ActionController::TestCase
       get :my
 
       assert_response_contains 'Не найдено событий по Вашему запросу.', 1
-      assert_select "a[href=?]", new_event_path,{ :count => 1, :text => "добавить событие" }
+      assert_select "a[href=?]", new_event_path, { :count => 1, :text => "добавить событие" }
     end
   end
 

@@ -9,6 +9,7 @@ ru:
       subject: Тематика событий
       place: Место события
       event_type: Тип события
+      typus_user: Пользователь
     attributes:
       post:
         title: Заголовок

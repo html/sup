@@ -22,11 +22,11 @@ module ApplicationHelper
   end
 
   def display_place_for(user)
-    if user.city
-      if user.city.parent
-        h "#{user.city.parent.title}, #{user.city.title}"
+    if user.place
+      if user.place.parent
+        h "#{user.place.parent.title}, #{user.place.title}"
       else
-        h "#{user.city.title}"
+        h "#{user.place.title}"
       end
     end
   end
@@ -43,5 +43,9 @@ module ApplicationHelper
 
   def t(a, b= {})
     I18n.t(a, b)
+  end
+
+  def avatar_for(user)
+    image_tag user.avatar.url, :class => 'avatar'
   end
 end
