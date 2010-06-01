@@ -46,6 +46,6 @@ module ApplicationHelper
   end
 
   def avatar_for(user)
-    image_tag user.avatar.url, :class => 'avatar'
+    image_tag user.avatar.url, :class => 'avatar', :width => 150, :height => 150
   end
 end

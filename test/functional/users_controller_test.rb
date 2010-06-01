@@ -208,10 +208,13 @@ class UsersControllerTest < ActionController::TestCase
 
     should "contain form and correct form fields" do
       login
+      @current_user.update_attributes :login => 'xxxxxxxxxxxxxxxx'
       get :edit_profile
 
       assert_jquery_selectchain_loaded
       assert_jquery_datepicker_loaded
+
+      assert_contains_n_times @response.body, 'xxxxxxxxxxxxxxxx', 2
 
       assert_select 'form[method=post][action=?]', edit_profile_path, :count => 1 do|tag|
         #text
