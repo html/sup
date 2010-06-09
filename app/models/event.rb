@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
   belongs_to :place 
   belongs_to :subject
   belongs_to :event_type
-  belongs_to :owner
+  belongs_to :owner, :class_name => "TypusUser"
 
   has_attached_file :image, :default_url => '/images/no_image.jpg', :styles => {
     :list => "330x190#"

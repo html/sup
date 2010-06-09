@@ -4,10 +4,10 @@
 
 Event:
   fields:
-    list: title, category_id, start_time, end_time, cost
-    form: title, category_id, start_time, end_time, content, cost, image_file_name, image_content_type, image_file_size, image_updated_at
+    list: title, start_time, end_time, cost
+    form: title, category_id, start_time, end_time, content, cost, image_file_name
   order_by: 
-  relationships: 
+  relationships: place
   filters: 
   search: title
   application: sup
