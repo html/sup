@@ -4,13 +4,35 @@
     %br
     Забыли пароль ? 
     = link_to 'Перейдите на страницу восстановления пароля', forgot_password_path
-  %dl
-    %dt
-      Логин
-    %dd
-      = f.text_field :login
-    %dt
-      Пароль
-    %dd
-      = f.password_field :password
-  = f.submit "Войти"
+  %table.section{ :cellspacing => "0", :align => "center", :width => "50%", :cellpadding => "0" }
+    %tbody
+      %tr
+        %td.tl
+        %td.t
+        %td.tr
+      %tr
+        %td.l
+        %td{ :valign => "top" }
+          %table{ :border => "0", :width => "200" }
+            %tbody
+              %tr
+                %td{ :colspan => "2" }
+                  %dl
+                    %dt.text_4
+                      Логин
+                    %dd
+                      = f.text_field :login
+                    %dt.text_4
+                      Пароль
+                    %dd
+                      = f.password_field :password
+              %tr
+                %td
+                  \&nbsp;
+                %td{ :align => "right" }
+                  = f.submit "Войти"
+        %td.r
+      %tr
+        %td.bl
+        %td.b
+        %td.br
