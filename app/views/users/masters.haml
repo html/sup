@@ -1,0 +1,102 @@
+%table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+  %tbody
+    %tr
+      %td.tl
+      %td.t
+      %td.tr
+    %tr
+      %td.l
+      %td
+        -# end header
+        - @users.each do |item|
+          %table.list-item{ :cellspacing => "0", :border => "0", :width => "100%", :cellpadding => "0" }
+            %tbody
+              %tr
+                %td.zagolov{ :align => "center", :width => "25%" }
+                  -#%img{ :src => "img/admin.gif", :height => "16", :width => "13" }
+                  = h item.login
+                %td{ :width => "10" }
+                  \&nbsp;
+                %td{ :width => "50%" }
+                  \&nbsp;
+                %td
+                  \&nbsp;
+              %tr
+                %td{ :rowspan => "2", :align => "center", :height => "160", :valign => "top" }
+                  %p
+                    = avatar_for(item)
+                  %p
+                    %img{ :src => "/img/profile_sm.gif", :height => "16", :width => "16" }
+                    %img{ :src => "/img/online.gif", :height => "18", :width => "18" }
+                    %img{ :src => "/img/www_sm.gif", :height => "16", :width => "16" }
+                %td{ :valign => "bottom" }
+                  \&nbsp;
+                %td
+                  %table{ :cellspacing => "0", :cellpadding => "0" }
+                    %tbody
+                      %tr
+                        %td
+                          %strong
+                            %span.text_4
+                              ФИО:
+                        %td{ :align => "left", :width => "3" }
+                          \&nbsp;
+                        %td{ :align => "left" }
+                          %span.text_4
+                            = h item.full_name
+                      %tr
+                        %td
+                          %strong
+                            %span.text_4
+                              Страна,Город:
+                        %td{ :align => "left" }
+                          \&nbsp;
+                        %td{ :align => "left" }
+                          %span.text_4
+                            = display_place_for item
+                      %tr
+                        %td
+                          %strong
+                            %span.text_4
+                              Направления:
+                        %td{ :align => "left" }
+                          \&nbsp;
+                        %td{ :align => "left" }
+                          %span.text_4
+                            = h item.ways
+                      %tr
+                        %td.text_4
+                          %strong
+                            Телефон:
+                        %td{ :align => "left" }
+                          \&nbsp;
+                        %td.text_4{ :align => "left" }
+                          = h item.phone_number
+                      %tr
+                        %td.text_4
+                          %strong
+                            О себе:
+                        %td{ :align => "left" }
+                          \&nbsp;
+                        %td.text_4{ :align => "left" }
+                          = h item.about
+                %td
+                  \&nbsp;
+              %tr
+                %td{ :valign => "top" }
+                  \&nbsp;
+                %td
+                  \&nbsp;
+                %td
+                  \&nbsp;
+              %tr
+                %td{ :colspan => "4" }
+                  %hr.hr_grey
+          = pagination_for @users
+
+          -# begin footer
+        %td.r
+      %tr
+        %td.bl
+        %td.b
+        %td.br

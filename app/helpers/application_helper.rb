@@ -28,6 +28,8 @@ module ApplicationHelper
       else
         h "#{user.place.title}"
       end
+    else
+      'неизвестно'
     end
   end
 

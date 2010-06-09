@@ -1,7 +1,28 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  # Replace this with your real tests.
+  context "masters action" do
+    should "be displayed" do
+      6.times {|i| TypusUser.make :role => 'master', :login => "TestLogin#{i}", :last_name => 'aaa>', :first_name => 'bbb>', :patronymic => 'ccc>', :place => Place.make(:title => 'TestPlace>'), :ways => 'TestWays>', :phone_number => 'TestPhoneNumber>', :about => 'TestAbout>' }
+      get :masters
+
+      assert_response :success
+
+      assert_select '.list-item' do |tag|
+        tag = tag[0]
+        assert_select tag, '.avatar', :count => 1
+        assert_select tag, '.zagolov', :count => 1, :text => /TestLogin/
+        assert_select tag, 'span', :count => 1, :text => 'aaa&gt; bbb&gt; ccc&gt;'
+        assert_select tag, 'span', :count => 1, :text => 'TestPlace&gt;'
+        assert_select tag, 'span', :count => 1, :text => 'TestWays&gt;'
+        assert_select tag, '.text_4', :count => 1, :text => 'TestPhoneNumber&gt;'
+        assert_select tag, '.text_4', :count => 1, :text => 'TestAbout&gt;'
+      end
+
+      assert_contains_pagination
+    end
+  end
+
   context "register action" do
     should "be displayed" do
       get :register

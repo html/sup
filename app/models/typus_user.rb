@@ -42,4 +42,8 @@ class TypusUser < ActiveRecord::Base
   def full_name
     "#{last_name} #{first_name} #{patronymic}"
   end
+
+  def self.masters(page = nil)
+    paginate_by_role('master', :page => (page || 1), :per_page => 5)
+  end
 end

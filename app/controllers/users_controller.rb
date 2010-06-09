@@ -115,4 +115,8 @@ class UsersController < ApplicationController
       @child_places = @item.place.parent.children.collect { |p| [p.title, p.id] }
     end
   end
+
+  def masters
+    @users = TypusUser.masters(params[:page])
+  end
 end
