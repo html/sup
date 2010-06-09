@@ -119,6 +119,9 @@ class EventsController < ApplicationController
     render :index
   end
 
+  def subjects
+    render '/subjects', :layout => true
+  end
   protected
     def date_till
       Event.last_event_date || Date.today
