@@ -81,7 +81,7 @@
                         %td{ :align => "left" }
                           \&nbsp;
                         %td.text_4{ :align => "left", :title => item.about }
-                          %a{ :class => 'tip', :title => item.about, :href => "#" }
+                          %a{ :class => 'tip', :title => item.about, :href => "javascript:void(0)", :onclick => "return false;" }
                             = h truncate(item.about, :length => 60)
                 %td
                   \&nbsp;
