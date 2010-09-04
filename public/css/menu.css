@@ -11,7 +11,7 @@
 	padding: 0;
 	position: absolute;
 	top: -35px;
-	width: 900px;	
+	width: 1000px;	
 }
 
 /* All lists must float */
@@ -65,7 +65,7 @@
 #navbar li.active ul {
 	display: block;
 	padding-top:10px;
-	width:900px; 
+	width:1000px; 
 }
 
 /* Makes sure sublevels stay on top */
@@ -117,22 +117,28 @@
 	background-image: url(../img/n3.png);
 }
 #navbar li.tserv, #navbar li.tserv a , #navbar li.tserv a span {
-	width: 240px;
+	width: 180px;
 }
 #navbar li.tserv a span {
 	background-image: url(../img/n4.png);
 }
 #navbar li.forum, #navbar li.forum a , #navbar li.forum a span {
-	width: 150px;
+	width: 115px;
 }
 #navbar li.forum a span {
 	background-image: url(../img/n5.png);
 }
 
-#navbar li.na, #navbar li.na a , #navbar li.na a span {
-	width: 110px;
+#navbar li.faq, #navbar li.faq a , #navbar li.faq a span {
+	width: 80px;
 }
-#navbar li.na a span {
+#navbar li.faq a span {
+	background-image: url(../img/n6.png);
+}
+#navbar li.faq, #navbar li.faq a , #navbar li.faq a span {
+	width: 80px;
+}
+#navbar li.faq a span {
 	background-image: url(../img/n6.png);
 }
 #navbar li a:hover,#navbar ul li:hover a {
