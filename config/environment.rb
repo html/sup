@@ -21,6 +21,7 @@ Rails::Initializer.run do |config|
   config.gem 'paperclip'
   config.gem 'russian'
   config.gem 'searchlogic'
+  config.gem 'faker'
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"

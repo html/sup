@@ -119,7 +119,7 @@ class EventsController < ApplicationController
     render :index
   end
 
-  def subjects
+  def subjects2
     render '/subjects', :layout => true
   end
   protected

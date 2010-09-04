@@ -44,7 +44,7 @@ ActionController::Routing::Routes.draw do |map|
   map.change_status 'change_status', :controller => :users, :action => :change_status
   map.profile 'profile/:id', :controller => :users, :action => :profile
   map.my_events 'events/my/:page', :controller => :events, :action => :my, :page => 1
-  map.resources :events, :collection => { :cities => :get, :subjects => :get, :search => :get, :subjects => :get }
+  map.resources :events, :collection => { :cities => :get, :subjects => :get, :search => :get, :subjects2 => :get }
   map.root :controller => :news, :action => :index
   map.post '/news/:id', :controller => :news, :action => :show
   map.register 'register', :controller => 'users', :action => 'register'
@@ -52,6 +52,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout 'logout', :controller => 'users', :action => 'logout'
   map.forgot_password 'forgot_password', :controller => 'users', :action => "forgot_password"
   map.change 'change_password', :controller => 'users', :action => "change_password"
+  map.faq 'faq', :controller => 'common', :action => 'faq'
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end
