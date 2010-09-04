@@ -13,9 +13,9 @@
                   %input{ :name => "action", :value => "yes", :type => "hidden" }
                   %h1.zagolov
                     Календарь тренингов, семинаров, конференций   с
-                    %input#from{ :name => "from", :value => @date_from.strftime("%d.%m.%Y"), :type => "text" }
+                    %input#from{ :name => "from", :value => @date_from.strftime("%d.%m.%Y"), :type => "text", :size => 8 }
                     по
-                    %input#to{ :name => "to", :value => @date_till.strftime("%d.%m.%Y"), :type => "text" }
+                    %input#to{ :name => "to", :value => @date_till.strftime("%d.%m.%Y"), :type => "text", :size => 8 }
                     %input#sub{ :value => "\320\275\320\260\320\271\321\202\320\270", :type => "submit" }
 %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
   %tbody
