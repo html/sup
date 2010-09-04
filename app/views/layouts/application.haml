@@ -88,6 +88,10 @@
                   %a{ :href => "#" }
                     %span
                       \&nbsp;
+                %li.faq
+                  %a{ :href => "#" }
+                    %span
+                      \&nbsp;
           %br
           \&nbsp;
         %td{ :bgcolor => "#FFFFFF" }
@@ -118,7 +122,7 @@
                       %a{ :href => events_path }
                         Календарь
                       %br
-                      %a{ :href => "opend.html" }
+                      %a{ :href => url_for(:controller => :events, :action => :subjects2) }
                         Темы
                       %br
                   / 
