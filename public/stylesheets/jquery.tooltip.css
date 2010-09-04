@@ -7,3 +7,15 @@
 	opacity: 0.85;
 }
 #tooltip h3, #tooltip div { margin: 0; }
+
+#tooltip.pretty {
+    font-size: 11px;
+	font-family: Arial;
+	border: none;
+	width: 210px;
+	padding:20px;
+	height: 135px;
+	opacity: 0.8;
+	background: url('/images/shadow.png');
+}
+

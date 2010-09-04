@@ -1,8 +1,13 @@
 :javascript
   $(function(){
     $('.tip').tooltip({
-      delay: 0,
-      track: true,
-      showURL: false
+    track: true, 
+    delay: 0, 
+    showURL: false, 
+    showBody: " - ", 
+    extraClass: "pretty", 
+    fixPNG: true, 
+    opacity: 0.95, 
+    left: -120 
     });
   });
