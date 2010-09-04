@@ -16,7 +16,7 @@ Rails::Initializer.run do |config|
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   config.gem 'will_paginate'
-  config.gem "haml"
+  config.gem "haml", :version => "3.0.6"
   config.gem 'fastercsv'
   config.gem 'paperclip'
   config.gem 'russian'

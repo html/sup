@@ -12,6 +12,10 @@ module ApplicationHelper
     content_for(:head) { javascript_include_tag(*args) }
   end
 
+  def require_jquery
+    # jquery already included
+  end
+
   def require_jquery_datepicker
     stylesheet '/css/base/ui.all.css'
     javascript 'ui/ui.core', 'ui/ui.datepicker', 'ui/i18n/ui.datepicker-ru'
@@ -19,6 +23,18 @@ module ApplicationHelper
 
   def require_jquery_selectchain
     javascript 'jquery.selectchain', 'apply-select-chain'
+  end
+
+  def require_jquery_tooltip
+    require_jquery
+    stylesheet 'jquery.tooltip'
+    javascript 'jquery.tooltip'
+  end
+
+  def require_tooltips
+    content_for :head do
+      render :partial => '/tooltips'
+    end
   end
 
   def display_place_for(user)

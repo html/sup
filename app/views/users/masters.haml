@@ -1,3 +1,5 @@
+- require_jquery_tooltip
+- require_tooltips
 %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
   %tbody
     %tr
@@ -78,8 +80,9 @@
                             О себе:
                         %td{ :align => "left" }
                           \&nbsp;
-                        %td.text_4{ :align => "left" }
-                          = h item.about
+                        %td.text_4{ :align => "left", :title => item.about }
+                          %a{ :class => 'tip', :title => item.about, :href => "#" }
+                            = h truncate(item.about, :length => 60)
                 %td
                   \&nbsp;
               %tr
