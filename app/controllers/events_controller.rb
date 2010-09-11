@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  before_filter :assign_places, :only => [:new, :create, :search]
-  before_filter :assign_subjects, :only => [:new, :create, :search]
+  before_filter :assign_places, :only => [:new, :create, :search, :edit, :update]
+  before_filter :assign_subjects, :only => [:new, :create, :search, :edit, :update]
   before_filter :require_login, :only => [:new, :create, :my]
 
   def new
@@ -10,29 +10,7 @@ class EventsController < ApplicationController
   def create
     @item = Event.new(params[:event].merge(:owner_id => @current_user.id))
     
-    if @item.place && @item.place.parent
-      @root_place_id = @item.place.parent.id
-      @place_id = @item.place.id
-      @child_places = @item.place.parent.children.collect { |p| [p.title, p.id] }
-    end
-
-    if @item.subject && @item.subject.parent
-      @root_subject_id = @item.subject.parent.id
-      @subject_id = @item.subject.id
-      @child_subjects = @item.subject.parent.children.collect { |p| [p.title, p.id] }
-    end
-
-    #XXX
-    begin
-      [:start_time, :end_time].each do |t|
-        if params[:event][t] && !params[:event][t].empty?
-          @item.send("#{t}=", parse_date(params[:event][t]).to_datetime + params[:event]["#{t}(4i)"].to_i.hours + params[:event]["#{t}(5i)"].to_i.minutes)
-        else
-          @item.send("#{t}=", nil)
-        end
-      end
-    rescue
-    end
+    assign_some_stuff
 
     if @item.save
       flash[:notice] = "Событие успешно добавлено"
@@ -40,6 +18,49 @@ class EventsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    @item = Event.find(params[:id])
+
+    return forbidden unless @item.owner_id == @current_user.id
+    assign_some_stuff
+
+    data = params[:event]
+    data.delete :start_time
+    data.delete :end_time
+
+    [:start_time, :end_time].each do |t|
+      data.delete "#{t}(1i)"
+      data.delete "#{t}(2i)"
+      data.delete "#{t}(3i)"
+      data.delete "#{t}(4i)"
+      data.delete "#{t}(5i)"
+    end
+
+    unless params[:set_event_end]
+      @item.end_time = nil
+    end
+
+    if @item.update_attributes(data)
+      debugger;true
+      flash[:notice] = "Событие успешно отредактировано"
+      redirect_to :back
+    else
+      @edit = true
+      render :action => :new
+    end
+  end
+
+  def edit
+    @item = Event.find(params[:id])
+
+    @edit = true
+
+    return forbidden unless @item.owner_id == @current_user.id
+    assign_some_stuff
+
+    render :action => :new
   end
 
   def show
@@ -122,8 +143,42 @@ class EventsController < ApplicationController
   def subjects2
     render '/subjects', :layout => true
   end
+
+  def destroy
+    @item = Event.find(params[:id])
+    @item.destroy
+    flash[:notice] = "Событие успешно удалено"
+    redirect_to :back
+  end
   protected
     def date_till
       Event.last_event_date || Date.today
+    end
+
+
+    def assign_some_stuff
+      if @item.place && @item.place.parent
+        @root_place_id = @item.place.parent.id
+        @place_id = @item.place.id
+        @child_places = @item.place.parent.children.collect { |p| [p.title, p.id] }
+      end
+
+      if @item.subject && @item.subject.parent
+        @root_subject_id = @item.subject.parent.id
+        @subject_id = @item.subject.id
+        @child_subjects = @item.subject.parent.children.collect { |p| [p.title, p.id] }
+      end
+
+      #XXX
+      begin
+        [:start_time, :end_time].each do |t|
+          if params[:event][t] && !params[:event][t].empty?
+            @item.send("#{t}=", parse_date(params[:event][t]).to_datetime + params[:event]["#{t}(4i)"].to_i.hours + params[:event]["#{t}(5i)"].to_i.minutes)
+          else
+            @item.send("#{t}=", nil)
+          end
+        end
+      rescue
+      end
     end
 end

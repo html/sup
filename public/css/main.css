@@ -34,7 +34,11 @@ H2 A:hover { color:#000000; text-decoration:none }
 .text_5 a { color:#FFB400; text-decoration:underline }
 .text_5 a:hover { color:#FFB400; text-decoration:none }
 
-.text_6 { font-size:12px; font-family:Arial; color:#6A6C6F }
+.text_6 {
+	font-size:12px;
+	font-family:Arial;
+	color:#666
+}
 .text_6 a { color:#6A6C6F; text-decoration:underline }
 .text_6 a:hover { color:#FFB400; text-decoration:none }
 
@@ -206,21 +210,36 @@ sup { font-family:Tahoma; color:#B4B4B3; font-size:10px }
 .text_4 a { color: #0B669E; text-decoration:underline; }
 .text_4 a:hover { color: #0B669E; text-decoration:none; }
 
-.text_8 { font-size: 14px; font-family:Arial; color:#EFAE00 }
+.text_24 {
+	font-size: 14px;
+	font-family:Arial;
+	color:#0FF
+}
+.text_24 a {
+	color: #0FF;
+	text-decoration:none;
+}
+.text_24 a:hover {
+	color: #6FF;
+	text-decoration:none;
+}
+
+.text_8 { font-size: 14px; font-family:Arial; color:#EFAE00; 	font-weight: normal;}
 .text_8 a {
 	color: #0CF;
 	text-decoration:none;
+	border-bottom: 1px dashed #0CF;
 }
-.text_8 a:hover { color: #EFAE00; text-decoration:none; border-bottom: 1px dashed #EFAE00;}
+.text_8 a:hover { color: #EFAE00; text-decoration:none; border-bottom: 0px dashed #0CF;}
 
-.text_25 { font-size: 14px; font-family:Arial; color:#EFAE00; 
+.text_25 { font-size: 14px; font-family:Arial; color:#0CF; 
  }
 
 .text_25 a {
 	color: #0CF;
 	text-decoration:none;border-bottom: 1px dashed #0CF;
 }
-.text_25 a:hover { color: #EFAE00; text-decoration:none; }
+.text_25 a:hover { color: #EFAE00; text-decoration:none; border-bottom: 1px dashed #EFAE00;}
 
 
 .text_7 { font-size: 14px; color:#000000 }
@@ -292,11 +311,14 @@ sup { font-family:Tahoma; color:#B4B4B3; font-size:10px }
 .head8 { font-size: 18px; font-family:Arial; color:#FBBC4E }
 .head8 a { color:#FBBC4E; text-decoration:none; }
 .head8 a:hover { color:#FBBC4E; text-decoration:underline; }
-.head9 { font-size: 20px; font-family:Arial; color:#0B669E;  
+.head9 { font-size: 14px; font-family:Arial; color:#0B669E;  
 text-decoration: none; /* ??????? ??????? ????????????? */
- border-bottom: 1px dashed blue; /* ????????? ?????????? ????? ??? ??????? */}
-.head9 a { color:#0B669E; text-decoration:none; }
-.head9 a:hover { color:#EFAE00; text-decoration:none; }
+ border-bottom: 0.5px dashed #0B669E;/* ????????? ?????????? ????? ??? ??????? */}
+.head9 a { color:#0B669E; text-decoration:none;  border-bottom: 1px dashed #0B669E;}
+.head9 a:hover { 
+color:#EFAE00; 
+text-decoration:none; 
+border-bottom: 0px dashed #0B669E;}
 
 
 
@@ -457,6 +479,10 @@ text-decoration: none; /* ??????? ??????? ????????????? */
 	color: white;
 }
 
+.tavid {
+border-bottom:1px dashed  #CCC;
+}
+
 
 .thumbnails
 {
@@ -467,6 +493,3 @@ margin: -3em 0 0 -2em;
 text-align: center;
 }
 
-.border-bottom {
-border-bottom: 1px dashed #00;
-}

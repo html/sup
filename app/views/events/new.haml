@@ -1,7 +1,7 @@
 - require_jquery_datepicker
 - require_jquery_selectchain
 - javascript 'events'
-- form_for @item, :html => { :multipart => true } do |f|
+- form_for @item, ({ :html => { :multipart => true }}).merge(@edit ? { :url => { :action => :update } } : {}) do |f|
   = f.error_messages
   %dl
     %dt
@@ -57,6 +57,6 @@
       Изображение
     %dd= f.file_field :image
 
-  = f.submit "Добавить событие"
+  = f.submit !@edit ? "Добавить событие" : "Редактировать событие"
 
 

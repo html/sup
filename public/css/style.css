@@ -1,16 +1,15 @@
 body {
-	background-image:url(/img/bg.jpg);
+	background-image:url(../img/bg.jpg);
 	background-attachment: scroll;
 	background-position: left top;
 	background-repeat: repeat-x;
 	background-color: #cde8f6;
 }
-
-#background { 
-  background-image:url(/img/top.jpg);
-  background-attachment: fixed;
-  background-position: left top;
-  background-repeat: repeat-x;
+#background {	
+	background-image:url(img/top.jpg);
+	background-attachment: fixed;
+	background-position: left top;
+	background-repeat: repeat-x;
 }
 
 #log
@@ -19,12 +18,13 @@ body {
 	width: 250px;
 	padding: 0;
 	position: absolute;
-	top: 71px;
+	top: 70px;
 	height: 150px;
 	font-size: 14px;
 	font-family: Georgia, Times, serif;
-	left: 502px;
+	left: 512px;
 }
+
 #log1
 {
 	margin: 0;
@@ -51,7 +51,7 @@ body {
  overflow: hidden;
 }
 .zagolov	 {
-	font-size: 1.6em;
+	font-size: 1.1em;
 	font-style: italic;
 	line-height: 0.9;
 	margin-bottom: 0.7em;
@@ -339,3 +339,10 @@ ul#menu ul li.iehover ul {
  font: bold 12px Arial;
  padding: 2px 0px 4px 0px;
 }
+
+.bg
+{
+	background-image:url(../img/bg1.png);
+	background-repeat: no-repeat;
+	
+	}

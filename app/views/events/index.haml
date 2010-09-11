@@ -17,6 +17,7 @@
                     по
                     %input#to{ :name => "to", :value => @date_till.strftime("%d.%m.%Y"), :type => "text", :size => 8 }
                     %input#sub{ :value => "\320\275\320\260\320\271\321\202\320\270", :type => "submit" }
+                    %img{:src => '/img/naiti.png'}
 %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
   %tbody
     %tr
@@ -105,9 +106,13 @@
                               %p
                                 \&nbsp;
                             %td{ :align => "left" }
-                            %td
+                            %td{ :align => "right" }
                               %form#form2{ :name => "form1", :method => "post", :action => "" }
-                                %input#button2{ :name => "button2", :type => "submit", :value => "\320\236\321\202\320\277\321\200\320\260\320\262\320\270\321\202\321\214 &quot;\320\257 \320\277\321\200\320\270\320\264\321\203&quot;" }
+                              %img{:src => '/img/igo.png' }
+                              - link_to  edit_event_path(item) do
+                                %img{:src => '/img/btnbar_edit.png'}
+                              - link_to :controller => :events, :action => :destroy, :id => item.id do
+                                %img{:src => '/img/excel.png'}
                     %tr
                       %td{ :height => "15", :align => "center", :valign => "middle", :colspan => "2" }
                         %hr.hr_grey

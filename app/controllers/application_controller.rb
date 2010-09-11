@@ -31,6 +31,10 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def forbidden
+      raise "Forbidden"
+    end
+
     def parse_date(date)
       Date.strptime(date, '%d.%m.%Y')
     rescue

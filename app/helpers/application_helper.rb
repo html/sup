@@ -63,6 +63,8 @@ module ApplicationHelper
     I18n.t(a, b)
   end
 
+  #alias :_ :t 
+
   def avatar_for(user)
     image_tag user.avatar.url, :class => 'avatar', :width => 150, :height => 150
   end
