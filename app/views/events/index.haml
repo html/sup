@@ -109,10 +109,11 @@
                             %td{ :align => "right" }
                               %form#form2{ :name => "form1", :method => "post", :action => "" }
                               %img{:src => '/img/igo.png' }
-                              - link_to  edit_event_path(item) do
-                                %img{:src => '/img/btnbar_edit.png'}
-                              - link_to :controller => :events, :action => :destroy, :id => item.id do
-                                %img{:src => '/img/excel.png'}
+                              - if @current_user && item.owner_id == @current_user.id
+                                - link_to  edit_event_path(item) do
+                                  %img{:src => '/img/btnbar_edit.png'}
+                                - link_to :controller => :events, :action => :destroy, :id => item.id do
+                                  %img{:src => '/img/excel.png'}
                     %tr
                       %td{ :height => "15", :align => "center", :valign => "middle", :colspan => "2" }
                         %hr.hr_grey
