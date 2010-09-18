@@ -53,6 +53,7 @@ ActionController::Routing::Routes.draw do |map|
   map.forgot_password 'forgot_password', :controller => 'users', :action => "forgot_password"
   map.change 'change_password', :controller => 'users', :action => "change_password"
   map.faq 'faq', :controller => 'common', :action => 'faq'
+  map.materials 'materials', :controller => 'common', :action => 'materials'
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

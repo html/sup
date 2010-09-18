@@ -1,0 +1,14 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+Video:
+  fields:
+    list: code
+    form: code
+  order_by: 
+  relationships: material
+  filters: 
+  search: 
+  application: sup
+

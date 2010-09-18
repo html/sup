@@ -1,0 +1,15 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+Book:
+  fields:
+    default: file_file_name, file_content_type, file_file_size, file_updated_at
+    list: file_file_name, file_file_size
+    form: file
+  order_by: 
+  relationships: material
+  filters: 
+  search: 
+  application: sup
+

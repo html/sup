@@ -1,0 +1,54 @@
+%table.section{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
+  %tbody
+    %tr
+      %td.tl
+      %td.t
+      %td.tr
+    - showed_material = false
+    - @materials.each do |item|
+      - if item.item 
+        - showed_material = true
+        %tr
+          %td.l
+          %td
+            %table{:border => "0", :width => "100%"}
+              %tr
+                %td.tavid{:colspan => "2", :valign => "top"}
+                  %a.red{:href => "#"}
+                    = h item.title
+                %td.tavid{:align => "right", :valign => "top"}
+                  %span.data 10.12.2010
+              %tr
+                %td{:align => "center", :colspan => "3", :valign => "top"}
+                  %p &nbsp;
+                  %p &nbsp;
+                  %p
+                    = item.item.list_representation
+                    \&nbsp;
+                  %hr.hr_grey/
+              %tr
+                %td.text_4{:align => "center", :colspan => "3", :valign => "top"}
+                  Название:
+                  = h item.title
+                  %br/
+                  Оригинальное название: 
+                  = h item.original_title
+              %tr
+                %td.tavid{:align => "center", :colspan => "3", :valign => "top"} &nbsp;
+              %tr
+                %td{:valign => "top", :width => "200"} &nbsp;
+                %td{:align => "right", :valign => "bottom"}
+                  %p &nbsp;
+                %td.data{:align => "right", :width => "150"}
+                  %a.text_4{:href => "#"} Читать дальше
+          %td.r
+      - unless showed_material
+        %tr
+          %td.l
+          %td
+            Нет доступных материалов
+          %td.r
+    %tr
+      %td.bl
+      %td.b
+      %td.br
