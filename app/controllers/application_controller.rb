@@ -40,4 +40,8 @@ class ApplicationController < ActionController::Base
     rescue
       Date.parse(date)
     end
+
+    def _(a, b= {})
+      I18n.t(a, b)
+    end
 end
