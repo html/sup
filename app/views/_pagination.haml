@@ -10,7 +10,7 @@
     %span
       &lt;
 
-  - for i in first_page.upto(last_page)
+  - first_page.upto(last_page) do |i|
     - if i == current_page
       = i
     - else
