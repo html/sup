@@ -1,13 +1,8 @@
-#pager.text_6
+#pager.text_66
   - if previous_page
     - link_to url_for_page(1), :title => "В начало" do
       &lt;&lt;
     - link_to url_for_page(previous_page), :title => "Назад" do
-      &lt;
-  - else
-    %span
-      &lt;&lt;
-    %span
       &lt;
 
   - first_page.upto(last_page) do |i|
@@ -21,9 +16,4 @@
       - link_to url_for_page(next_page), :title => "Вперед" do
         &gt;
       - link_to url_for_page(last_page), :title => "В конец" do
-        &gt;&gt;
-    - else
-      %span
-        &gt;
-      %span
         &gt;&gt;
