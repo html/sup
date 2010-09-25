@@ -1,0 +1,29 @@
+PartialRenderer
+===============
+
+PartialRenderer let's you to use view partials for displaying pagination.
+Default generated partial's look is similar to those LinkRenderer renders
+
+
+To install use command
+./script/plugin install git://github.com/html/partial_renderer.git
+
+or 
+
+git submodule add git://github.com/html/partial_renderer.git vendor/plugins/partial_renderer/
+
+
+and generate simple view partial
+
+./script/generate partial_renderer go
+
+Example
+=======
+
+./script/generate partial_renderer go
+
+create  app/views/_pagination.haml
+
+Now you have pagination like with WillPaginate::LinkRenderer, but you can change it's look and feel in your view partial
+
+Copyright (c) 2009 Olexiy Zamkoviy, released under the MIT license

@@ -346,3 +346,30 @@ ul#menu ul li.iehover ul {
 	background-repeat: no-repeat;
 	
 	}
+
+	
+#pager{
+ text-align: center;
+ padding: 15px 0px 15px 0px;
+}
+#pager #back{
+ margin-right: 4px;
+}
+#pager #forward{
+ margin-left: 4px;
+}
+#pager a{
+	padding: 2px 6px;
+	margin: 0px 2px 0px 2px;
+	border: 1px solid #CCCCCC;
+	background: #FFF;
+	text-decoration: none;
+	color: #0B669E;
+}
+#pager #this{
+ font-weight: bold;
+ background: #CCC !important;
+}
+#pager a:hover{
+ background: #CCC;
+}

@@ -1,0 +1,22 @@
+Description:
+    Partial renderer generates view partial for use with WillPaginate::PartialRenderer class.
+    Partial can be in haml(default) or erb format. 
+    You can specify the name of partial, default is 'pagination' ('app/views/_pagination.haml')
+
+Example:
+    ./script/generate partial_renderer go
+
+    This will create:
+        app/views/_partial.haml
+
+    With partial name arg
+    ./script/generate partial_renderer pages
+
+    This will create:
+        app/views/_pages.haml
+
+    With partial name and format args
+    ./script/generate partial_renderer pages --format=erb
+
+    This will create:
+        app/views/_pages.erb

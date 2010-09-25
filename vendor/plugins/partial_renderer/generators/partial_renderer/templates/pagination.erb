@@ -1,0 +1,19 @@
+<% if previous_page %>
+  <%= link_to options[:previous_label], url_for_page(previous_page) %>
+<% else %>
+  <% = options[:previous_label] %>
+<% end %>
+
+<% for i in first_page.upto(last_page) %>
+  <% if i == current_page %>
+    <%= i %>
+  <% else %>
+    <%= link_to i, url_for_page(i) %>
+  <% end %>
+<% end %>
+
+<% if next_page %>
+  <%= link_to options[:next_label], url_for_page(next_page) %>
+<% else %>
+  <%= options[:next_label] %>
+<% end %>
