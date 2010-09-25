@@ -11,9 +11,9 @@
     - else
       = link_to i, url_for_page(i)
 
-  %span#forward
-    - if next_page
-      - link_to url_for_page(next_page), :title => "Вперед" do
-        &gt;
-      - link_to url_for_page(last_page), :title => "В конец" do
-        &gt;&gt;
+
+  - if next_page
+    - link_to url_for_page(next_page), :title => "Вперед" do
+      &gt;
+    - link_to url_for_page(last_page), :title => "В конец" do
+      &gt;&gt;
