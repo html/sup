@@ -83,4 +83,10 @@ class CommonControllerTest < ActionController::TestCase
       assert_contains_materials_menu
     end
   end
+
+  context "materials_by_letter action" do
+    should "have correct route" do
+      assert_generates '/materials_by_letter/A', :controller => :common, :action => :materials_by_letter, :letter => 'A'
+    end
+  end
 end

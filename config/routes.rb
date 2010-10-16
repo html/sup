@@ -57,6 +57,7 @@ ActionController::Routing::Routes.draw do |map|
   map.material 'material/:id', :controller => 'common', :action => "show_material"
   map.book_materials 'materials/books', :controller => 'common', :action => "book_materials"
   map.video_materials 'materials/video', :controller => 'common', :action => 'video_materials'
+  map.materials_by_letter 'materials_by_letter/:letter', :controller => 'common', :action => 'materials_by_letter'
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

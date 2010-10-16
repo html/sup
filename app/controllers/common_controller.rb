@@ -22,4 +22,11 @@ class CommonController < ApplicationController
 
     render :action => :materials
   end
+
+  def materials_by_letter
+    @letter = params[:letter]
+    @materials = Material.title_begins_with(params[:letter])
+
+    render :action => :materials
+  end
 end

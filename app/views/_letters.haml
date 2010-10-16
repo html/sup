@@ -40,8 +40,12 @@
             - ('А'..'Я').each do |let|
               - unless ['Ъ', 'Ы'].include?(let) 
                 - if Material.count_by_first_letter(let)
-                  %a.text_8{:href => "#"} 
-                    = let
+                  %a.text_8{:href => materials_by_letter_path(let)} 
+                    - if @letter == let
+                      %b
+                        = let
+                    - else
+                      = let
                 - else    
                   %span.text_8
                     = let
