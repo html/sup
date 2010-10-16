@@ -6,4 +6,8 @@ class CommonController < ApplicationController
   def materials
     @materials = Material.all
   end
+
+  def show_material
+    @material = Material.find(params[:id])
+  end
 end

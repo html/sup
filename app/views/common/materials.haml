@@ -40,7 +40,8 @@
                 %td{:align => "right", :valign => "bottom"}
                   %p &nbsp;
                 %td.data{:align => "right", :width => "150"}
-                  %a.text_4{:href => "#"} Читать дальше
+                  %a.text_4{:href => "#"} 
+                    =link_to "Читать дальше", material_path(item)
           %td.r
     - unless showed_material
       %tr

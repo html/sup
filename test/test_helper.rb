@@ -43,6 +43,19 @@ TypusUser.blueprint do |x,y|
   login Faker::Name.name + rand(100).to_s
 end
 
+Material.blueprint do
+  item_id Video.make.id
+  item_type 'Video'
+end
+
+Video.blueprint do
+  
+end
+
+Book.blueprint do
+  
+end
+
 class ActiveSupport::TestCase
   include RR::Adapters::TestUnit
   # Transactional fixtures accelerate your tests by wrapping each test method
@@ -86,7 +99,7 @@ class ActiveSupport::TestCase
   end
 
   def assert_contains_pagination
-    assert_select '#pagination'
+    assert_select '#pager'
   end
 
   def assert_correct_search_form_action
