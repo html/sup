@@ -1,14 +1,14 @@
 - display_materials_menu
 %table.section{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
   %tbody
-    %tr
-      %td.tl
-      %td.t
-      %td.tr
     - showed_material = false
     - @materials.each do |item|
       - if item.item 
         - showed_material = true
+        %tr
+          %td.tl
+          %td.t
+          %td.tr
         %tr
           %td.l
           %td
@@ -45,13 +45,13 @@
                   %a.text_4{:href => "#"} 
                     =link_to "Читать дальше", material_path(item)
           %td.r
+        %tr
+          %td.bl
+          %td.b
+          %td.br
     - unless showed_material
       %tr
         %td.l
         %td
           Нет доступных материалов
         %td.r
-    %tr
-      %td.bl
-      %td.b
-      %td.br
