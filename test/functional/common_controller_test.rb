@@ -19,7 +19,7 @@ class CommonControllerTest < ActionController::TestCase
 
     context "Book material" do
       setup do
-        @material = Material.make :item_id => Book.make(:url => "http://xxxx").id, :item_type => "Book"
+        @material = Material.make :item_id => Book.make(:url => "http://xxxx").id, :item_type => "Book", :info => "Some info"
       end
 
       should "show link to book, image of book" do
@@ -27,18 +27,20 @@ class CommonControllerTest < ActionController::TestCase
 
         assert_select 'a[href=?][target=_blank]', @material.item.url
         assert_select 'img[src=?]', @material.item.file.url
+        assert_response_contains 'Some info', 1
       end
     end
 
     context "Video material" do
       setup do
-        @material = Material.make :item_id => Video.make(:code => "some unique code with <tags>").id, :item_type => "Video"
+        @material = Material.make :item_id => Video.make(:code => "some unique code with <tags>").id, :item_type => "Video", :info => "Some info"
       end
 
       should "show item code" do
         get :show_material, :id => @material.id
 
         assert_response_contains "some unique code with <tags>", 1
+        assert_response_contains 'Some info', 1
       end
     end
   end
