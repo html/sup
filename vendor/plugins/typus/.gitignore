@@ -1,0 +1,4 @@
+# Ignore generated files ...
+*.gem
+*.log
+*.csv
