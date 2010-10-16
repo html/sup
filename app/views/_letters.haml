@@ -1,0 +1,68 @@
+#letters
+  %table.section{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
+    %tbody
+      %tr
+        %td.tl
+        %td.t
+        %td.tr
+      %tr
+        %td.l
+        %th{:rowspan => "2"}
+          %span.text_25
+            /
+              %a.text_8{:href => "#"} A
+              %a.text_8{:href => "#"} B
+              %a.text_8{:href => "#"} C
+              %a.text_8{:href => "#"} D
+              %a.text_8{:href => "#"} E
+              %a.text_8{:href => "#"} F
+              %a.text_8{:href => "#"} G
+              %a.text_8{:href => "#"} H
+              %a.text_8{:href => "#"} I
+              %a.text_8{:href => "#"} J
+              %a.text_8{:href => "#"} K
+              %a.text_8{:href => "#"} L
+              %a.text_8{:href => "#"} M
+              %a.text_8{:href => "#"} N
+              %a.text_8{:href => "#"} O
+              %a.text_8{:href => "#"} P
+              %a.text_8{:href => "#"} Q
+              %a.text_8{:href => "#"} R
+              %a.text_8{:href => "#"} S
+              %a.text_8{:href => "#"} T
+              %a.text_8{:href => "#"} U
+              %a.text_8{:href => "#"} V
+              %a.text_8{:href => "#"} W
+              %a.text_8{:href => "#"} X
+              %a.text_8{:href => "#"} Y
+              %a.text_8{:href => "#"} Z
+              %br/
+            - ('А'..'Я').each do |let|
+              - unless ['Ъ', 'Ы'].include?(let) 
+                - if Material.count_by_first_letter(let)
+                  %a.text_8{:href => "#"} 
+                    = let
+                - else    
+                  %span.text_8
+                    = let
+            %a.text_8{:href => "#"}
+              %br/
+            /   
+              %a.text_8{:href => "#"} 0
+              %a.text_8{:href => "#"} 1
+              %a.text_8{:href => "#"} 2
+              %a.text_8{:href => "#"} 3
+              %a.text_8{:href => "#"} 4
+              %a.text_8{:href => "#"} 5
+              %a.text_8{:href => "#"} 6
+              %a.text_8{:href => "#"} 7
+              %a.text_8{:href => "#"} 8
+              %a.text_8{:href => "#"} 9
+        %td.r
+      %tr
+        %td.l
+        %td.r
+      %tr
+        %td.bl
+        %td.b
+        %td.br

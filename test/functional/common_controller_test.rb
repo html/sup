@@ -69,4 +69,18 @@ class CommonControllerTest < ActionController::TestCase
       assert_response :success
     end
   end
+
+  context "materials action" do
+    should "have correct route" do
+      assert_generates '/materials', :controller => :common, :action => :materials
+    end
+
+    should "respond correctly" do
+      get :materials
+
+      assert_response :success
+      assert_select '#letters', :count => 1
+      assert_contains_materials_menu
+    end
+  end
 end
