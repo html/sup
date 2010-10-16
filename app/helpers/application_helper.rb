@@ -68,4 +68,10 @@ module ApplicationHelper
   def avatar_for(user)
     image_tag user.avatar.url, :class => 'avatar', :width => 150, :height => 150
   end
+
+  def display_materials_menu
+    content_for :left_menu do
+      render :partial => 'materials_menu'
+    end
+  end
 end
