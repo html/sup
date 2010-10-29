@@ -1,3 +1,15 @@
+- display_letter = lambda do |let|
+  - unless ['Ъ', 'Ы'].include?(let) 
+    - if Material.count_by_first_letter(let)
+      %a.text_8{:href => materials_by_letter_path(let)} 
+        - if @letter == let
+          %b
+            = let
+        - else
+          = let
+    - else    
+      %span.text_8
+        = let
 #letters
   %table.section{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
     %tbody
@@ -38,30 +50,11 @@
               %a.text_8{:href => "#"} Z
               %br/
             - ('А'..'Я').each do |let|
-              - unless ['Ъ', 'Ы'].include?(let) 
-                - if Material.count_by_first_letter(let)
-                  %a.text_8{:href => materials_by_letter_path(let)} 
-                    - if @letter == let
-                      %b
-                        = let
-                    - else
-                      = let
-                - else    
-                  %span.text_8
-                    = let
+              - display_letter.call(let)
             %a.text_8{:href => "#"}
               %br/
-            /   
-              %a.text_8{:href => "#"} 0
-              %a.text_8{:href => "#"} 1
-              %a.text_8{:href => "#"} 2
-              %a.text_8{:href => "#"} 3
-              %a.text_8{:href => "#"} 4
-              %a.text_8{:href => "#"} 5
-              %a.text_8{:href => "#"} 6
-              %a.text_8{:href => "#"} 7
-              %a.text_8{:href => "#"} 8
-              %a.text_8{:href => "#"} 9
+            - (0..9).each do |let|
+              - display_letter.call(let)
         %td.r
       %tr
         %td.l
