@@ -12,13 +12,13 @@ class CommonController < ApplicationController
   end
 
   def book_materials
-    @materials = Material.find_all_by_item_type(:book)
+    @materials = Material.find_all_by_item_type("Book")
 
     render :action => :materials
   end
 
   def video_materials
-    @materials = Material.find_all_by_item_type(:video)
+    @materials = Material.find_all_by_item_type("Video")
 
     render :action => :materials
   end
