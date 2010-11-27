@@ -6,22 +6,22 @@
     .text_6
       = f.error_messages
     %dl
-      %dt
+      %dt.text_4
         Заголовок события (*)
       %dd= f.text_field :title, :class => "text_6"
-      %dt
+      %dt.text_4
         Начало события(*)
       %dd
         .fl
           = f.text_field :start_time, :value => @item.start_time && @item.start_time.strftime('%d.%m.%Y'), :class => "text_6"
         .fl
-          %label.fl
+          %label.fl.text_4
             = check_box_tag :set_start_time, 'Задать время', !(!@item.start_time || (@item.start_time.hour + @item.start_time.min == 0))
             Задать время
           #set_start_time_selects.fl
             = f.time_select :start_time, :disabled => !@item.start_time || (@item.start_time.hour + @item.start_time.min == 0)
         .clear
-      %dt
+      %dt.text_4
         %label
           = check_box_tag :set_event_end, "1", @item.end_time
           Задать окончание события
@@ -29,33 +29,33 @@
         .fl#set_event_end_selects
           = f.text_field :end_time, :disabled => !@item.end_time, :value => @item.end_time && @item.end_time.strftime('%d.%m.%Y'), :class => "text_6"
         .fl
-          %label.fl
+          %label.fl.text_4
             = check_box_tag :set_end_time, 'Задать время', !(!@item.end_time || (@item.end_time.hour + @item.end_time.min == 0))
             Задать время
           #set_end_time_selects.fl
             = f.time_select :end_time, :disabled => !@item.end_time || (@item.end_time.hour + @item.end_time.min == 0)
         .clear
-      %dt
+      %dt.text_4
         Место события
       %dd
         = select :events, :root_place, @places.collect { |p| [p.title, p.id] }, :include_blank => true, :selected => @root_place_id
         = f.select :place_id, @child_places || [], :selected => @place_id
-      %dt
+      %dt.text_4
         Тематика события
       %dd
         = select :events, :root_subject, @subjects.collect { |p| [p.title, p.id] }, :include_blank => true, :selected => @root_subject_id
         = f.select :subject_id, @child_subjects || [], :selected => @subject_id
-      %dt
+      %dt.text_4
         Тип события
       %dd
         = f.select :event_type_id, EventType.all.collect { |p| [p.title, p.id] }, :include_blank => true
-      %dt
+      %dt.text_4
         Стоимость 
       %dd= f.text_field :cost, :class => "text_6"
-      %dt
+      %dt.text_4
         Описание события (*)
       %dd= f.text_area :content, :rows => 5, :class => "text_6"
-      %dt
+      %dt.text_4
         Изображение
       %dd= f.file_field :image
 
