@@ -14,7 +14,7 @@
         .text_4{ :style => "width: 50%;margin:0 auto" }
           - form_for @user, :url => register_path  do |f|
             .text_6
-              = f.error_messages
+              = f.error_messages :header_message => nil
             %dl
               %dt
                 Фамилия
