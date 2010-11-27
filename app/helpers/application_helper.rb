@@ -74,4 +74,8 @@ module ApplicationHelper
       render :partial => 'materials_menu'
     end
   end
+
+  def surround_with_border(&block)
+    concat render(:partial => "/border", :locals => { :content => capture(&block) })
+  end
 end
