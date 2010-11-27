@@ -1,143 +1,145 @@
 - require_jquery_datepicker
 - require_jquery_selectchain
 - javascript 'events-search'
-- form_for Event.new, :url => url_for, :html => { :method => :get }  do |f|
-  = f.error_messages
-  %dl
-    %dt
-      Тематика события
-    %dd
-      = events_root_subject
-      Специализация
-      = f.select :subject_id, @child_subjects || [], :selected => @subject_id, :include_blank => "Любая специализация"
-    %dt
-      Тип события
-    %dd
-      = f.select :event_type_id, EventType.all.collect { |p| [p.title, p.id] }, :include_blank => "Любой тип", :selected => @event_type_id
-    %dt
-      Место события
-    %dd
-      = events_root_place
-      = f.select :place_id, @child_places || [], :selected => @place_id, :include_blank => "Любой город"
-    %dt
-      Бесплатное мероприятие ?
-    %dd
-      %label
-        = radio_button_tag :event_free, 1, @event_free && @event_free == 1
-        да
-      %label
-        = radio_button_tag :event_free, 2, @event_free && @event_free == 2
-        нет
-      %label
-        = radio_button_tag :event_free, 0, !@event_free || ![1,2].include?(@event_free)
-        любое
-    %dt
-      начиная с ...
-    %dd
-      = f.text_field :start_time, :value => @start_time && @start_time.strftime('%d.%m.%Y')
-    %dt
-      заканчивая ...
-    %dd
-      = f.text_field :end_time, :value => @end_time && @end_time.strftime('%d.%m.%Y')
-    %dt
-    %dd
-      = f.submit "Поиск"
-- if @is_search
-  - if @items && !@items.empty?
-    %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
-      %tbody
-        %tr
-          %td.tl
-          %td.t
-          %td.tr
-        %tr
-          %td.l
-          %td
-            - @items.each do |item|
-              %table{ :border => "0", :width => "100%", :class => 'item' }
-                %tr
-                  %td{ :valign => "top" }
-                    %p.text_6
-                      \&nbsp;
-                    %table{ :cellspacing => "0", :border => "0", :align => "left", :width => "100%", :cellpadding => "0" }
-                      %tr
-                        %td{ :align => "right", :valign => "top", :width => "50%" }
-                          %img{ :src => item.image.url(:list), :alt => "" }
-                        %td{ :width => "50%" }
-                          %table{ :cellspacing => "0", :border => "0", :align => "right", :cellpadding => "0" }
-                            %tr
-                              %td{ :width => "10" }
-                                %p.text_9
-                                  \&nbsp;
-                              %td{ :align => "right" }
-                                %span.text_9
-                                  Название:&nbsp;
-                              %td
-                                %a.head9{ :href => url_for(item)}
-                                  = h item.title
-                            %tr
-                              %td
-                                %p.text_9
-                                  \&nbsp;
-                              %td{ :align => "right", :valign => "bottom" }
-                                %span.text_9
-                                  Тип:&nbsp;
-                              %td.text_10
-                                [тренинг]
-                            %tr
-                              %td
-                                %p.text_9
-                              %td{ :align => "right" }
-                              %td.text_10
-                            %tr
-                              %td
-                                %p.text_9
-                                  \&nbsp;
-                              %td{ :align => "right" }
-                                %span.text_9
-                                  Дата:&nbsp;
-                              %td.red2
-                                = date_for item
-                            %tr
-                              %td
-                                %p.text_9
-                                  \&nbsp;
-                              %td{ :align => "right" }
-                                %span.text_9
-                                  Где:&nbsp;
-                              %td.text_3
-                                = place_for item
-                            %tr
-                              %td
-                                %p.text_9
-                                  \&nbsp;
-                              %td{ :align => "right" }
-                                %span.text_9
-                                  Стоимость:&nbsp;
-                              %td.red
-                                = display_cost_for item
-                            %tr
-                              %td.text_9
-                              %td{ :align => "right" }
-                              %td.red
-                            %tr
-                              %td
-                                %p
-                                  \&nbsp;
-                              %td{ :align => "left" }
-                              %td
-                                %form#form2{ :name => "form1", :method => "post", :action => "" }
-                                  %input#button2{ :name => "button2", :type => "submit", :value => "\320\236\321\202\320\277\321\200\320\260\320\262\320\270\321\202\321\214 &quot;\320\257 \320\277\321\200\320\270\320\264\321\203&quot;" }
-                      %tr
-                        %td{ :height => "15", :align => "center", :valign => "middle", :colspan => "2" }
-                          %hr.hr_grey
-                    %p.text_6
-                      \&nbsp;
-            = pagination_for @items
-            %td.r
+- surround_with_border do
+  - form_for Event.new, :url => url_for, :html => { :method => :get }  do |f|
+    = f.error_messages
+    %dl
+      %dt.text_4
+        Тематика события
+      %dd
+        = events_root_subject
+        .text_4
+          Специализация
+        = f.select :subject_id, @child_subjects || [], :selected => @subject_id, :include_blank => "Любая специализация"
+      %dt.text_4
+        Тип события
+      %dd.text_6
+        = f.select :event_type_id, EventType.all.collect { |p| [p.title, p.id] }, :include_blank => "Любой тип", :selected => @event_type_id
+      %dt.text_4
+        Место события
+      %dd.text_6
+        = events_root_place
+        = f.select :place_id, @child_places || [], :selected => @place_id, :include_blank => "Любой город"
+      %dt.text_4
+        Бесплатное мероприятие ?
+      %dd.text_6
+        %label
+          = radio_button_tag :event_free, 1, @event_free && @event_free == 1
+          да
+        %label
+          = radio_button_tag :event_free, 2, @event_free && @event_free == 2
+          нет
+        %label
+          = radio_button_tag :event_free, 0, !@event_free || ![1,2].include?(@event_free)
+          любое
+      %dt.text_4
+        начиная с ...
+      %dd
+        = f.text_field :start_time, :value => @start_time && @start_time.strftime('%d.%m.%Y'), :class => "text_6"
+      %dt.text_4
+        заканчивая ...
+      %dd
+        = f.text_field :end_time, :value => @end_time && @end_time.strftime('%d.%m.%Y'), :class => "text_6"
+      %dt
+      %dd
+        = f.submit "Поиск"
+  - if @is_search
+    - if @items && !@items.empty?
+      %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+        %tbody
           %tr
-            %td.bl
-            %td.b
-            %td.br
-  - else
-    Поиск не дал результатов
+            %td.tl
+            %td.t
+            %td.tr
+          %tr
+            %td.l
+            %td
+              - @items.each do |item|
+                %table{ :border => "0", :width => "100%", :class => 'item' }
+                  %tr
+                    %td{ :valign => "top" }
+                      %p.text_6
+                        \&nbsp;
+                      %table{ :cellspacing => "0", :border => "0", :align => "left", :width => "100%", :cellpadding => "0" }
+                        %tr
+                          %td{ :align => "right", :valign => "top", :width => "50%" }
+                            %img{ :src => item.image.url(:list), :alt => "" }
+                          %td{ :width => "50%" }
+                            %table{ :cellspacing => "0", :border => "0", :align => "right", :cellpadding => "0" }
+                              %tr
+                                %td{ :width => "10" }
+                                  %p.text_9
+                                    \&nbsp;
+                                %td{ :align => "right" }
+                                  %span.text_9
+                                    Название:&nbsp;
+                                %td
+                                  %a.head9{ :href => url_for(item)}
+                                    = h item.title
+                              %tr
+                                %td
+                                  %p.text_9
+                                    \&nbsp;
+                                %td{ :align => "right", :valign => "bottom" }
+                                  %span.text_9
+                                    Тип:&nbsp;
+                                %td.text_10
+                                  [тренинг]
+                              %tr
+                                %td
+                                  %p.text_9
+                                %td{ :align => "right" }
+                                %td.text_10
+                              %tr
+                                %td
+                                  %p.text_9
+                                    \&nbsp;
+                                %td{ :align => "right" }
+                                  %span.text_9
+                                    Дата:&nbsp;
+                                %td.red2
+                                  = date_for item
+                              %tr
+                                %td
+                                  %p.text_9
+                                    \&nbsp;
+                                %td{ :align => "right" }
+                                  %span.text_9
+                                    Где:&nbsp;
+                                %td.text_3
+                                  = place_for item
+                              %tr
+                                %td
+                                  %p.text_9
+                                    \&nbsp;
+                                %td{ :align => "right" }
+                                  %span.text_9
+                                    Стоимость:&nbsp;
+                                %td.red
+                                  = display_cost_for item
+                              %tr
+                                %td.text_9
+                                %td{ :align => "right" }
+                                %td.red
+                              %tr
+                                %td
+                                  %p
+                                    \&nbsp;
+                                %td{ :align => "left" }
+                                %td
+                                  %form#form2{ :name => "form1", :method => "post", :action => "" }
+                                    %input#button2{ :name => "button2", :type => "submit", :value => "\320\236\321\202\320\277\321\200\320\260\320\262\320\270\321\202\321\214 &quot;\320\257 \320\277\321\200\320\270\320\264\321\203&quot;" }
+                        %tr
+                          %td{ :height => "15", :align => "center", :valign => "middle", :colspan => "2" }
+                            %hr.hr_grey
+                      %p.text_6
+                        \&nbsp;
+              = pagination_for @items
+              %td.r
+            %tr
+              %td.bl
+              %td.b
+              %td.br
+    - else
+      Поиск не дал результатов
