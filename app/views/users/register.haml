@@ -13,40 +13,41 @@
       %td
         .text_4{ :style => "width: 50%;margin:0 auto" }
           - form_for @user, :url => register_path  do |f|
-            = f.error_messages
+            .text_6
+              = f.error_messages
             %dl
               %dt
                 Фамилия
               %dd
-                = f.text_field :last_name
+                = f.text_field :last_name, :class => "text_6"
               %dt
                 Имя
               %dd
-                = f.text_field :first_name
+                = f.text_field :first_name, :class => "text_6"
               %dt
                 Отчество
               %dd
-                = f.text_field :patronymic
+                = f.text_field :patronymic, :class => "text_6"
               %dt
                 Логин/ник*
               %dd
-                = f.text_field :login
+                = f.text_field :login, :class => "text_6"
               %dt
                 пароль*
               %dd
-                = f.password_field :password
+                = f.password_field :password, :class => "text_6"
               %dt
                 пароль (повторить)*
               %dd
-                = f.password_field :password_confirmation
+                = f.password_field :password_confirmation, :class => "text_6"
               %dt
                 емейл*
               %dd
-                = f.text_field :email
+                = f.text_field :email, :class => "text_6"
               %dt
                 дата рождения
               %dd
-                = f.text_field :birth_date, :size => 25
+                = f.text_field :birth_date, :size => 25, :class => "text_6"
               %dt
                 Страна, Город
               %dd
