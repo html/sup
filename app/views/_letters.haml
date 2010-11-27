@@ -53,8 +53,8 @@
               - display_letter.call(let)
             %a.text_8{:href => "#"}
               %br/
-            - (0..9).each do |let|
-              - display_letter.call(let)
+            - ('0'..'9').each do |let|
+              - display_letter.call(let.to_s)
         %td.r
       %tr
         %td.l
