@@ -3,16 +3,17 @@
 - javascript 'events'
 - surround_with_border do
   - form_for @item, ({ :html => { :multipart => true }}).merge(@edit ? { :url => { :action => :update } } : {}) do |f|
-    = f.error_messages
+    .text_6
+      = f.error_messages
     %dl
       %dt
         Заголовок события (*)
-      %dd= f.text_field :title
+      %dd= f.text_field :title, :class => "text_6"
       %dt
         Начало события(*)
       %dd
         .fl
-          = f.text_field :start_time, :value => @item.start_time && @item.start_time.strftime('%d.%m.%Y')
+          = f.text_field :start_time, :value => @item.start_time && @item.start_time.strftime('%d.%m.%Y'), :class => "text_6"
         .fl
           %label.fl
             = check_box_tag :set_start_time, 'Задать время', !(!@item.start_time || (@item.start_time.hour + @item.start_time.min == 0))
@@ -26,7 +27,7 @@
           Задать окончание события
       %dd
         .fl#set_event_end_selects
-          = f.text_field :end_time, :disabled => !@item.end_time, :value => @item.end_time && @item.end_time.strftime('%d.%m.%Y')
+          = f.text_field :end_time, :disabled => !@item.end_time, :value => @item.end_time && @item.end_time.strftime('%d.%m.%Y'), :class => "text_6"
         .fl
           %label.fl
             = check_box_tag :set_end_time, 'Задать время', !(!@item.end_time || (@item.end_time.hour + @item.end_time.min == 0))
@@ -50,10 +51,10 @@
         = f.select :event_type_id, EventType.all.collect { |p| [p.title, p.id] }, :include_blank => true
       %dt
         Стоимость 
-      %dd= f.text_field :cost
+      %dd= f.text_field :cost, :class => "text_6"
       %dt
         Описание события (*)
-      %dd= f.text_area :content, :rows => 5
+      %dd= f.text_area :content, :rows => 5, :class => "text_6"
       %dt
         Изображение
       %dd= f.file_field :image
