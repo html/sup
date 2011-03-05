@@ -9,13 +9,24 @@ class UsersController < ApplicationController
 
     if request.post?
       @user = TypusUser.new(params[:typus_user].merge(:role => 'user'))
+      @user.generate_activation_code
 
       if @user.valid? && @user.save
-        flash[:notice] = 'Успешно зарегистрировались'
+        Notifier.deliver_activation_notification(@user)
+        flash[:notice] = 'Успешно зарегистрировались, на Ваш email отправлено письмо, пожалуйста следуйте инструкциям в письме'
         redirect_to root_url
       end
     else
       @user = TypusUser.new
+    end
+  end
+  
+  def activate
+    @user = TypusUser.find_by_activation_code params[:code]
+
+    if @user
+      Notifier.deliver_register_notification(@user)
+      @user.make_activated
     end
   end
 

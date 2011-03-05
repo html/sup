@@ -51,7 +51,9 @@
         = f.select :event_type_id, EventType.all.collect { |p| [p.title, p.id] }, :include_blank => true
       %dt.text_4
         Стоимость 
-      %dd= f.text_field :cost, :class => "text_6"
+      %dd 
+        = f.text_field :cost, :class => "text_6"
+        = f.select :cost_type, EventsHelper.const_get('COST_VALUES').invert,  :class => "text_6"
       %dt.text_4
         Описание события (*)
       %dd= f.text_area :content, :rows => 5, :class => "text_6"

@@ -1,9 +1,12 @@
+require 'digest/md5'
+
 class TypusUser < ActiveRecord::Base
+  apply_simple_captcha
   belongs_to :place, :class_name => 'Place'
   validates_presence_of :login
   validates_uniqueness_of :login
   has_many :events, :foreign_key => :owner_id
-  has_attached_file :avatar, :default_url => '/images/no_image.jpg', :styles => {
+  has_attached_file :avatar, :default_url => '/img/NOAVAT1.png', :styles => {
     :default => "150x150#"
   }
 
@@ -45,5 +48,21 @@ class TypusUser < ActiveRecord::Base
 
   def self.masters(page = nil)
     paginate_by_role('master', :page => (page || 1), :per_page => 5)
+  end
+
+  def activated?
+    !activation_code
+  end
+
+  def generate_activation_code
+    self.activation_code = Digest::MD5.hexdigest([Time.now.to_s, rand(100)].join('-'))
+  end
+
+  def make_activated
+    self.update_attributes :activation_code => nil
+  end
+
+  def email_address_with_name
+    "<#{full_name.html_safe!}> #{email}"
   end
 end

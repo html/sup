@@ -2,7 +2,7 @@
 - require_jquery_selectchain
 - javascript 'register'
 
-%table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+%table.section{ :cellspacing => "0", :width => "50%", :align => "center", :cellpadding => "0" }
   %tbody
     %tr
       %td.tl
@@ -11,7 +11,7 @@
     %tr
       %td.l
       %td
-        .text_4{ :style => "width: 50%;margin:0 auto" }
+        .text_4{ :style => "width: 95%;margin:0 auto" }
           - form_for @user, :url => register_path  do |f|
             .text_6
               = f.error_messages :header_message => nil
@@ -53,6 +53,11 @@
               %dd
                 = select :events, :root_place, @places.collect { |p| [p.title, p.id] }, :include_blank => true, :selected => @root_place_id
                 = f.select :city_id, @child_places || [], :selected => @place_id
+              %dt
+                Проверка на "человечность"
+              %dd
+                = show_simple_captcha(:label => "напишите код с картинки")
+
             = f.submit "Зарегистрироваться"
       %td.r
     %tr

@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   before_filter :current_user
+  include SimpleCaptcha::ControllerHelpers  
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
@@ -26,6 +27,16 @@ class ApplicationController < ActionController::Base
     def require_login
       unless @current_user
         flash[:notice] = render_to_string '/require_login'
+        return redirect_to :back if request.env['HTTP_REFERER']
+        return redirect_to root_url
+      end
+
+      require_activation
+    end
+
+    def require_activation
+      unless @current_user.activated?
+        flash[:notice] = render_to_string '/require_activation'
         return redirect_to :back if request.env['HTTP_REFERER']
         return redirect_to root_url
       end

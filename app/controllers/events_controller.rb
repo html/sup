@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_filter :assign_places, :only => [:new, :create, :search, :edit, :update]
   before_filter :assign_subjects, :only => [:new, :create, :search, :edit, :update]
-  before_filter :require_login, :only => [:new, :create, :my]
+  before_filter :require_login, :only => [:new, :create, :my, :edit]
 
   def new
     @item = Event.new

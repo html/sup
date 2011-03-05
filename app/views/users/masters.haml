@@ -26,11 +26,16 @@
               %tr
                 %td{ :rowspan => "2", :align => "center", :height => "160", :valign => "top" }
                   %p
-                    = avatar_for(item)
+                    - link_to profile_path(item) do
+                      = avatar_for(item)
                   %p
                     %img{ :src => "/img/profile_sm.gif", :height => "16", :width => "16" }
-                    %img{ :src => "/img/online.gif", :height => "18", :width => "18" }
-                    %img{ :src => "/img/www_sm.gif", :height => "16", :width => "16" }
+                    - if item.icq?
+                      - link_to profile_path(item), :target => "_blank", :title => item.icq do
+                        %img{ :src => "/img/online.gif", :height => "18", :width => "18" }
+                    - if item.site?
+                      - link_to add_http(item.site), :target => "_blank" do
+                        %img{ :src => "/img/www_sm.gif", :height => "16", :width => "16" }
                 %td{ :valign => "bottom" }
                   \&nbsp;
                 %td

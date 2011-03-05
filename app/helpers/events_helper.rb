@@ -1,6 +1,7 @@
 module EventsHelper
+  COST_VALUES = { :eur => "€", :usd => "$", :uah => "грн" }
   def display_cost_for(item)
-    item.cost && !item.cost.zero? ? item.cost : 'Бесплатное посещение'
+    item.cost && !item.cost.zero? ? "#{item.cost} #{COST_VALUES.stringify_keys[item.cost_type]}" : 'Бесплатное посещение'
   end
 
   def date_for(item)

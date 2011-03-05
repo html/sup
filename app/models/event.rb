@@ -6,6 +6,8 @@ class Event < ActiveRecord::Base
   belongs_to :subject
   belongs_to :event_type
   belongs_to :owner, :class_name => "TypusUser"
+  validates_presence_of :cost_type
+  validates_inclusion_of :cost_type, :in => %w(eur usd uah)
 
   has_attached_file :image, :default_url => '/images/no_image.jpg', :styles => {
     :list => "330x190#"

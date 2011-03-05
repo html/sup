@@ -5,4 +5,7 @@
 = material_info @material
 %br
 %br
-= link_to "Скачать", item.url, :target => "_blank"
+%h1.zagolov
+  - link_to item.url, :target => "_blank" do
+    = image_tag '/img/download1.jpg'
+    Скачать

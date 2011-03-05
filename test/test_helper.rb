@@ -11,6 +11,7 @@ Event.blueprint do
   title 'test'
   content 'xxx'
   cost 123
+  cost_type 'usd'
   start_time Date.today.to_datetime
   place_id Place.make.id
   subject_id Subject.make.id

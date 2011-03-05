@@ -17,4 +17,30 @@ class TypusUserTest < ActiveSupport::TestCase
       assert_equal 4, @masters2.size
     end
   end
+
+  context "#activated?" do
+    should "return false if activation_code is not empty" do
+      @user = TypusUser.make
+      @user.activation_code = 'asdf'
+      assert !@user.activated?
+    end
+
+    should "return true if activation_code is empty" do
+      @user = TypusUser.make
+      @user.activation_code = nil
+      assert @user.activated?
+    end
+  end
+
+  context "#make_activated" do
+    should "set activation_code to nil" do
+      @user = TypusUser.make
+      @user.generate_activation_code
+      @user.save!
+
+      assert !@user.activated?
+      @user.make_activated
+      assert @user.activated?
+    end
+  end
 end

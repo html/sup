@@ -251,4 +251,22 @@ class UsersControllerTest < ActionController::TestCase
       end
     end
   end
+
+  context "activate action" do
+    should "not require login" do
+      get :activate, :code => 'asdfjkl123!@#!@#'
+      assert_response :success
+      assert_response_contains 'Неверный код', 1
+    end
+
+    should "activate user when code is correct" do
+      @user = TypusUser.make
+      @user.generate_activation_code
+      @user.save!
+
+      get :activate, :code => @user.activation_code
+
+      assert_response :success
+    end
+  end
 end

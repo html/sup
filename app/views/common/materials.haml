@@ -16,10 +16,10 @@
             %table{:border => "0", :width => "100%"}
               %tr
                 %td.tavid{:colspan => "2", :valign => "top"}
-                  %a.red{:href => "#"}
+                  %a.red{:href => material_path(item)}
                     = h item.title
                 %td.tavid{:align => "right", :valign => "top"}
-                  %span.data 10.12.2010
+                  %span.data=display_date item.created_at
               %tr
                 %td{:align => "center", :colspan => "3", :valign => "top"}
                   %p &nbsp;

@@ -32,7 +32,8 @@
         %td{ :valign => "top", :bgcolor => "#58BAEF" }
           %img{ :src => "/img/yv1.png", :height => "20", :width => "20" }
         %td{ :bgcolor => "#58BAEF" }
-          %img{ :src => "/img/logo.png" }
+          - link_to '/' do 
+            %img{ :src => "/img/logo.png" }
           #log
         %td{ :bgcolor => "#58BAEF" }
           \&nbsp;
@@ -113,7 +114,7 @@
               %tr
                 %td.l
                 %td
-                  %p.text_8
+                  %p.text_25
                     %a{ :href => url_for(:controller => :events, :action => :search) }
                       поиск программ
                     %br

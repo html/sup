@@ -42,6 +42,14 @@ H2 A:hover { color:#000000; text-decoration:none }
 .text_6 a { color:#6A6C6F; text-decoration:underline }
 .text_6 a:hover { color:#FFB400; text-decoration:none }
 
+.text_66 {
+	font-size:11px;
+	font-family: Verdana, Geneva, sans-serif;
+	color:#666
+}
+.text_66 a { color:#6A6C6F; text-decoration:underline }
+.text_66 a:hover { color:#FFB400; text-decoration:none }
+
 .text_10 { font-size:12px; font-family:Arial; color:#6A6C6F }
 .text_10 a { color:#0B669E; text-decoration:underline }
 .text_10 a:hover { color:#EFAE00; text-decoration:none }
@@ -493,3 +501,6 @@ margin: -3em 0 0 -2em;
 text-align: center;
 }
 
+.fieldWithErrors {
+  float:left;
+}

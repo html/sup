@@ -12,6 +12,9 @@ class EventTest < ActiveSupport::TestCase
   should_belong_to :event_type
   should_belong_to :owner
   should_validate_presence_of :owner_id
+  should_validate_presence_of :cost_type
+  should_allow_values_for :cost_type, 'usd', 'eur', 'uah'
+  should_not_allow_values_for :cost_type, 'usd1', 'eur2', 'uah3', 'xxx'
 
   context "Event::last_event_date" do
     should "return correct date" do

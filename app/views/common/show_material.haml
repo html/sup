@@ -1,2 +1,4 @@
 - display_materials_menu
-= render :partial => @material.item_type.downcase, :locals => { :item => @material.item }
+- surround_with_border do
+  .text_3
+    = render :partial => @material.item_type.downcase, :locals => { :item => @material.item }

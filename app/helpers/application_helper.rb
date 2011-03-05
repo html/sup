@@ -78,4 +78,21 @@ module ApplicationHelper
   def surround_with_border(&block)
     concat render(:partial => "/border", :locals => { :content => capture(&block) })
   end
+
+  def display_date(date)
+    date.strftime("%d.%m.%Y")
+  end
+
+  def add_http(url)
+    return '' unless url
+
+    md = url.match /^http/
+
+    if md
+      url
+    else
+      "http://#{url}"
+    end
+  end
+
 end

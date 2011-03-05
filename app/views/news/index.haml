@@ -26,12 +26,12 @@
                 =h truncate strip_tags(item.content), :length => 200
                 %hr.hr_grey
             %tr
-              %td{ :align => "left", :valign => "bottom" }
+              %td{ :align => "left", :valign => "bottom", :height => 10 }
                 %p
                   %a.text_4{ :href => "#" }
                     = link_to "Читать дальше", item
               %td.data{ :width => "74" }
-                =item.date.strftime("%d.%m.%Y")
+                =display_date item.date
         %td.r
       %tr
         %td.bl
