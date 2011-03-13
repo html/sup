@@ -1,7 +1,7 @@
 - display_letter = lambda do |let|
   - unless ['Ъ', 'Ы'].include?(let) 
     - if Material.count_by_first_letter(let)
-      %a.text_8{:href => materials_by_letter_path(let)} 
+      %a.text_8{:href => materials_by_letter_path(let, @for)} 
         - if @letter == let
           %b
             = let

@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     end
 
     def require_activation
-      unless @current_user.activated?
+      unless @current_user && @current_user.activated?
         flash[:notice] = render_to_string '/require_activation'
         return redirect_to :back if request.env['HTTP_REFERER']
         return redirect_to root_url

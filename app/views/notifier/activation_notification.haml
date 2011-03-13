@@ -1,4 +1,4 @@
 Здравствуйте,
 = @account.name
 Вы проходите регистрацию на сайте soulup.net, для продолжения регистрации, активируйте свой email пройдя по следующей ссылке
-= activate_user_path(@account.activation_code, :host => ActionMailer::Base.default_url_options[:host])
+= link_to activate_user_url(:code => @account.activation_code), activate_user_url(:code => @account.activation_code)

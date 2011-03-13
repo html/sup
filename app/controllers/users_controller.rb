@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   before_filter :require_login, :only => [:change_password, :logout, :change_status, :profile, :edit_profile], :if => lambda { |x| 
     (x.params[:action] == 'change_password' && !x.params[:recover]) || [:logout, :change_status, :edit_profile].map(&:to_s).include?(x.params[:action]) 
   }
+  before_filter :require_activation, :only => [:login], :if => lambda { |x|
+    x.request.post?
+  }
 
   def register
 
