@@ -73,10 +73,10 @@ class UsersController < ApplicationController
   def forgot_password
     if request.post? && params[:typus_user]
       @user = TypusUser.find_by_email params[:typus_user][:email]
-      ForgotPassword.deliver_index_notification(@user, request.env['HTTP_HOST'])
 
       if @user
         @user.generate_recovery_hash
+        ForgotPassword.deliver_index_notification(@user)
 
         flash[:notice] = 'Пожалуйста проверьте почтовый ящик'
         redirect_to root_url
@@ -85,21 +85,19 @@ class UsersController < ApplicationController
   end
 
   def change_password
+    @recover = params[:recover].to_s
 
-    if params[:recover]
-      @recover = params[:recover]
-      @current_user = TypusUser.find_by_recovery_hash(@recover)
+    @current_user = TypusUser.find_by_recovery_hash(@recover)
 
-      unless @current_user
-        flash[:notice] = "Код для восстановления не верный, попробуйте еще раз"
-        return redirect_to forgot_password_url
-      end
+    unless @current_user
+      flash[:notice] = "Код для восстановления не верный"
+      return redirect_to forgot_password_url
     end
 
     if request.post?
       if @current_user.change_password(params[:typus_user])
         flash[:notice] = 'Пароль успешно изменен'
-        redirect_to root_url
+        return redirect_to root_url
       end
     end
   end
