@@ -56,7 +56,7 @@
               %dt
                 Проверка на "человечность"
               %dd
-                = show_simple_captcha(:label => "напишите код с картинки")
+                = show_simple_captcha(:label => "напишите код с картинки", :object => :typus_user)
 
             = f.submit "Зарегистрироваться"
       %td.r
