@@ -1,7 +1,7 @@
 require 'digest/md5'
 
 class TypusUser < ActiveRecord::Base
-  apply_simple_captcha
+  apply_simple_captcha :message => "Код подтверждения неверный", :add_to_base => true
   belongs_to :place, :class_name => 'Place'
   validates_presence_of :login
   validates_uniqueness_of :login
