@@ -29,13 +29,20 @@
                     - link_to profile_path(item) do
                       = avatar_for(item)
                   %p
-                    %img{ :src => "/img/profile_sm.gif", :height => "16", :width => "16" }
-                    - if item.icq?
-                      - link_to profile_path(item), :target => "_blank", :title => item.icq do
-                        %img{ :src => "/img/online.gif", :height => "18", :width => "18" }
-                    - if item.site?
-                      - link_to add_http(item.site), :target => "_blank" do
-                        %img{ :src => "/img/www_sm.gif", :height => "16", :width => "16" }
+                    %table
+                      %tr
+                        - if item.icq?
+                          %td
+                            - link_to profile_path(item), :target => "_blank" do
+                              ~ image_tag "/img/profile_sm.gif", :height => "16", :width => "16"
+                        - if item.icq?
+                          %td
+                            - link_to "http://www.icq.com/people/#{item.icq.to_i}", :target => "_blank", :title => item.icq do
+                              ~ image_tag "/img/online.gif", :height => "18", :width => "18"
+                        - if item.site?
+                          %td
+                            - link_to add_http(item.site), :target => "_blank" do
+                              ~ image_tag "/img/www_sm.gif", :height => "16", :width => "16"
                 %td{ :valign => "bottom" }
                   \&nbsp;
                 %td
