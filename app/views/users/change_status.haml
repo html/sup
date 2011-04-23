@@ -1,52 +1,51 @@
-%td{ :valign => "top", :bgcolor => "#ffffff" }
-  %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
-    %tbody
-      %tr
-        %td{ :width => "100%" }
-          %span.styl11
-  %table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
-    %tbody
-      %tr
-        %td.tl
-        %td.t
-        %td.tr
-      %tr
-        %td.l
-        %td{ :valign => "top" }
-          %p.zagolov
-            Изменение статтуса
-          %p.text_3
-            %img{ :src => "/img/suser.png", :height => "37", :width => "102" }
-            %img{ :src => "/img/friends.png", :height => "16", :width => "16" }
-            Пользовалеть - любой зарегистрированый пользователь.Имеет право просмотра мероприятий и мастеров
-            %em
-              %br
-              %img{ :src => "/img/spartner.png", :height => "37", :width => "102" }
-              %img{ :src => "/img/moder.gif", :height => "16", :width => "13" }
-            Партнер -
-          %p.text_3
-            %em
-              %img{ :src => "/img/smaster.png", :height => "37", :width => "102" }
-              %img{ :src => "/img/moder1.gif", :height => "16", :width => "13" }
-            Мастер -
+%table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+  %tbody
+    %tr
+      %td{ :width => "100%" }
+        %span.styl11
+%table.section{ :cellspacing => "0", :width => "100%", :cellpadding => "0" }
+  %tbody
+    %tr
+      %td.tl
+      %td.t
+      %td.tr
+    %tr
+      %td.l
+      %td{ :valign => "top" }
+        %p.zagolov
+          Изменение статтуса
+        %p.text_3
+          %img{ :src => "/img/suser.png", :height => "37", :width => "102" }
+          %img{ :src => "/img/friends.png", :height => "16", :width => "16" }
+          Пользовалеть - любой зарегистрированый пользователь.Имеет право просмотра мероприятий и мастеров
+          %em
+            %br
+            %img{ :src => "/img/spartner.png", :height => "37", :width => "102" }
+            %img{ :src => "/img/moder.gif", :height => "16", :width => "13" }
+          Партнер -
+        %p.text_3
+          %em
+            %img{ :src => "/img/smaster.png", :height => "37", :width => "102" }
+            %img{ :src => "/img/moder1.gif", :height => "16", :width => "13" }
+          Мастер -
+        %p.text_4
+          \&nbsp;
+        - if @current_user.role == 'user'
           %p.text_4
             \&nbsp;
-          - if @current_user.role == 'user'
-            %p.text_4
-              \&nbsp;
-            %p.text_4
-              %img{ :src => "/img/paket.jpg", :height => "226", :width => "150" }
-            %p.text_4
-              %em
-                %strong
-                  = link_to 'Купить', change_status_path(:status => 'partner')
+          %p.text_4
+            %img{ :src => "/img/paket.jpg", :height => "226", :width => "150" }
+          %p.text_4
+            %em
+              %strong
+                = link_to 'Купить', change_status_path(:status => 'partner')
+        - else
+          - if @current_user.role == 'master'
+            = link_to 'Переключиться на партнера', change_status_path(:status => 'partner')
           - else
-            - if @current_user.role == 'master'
-              = link_to 'Переключиться на партнера', change_status_path(:status => 'partner')
-            - else
-              = link_to 'Переключиться на мастера', change_status_path(:status => 'master')
-        %td.r
-      %tr
-        %td.bl
-        %td.b
-        %td.br
+            = link_to 'Переключиться на мастера', change_status_path(:status => 'master')
+      %td.r
+    %tr
+      %td.bl
+      %td.b
+      %td.br
