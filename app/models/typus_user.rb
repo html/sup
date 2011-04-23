@@ -63,6 +63,6 @@ class TypusUser < ActiveRecord::Base
   end
 
   def email_address_with_name
-    "<#{full_name.html_safe!}> #{email}"
+    "#{full_name.html_safe!} <#{email}>"
   end
 end

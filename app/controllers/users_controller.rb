@@ -52,6 +52,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def send_activation_mail
+    @user = TypusUser.find(params[:id])
+    if @user.activated? 
+      flash[:notice] = 'Пользователь уже активирован'
+      return redirect_back_or(root_url)
+    else
+      flash[:notice] = "Письмо для активации было выслано Вам на email"
+      Notifier.deliver_activation_notification(@user)
+      return redirect_back_or(root_url)
+    end
+  end
+
   def logout
     session[:typus_user_id] = nil
     flash[:notice] = 'Успешно вышли'
