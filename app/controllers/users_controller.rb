@@ -4,9 +4,6 @@ class UsersController < ApplicationController
   before_filter :require_login, :only => [:change_password, :logout, :change_status, :profile, :edit_profile], :if => lambda { |x| 
     (x.params[:action] == 'change_password' && !x.params[:recover]) || [:logout, :change_status, :edit_profile].map(&:to_s).include?(x.params[:action]) 
   }
-  before_filter :require_activation, :only => [:login], :if => lambda { |x|
-    x.request.post?
-  }
 
   def register
 
@@ -14,7 +11,7 @@ class UsersController < ApplicationController
       @user = TypusUser.new(params[:typus_user].merge(:role => 'user'))
       @user.generate_activation_code
 
-      if @user.valid? && @user.save
+      if @user.valid_with_captcha? && @user.save
         Notifier.deliver_activation_notification(@user)
         flash[:notice] = 'Успешно зарегистрировались, на Ваш email отправлено письмо, пожалуйста следуйте инструкциям в письме'
         redirect_to root_url
@@ -40,6 +37,12 @@ class UsersController < ApplicationController
       @auth_user = TypusUser.authenticate_by_login_and_password(params[:typus_user][:login], params[:typus_user][:password])
 
       if @auth_user
+        unless @auth_user.activated?
+          flash[:notice] = render_to_string '/require_activation'
+          return redirect_to :back if request.env['HTTP_REFERER']
+          return redirect_to root_url
+        end
+
         session[:typus_user_id] = @auth_user.id
         flash[:notice] = 'Успешно вошли'
         redirect_to root_url
