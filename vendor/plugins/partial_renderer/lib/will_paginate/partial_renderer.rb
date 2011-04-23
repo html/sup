@@ -1,16 +1,26 @@
 module WillPaginate
-  class PartialRenderer < WillPaginate::LinkRenderer
+  class PartialRenderer < (WillPaginate::VERSION::MAJOR == 2 ? WillPaginate::LinkRenderer : WillPaginate::ViewHelpers::LinkRenderer)
     def prepare(collection, options, template)
       @collection = collection
       @options    = options
       @template   = template
 
-      if !@template.respond_to?(:url_for_page)
-        m = method(:url_for)
-        @template.instance_eval do |cl|
-          @url_for_page = m
-          def url_for_page(page)
-            @url_for_page.call page
+      if WillPaginate::VERSION::MAJOR == 2
+        if !@template.respond_to?(:url_for_page)
+          m = method(:url_for)
+          @template.instance_eval do |cl|
+            @url_for_page = m
+            def url_for_page(page)
+              @url_for_page.call page
+            end
+          end
+        end
+      else
+        if !@template.respond_to?(:url_for_page)
+          @template.instance_eval do |cl|
+            def url_for_page(page)
+              @template.url_for(:page => page)
+            end
           end
         end
       end
